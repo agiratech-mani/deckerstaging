@@ -1,0 +1,281 @@
+textarea.nonselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events:none;	
+}
+
+.page-cornerstone {
+	.grid-note-container;
+
+textarea {
+	top: 2px!important;
+	height: 106px!important;
+}
+.text-plus {
+	font-size: 50px;
+    line-height: 24px;
+    position: relative;
+    top: 5px;
+    }
+	.nonselectable {
+	  color: rgb(167,167,167)!important;
+	}
+
+	.add-cornerstone {
+		background-image: initial!important;
+		position: absolute;
+		width: 170px;
+    	height: 112px;
+		padding-top:10px;
+		font-size: 16px;
+		text-align: center;
+		background-image: url('modules/5/cornerstone-assets/sticky-for-cornerstones.svg');
+    	color: #348cbb ! important;    	
+	}
+
+	.disable-note {
+		background-image:none!important;
+		background-color:#e6e6e6!important;
+		border: #fefefe 1px solid;
+		textarea {
+			display: none;
+		}
+		label {
+			visibility: visible!important;
+		}
+	}
+	.note {
+		display: table;
+		cursor: initial!important;
+		background-image: url('modules/5/cornerstone-assets/sticky-for-cornerstones.svg');
+		textarea {
+			border: 0;
+		}
+
+		.placeholder {
+			position:absolute;
+			top:20px;
+			left:0;
+			width:170px;
+			height:80px;
+			font-size: 16px;
+			text-align:center;
+			padding-top:0!important;
+			margin-top:0!important;
+			margin-left: 0px;
+			margin-right:0px;
+			pointer-events: none;
+			.text-blue;
+		}		
+		.giant-plus {
+			position: absolute;
+			left: 60px;
+			bottom:6px;
+			width: 48px;
+			height: 48px;
+			background-image: url('modules/5/cornerstone-assets/plus-for-cornerstones.svg');
+			background-size: cover;
+			pointer-events: none;
+		}
+		
+		label {
+			text-align: center;
+		  display: table-cell; 
+		  vertical-align: middle;
+		  width: 100%;
+		  font-size:20px;
+		  color:@decker-gray; 
+		  visibility: hidden;
+		}
+	}
+
+
+	.lg-instruction-text {
+		padding-left: 420px;
+		margin-top: 20px;
+	}
+	
+	.highlight-note {
+		textArea {
+		  border: 0;
+		  color: black;
+		}
+	}
+
+	textarea::-webkit-input-placeholder {
+		font-style:initial!important;
+		font-size: 18px;
+		text-align:center;
+		padding-top:0!important;
+		margin-top:0!important;
+		margin-left: 10px;
+		margin-right:10px;
+		.text-blue;
+	}
+
+	textarea:-moz-placeholder {		
+		font-style:initial!important;
+		font-size: 18px;
+		text-align:center;
+		padding-top:0!important;
+		margin-top:0!important;
+		margin-left: 10px;
+		margin-right:10px;
+		.text-blue;
+	}
+
+	textarea:-ms-input-placeholder {		
+		font-style:initial!important;
+		font-size: 18px;
+		text-align:center;
+		padding-top:0!important;
+		margin-top:0!important;
+		margin-left: 10px;
+		margin-right:10px;
+		.text-blue;
+	}
+
+	.tips-text {
+		.sm-instruction-text;
+		position: absolute;
+		margin: 0 ! important;
+		color: #777777;
+	    left: 540px;
+	    top: 120px;
+	    position: absolute;
+	    width: 420px;
+	    font-size: 19px ! important;
+		ul {
+			padding-left: 20px;
+		}
+		
+		p {
+			margin: 0;
+		}
+	}
+
+	.label-title {
+	}
+
+	.label-cornerstone-title {
+		position: absolute;
+		left: 475px;
+		top: 75px;
+		font-size: 24px;
+		.text-blue;
+	}
+
+	.cornerstones-action , .cornerstones-benefit , .cornerstones-listeners , .cornerstones-pov, .cornerstones-background {
+		position: absolute;
+		background-size: cover;
+	    width: 615px;
+	    height: 540px;
+	    top: 20px;
+	    left: 10px;
+	  }
+
+	.cornerstones-action {		
+		background-image: url(images/Cornerstones/cornerstones-3-actions.svg);
+	}
+
+	.cornerstones-benefit {
+		background-image: url(images/Cornerstones/cornerstones-4-benefits.svg);
+	}
+
+	.cornerstones-listeners {
+		background-image: url(images/Cornerstones/cornerstones-1-listeners.svg);
+	}
+
+	.cornerstones-pov {
+		background-image: url(images/Cornerstones/cornerstones-2-pov.svg);
+	}
+	
+	.cornerstones-background {
+		background-image: url(modules/5/cornerstone-assets/cornerstones-background.svg);
+	}
+
+	.number1 , .number2 , .number3 , .number4 {
+		position: relative;
+		float: left;
+		width: 40px;
+		height: 40px;
+		display: inline-block;
+		margin-right: 10px;
+		margin-top: 8px;
+	}
+
+	.number1 {
+		background-image: url(modules/5/cornerstone-assets/number-1.svg);
+	}
+
+	.number2 {
+		background-image: url(modules/5/cornerstone-assets/number-2.svg);
+	}
+
+	.number3 {
+		background-image: url(modules/5/cornerstone-assets/number-3.svg);
+	}
+
+	.number4 {
+		background-image: url(modules/5/cornerstone-assets/number-4.svg);
+	}
+
+	.cornerstones-listeners , .cornerstones-pov , .cornerstones-action , .cornerstones-benefit, .cornerstones-background {
+		position: absolute;
+		//.text-blue;
+	}
+
+
+  .cornerstone-pov {
+    top: 48px;
+    left: 232px;
+  }
+  
+  
+  .cornerstone-pov2 {
+  	.cornerstone-pov;
+  	display: none;
+  }
+  .cornerstone-listener {
+    top: 175px;
+    left: 232px;
+  }
+  
+  .cornerstone-action-general {
+    top: 306px;
+    left: 113px;
+  }
+  
+  .cornerstone-action-specific {
+    top: 433px;
+    left: 40px;
+  }
+  
+  .cornerstone-action-general, .cornerstone-action-specific {
+	.placeholder {
+		top:10px!important;
+		height:100px!important;
+	}
+  }
+  
+  .cornerstone-benefit1 {
+    top: 306px;
+    left: 345px;
+  }
+  
+  .cornerstone-benefit2 {
+    top: 434px;
+    left: 420px;
+  }
+}
+.page-girdcornerstone {
+	.cornerstone-pov {
+    	top: 56px;
+    }
+    .cornerstone-pov2 {
+    	.cornerstone-pov;
+    }
+}

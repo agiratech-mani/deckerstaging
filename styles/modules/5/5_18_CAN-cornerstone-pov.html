@@ -1,0 +1,32 @@
+<execute-when condition="persistent.decker_grid[1][0].text" action="setPageComplete()"></execute-when>
+<execute-when condition="true" action="setPersistentVals({csEnableListeners:false, csEnablePOV:true, csEnableActions:false, csEnableBenefits:false})"></execute-when> 
+
+<div class="page-cornerstone">
+
+  <div class="cornerstones-pov"></div>
+
+  <div class="lg-instruction-text">
+    <div class="number2"></div>
+    What is your Point of View?
+  </div>
+
+  <div class="label-cornerstone-title">
+  Click the blue <span class="text-plus">+</span> and type your Point of View (POV).
+  </div>
+  
+   <div class="tips-text">
+    <p><b>Tips:</b></p>
+    <ul>
+      <li>A POV is the big idea, the lead of your story.</li>
+      <li>A strong POV often starts with “It’s critical that we…” or “Now is the time to…”</li>
+      <li>The POV signifies the biggest change in how you want your listeners to think or act.</li>
+    </ul>
+  </div>
+
+  <ng-include src="'app/partials/cornerstones.html'"></ng-include>
+  
+</div>           
+
+<nextbutton></nextbutton>
+
+

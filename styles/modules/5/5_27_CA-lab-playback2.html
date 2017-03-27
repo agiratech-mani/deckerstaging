@@ -1,0 +1,36 @@
+<execute-when condition="videos.playback_5_22_5.pos >= ((videos.playback_5_22_5.duration) - 2) " action="setPageComplete()"></execute-when>
+
+<style>
+  .instructions-col {
+    padding-right: 60px;
+    font-size: 24px!important;
+  }
+</style>
+
+
+<div class="container">
+  <br>
+  <br>
+
+  <div class="row lg-instruction-text center">
+    Now play back your recording
+  </div>
+  
+  <br>
+  <br>
+  <div class="row playback-column-fullwidth">
+    <div class="col-xs-4 playback-column">
+      <decker-video class="playback-user-vid" autoplay="false" video="getLastRecording('page5_19')"
+        id="playback_5_22_5 "
+        aspectratio="auto"></decker-video>
+    </div>
+    <div class="col-xs-6 xs-instruction-text instructions-col pitch-column-fullwidth">
+      <ul class="widowText">
+        <li>How did the Cornerstones shift your message?</li>
+        <li>What's different about this message?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nextbutton></nextbutton>

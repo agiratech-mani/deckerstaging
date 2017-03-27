@@ -1,0 +1,30 @@
+<execute-when condition="persistent.audienceChoice != undefined" action="setPageComplete()"></execute-when>
+
+<div class="page_7_02_1">
+  <div class="instructions">
+    Choose your own adventure!<br> To which audience would you like
+    to speak?
+  </div>
+
+
+  <div class="choices-row">
+    <img
+      src="app/images/audience/One-on-one-audience.jpg"
+      ng-class="{'active':(persistent.audienceChoice == 0)}"
+      ng-click="persistent.audienceChoice = 0"
+    ></img>
+    
+    <img
+      src="app/images/audience/Conference call audience.jpg"
+      ng-class="{'active':(persistent.audienceChoice == 1)}"
+      ng-click="persistent.audienceChoice = 1"
+    ></img>
+    
+    <img
+      src="app/images/audience/Large-audience.jpg"
+      ng-class="{'active':(persistent.audienceChoice == 2)}"
+      ng-click="persistent.audienceChoice = 2"
+    ></img>
+  </div>
+
+  <nextbutton></nextbutton>

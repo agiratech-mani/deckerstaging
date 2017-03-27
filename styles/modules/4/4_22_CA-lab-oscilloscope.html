@@ -1,0 +1,98 @@
+<execute-when condition="(videos.playback_4_24.duration && videos.playback_4_24.pos >= ((videos.playback_4_24.duration | number:0) - 1))"
+  action="setPageComplete()"></execute-when>
+  
+<execute-when condition="true"
+  action="setPersistentVals({'maxChange':2, 'minConfidence':0,
+  'minAmplitude':0, 'maxPitch': 900, 'offsetX': 15})"></execute-when>
+
+<execute-when condition="true"
+  action="setSessionVal('debugPitchParams', true)"></execute-when>
+
+<style>
+.instructions-col {
+  padding-right: 60px;
+  font-size: 24px !important;
+}
+
+.pitch-params input {
+  width: 60px;
+}
+
+.sample-buttons button {
+  font-size: 14px;
+}
+</style>
+
+<div class="container">
+  <br>
+  <br>
+  <div class="row lg-instruction-text center">Your Vocal Variety
+
+  <!-- 
+  <div ng-if="globals.devMode" class="sample-buttons">
+    
+    <button ng-click='setVoiceSample("page4_11", "TestTones2")'>Test Tones</button>
+
+    <button ng-repeat="(key, value) in sampleUsers"
+      ng-click='setVoiceSample("page4_11", value)'>{{key}}</button>
+  </div>
+  -->
+  
+  </div>
+  
+  <br>
+
+  <div class="row playback-column-fullwidth clsWaveGraphFullWidth">
+    <div class="clearfix">
+      <wavanalysisgraph
+        type="pitches"
+        playerId="playback_4_24"
+        vrecorderId="page4_24"
+        data="getLastRecording('page4_24')"
+        min="40"
+        max="350"
+        pos="globals.videos.playback_4_24.pos"
+        yaxis="Pitch Level"
+        ></wavanalysisgraph>
+        <br>        
+    </div>
+    <div class="clearfix">
+      <div style="margin-left: 50px;width: 875px;text-align: right;">
+        {{videos.playback_4_24.currenttime || '0:00'}} / {{ globals.videos.playback_4_24.duration || 0 | round}}
+      </div>
+    </div>
+    <div class="clearfix">
+      <div class="playback-column" style="width:70px;float:left;" >
+          <!-- <div ng-class="{'video-playback-btn': !globals.wavePlaying, 'video-playback-pausebtn': globals.wavePlaying}" ng-click="playWaveSurfer()">
+          </div> -->
+            <decker-video class="playback-user-vid playback-user-vid-vol" autoplay="false" video="getLastRecording('page4_24')"
+            id="playback_4_24"
+            aspectratio="auto"></decker-video>
+        </div>
+
+        <div class="col-xs-7 xs-instruction-text instructions-col pitch-column-fullwidth widowText">
+          <p>Play back your recording.<p>     
+          <p>Tips: Look at the graph to see your vocal variety. Does your voice show highs and lows?</p>
+        </div>
+    </div>
+  </div>  
+  
+  <style>
+    .pitch-params input {
+      width: 60px;
+    }
+  </style>
+  
+  <!-- 
+  <div style="position:absolute;bottom:0" class="pitch-params" ng-if="globals.devMode">
+    Max Change:<input ng-model="globals.persistent.maxChange"></input>
+    Min Conf:<input ng-model="globals.persistent.minConfidence"></input>
+    Min Volume:<input ng-model="globals.persistent.minAmplitude"></input>
+    Max Pitch:<input ng-model="globals.persistent.maxPitch"></input>
+    X Offset:<input ng-model="globals.persistent.offsetX"></input>
+  </div>
+  -->
+</div>
+
+
+<nextbutton></nextbutton>

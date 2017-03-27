@@ -1,0 +1,52 @@
+<style>
+.settings-page .lab-recorder {
+  position: absolute;
+  left: 60px;
+  top: 180px;
+  width: 400px;
+  height: 300px;
+}
+</style>
+
+<div class="settings-page" ng-controller="WebcamSetupController">
+
+  <a href="" class="back-link" ng-click="onSettingsBack()">&lt; Back</a>
+
+  <div class="lg-instruction-text instructions">
+    <br>Your Course Settings
+  </div>
+  <br>
+  
+  <div ng-show="! globals.suppressSettingsDisplay">
+    <div class="sm-instruction-text center widowText"
+      ng-show="globals.persistent.peripheral == 'C'">You’re using
+      your camera and microphone.</div>
+  
+    <div class="sm-instruction-text center widowText"
+      ng-show="globals.persistent.peripheral == 'A'">You’re using
+      your microphone.</div>
+  
+    <div class="sm-instruction-text center widowText"
+      ng-show="globals.persistent.peripheral == 'N'">You’re using
+      this course without a camera or microphone.</div>
+  </div>
+
+  <vrecorder class="setup-vrecorder lab-recorder" id="setupRecorder"
+    max-recording-time="0" controls="0"
+    style="position:absolute;right:20px; margin-top: 20px"></vrecorder>
+
+  <div class="sm-instruction-text"
+    style="position: absolute; left: 512px; top: 200px; width: 420px">
+    <p class="text-blue">Want to change your settings?</p>
+    <p>
+      <span class="text-red-marker">Please note:</span> Changing your
+      camera/microphone settings will reset the course. You’ll go back
+      to the beginning and your data will be cleared.
+    </p>
+
+    <div class="btn-change-settings"
+      data-ng-click="changeSettings()"></div>
+
+    <a href="" ng-click="onShowHelp(3)">Take me to Settings FAQs &gt;</a>
+  </div>
+</div>

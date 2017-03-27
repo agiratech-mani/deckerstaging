@@ -1,0 +1,151 @@
+<!-- 
+<<Second drag-and-drop POV exercise here>>
+
+
+
+
+Profile: Well-intentioned, Busy, Often-approached.
+POV: You have an opportunity to strengthen our community – and we need your support to make it happen.
+
+Listeners: Potential donors
+Profile:  Fickle, Rich, Vain
+POV: Your legacy will directly link you to success of this campaign.
+
+Listeners: Volunteers
+Profile: Committed, Diverse, People Pleasing.
+POV: Giving time is just as important as money.
+
+ -->
+
+<button style="position: absolute; right: 0; left: 0"
+  ng-if="false"
+  ng-click="persistent.fromModel_5_09 = [['POV-1'], ['POV-2'], ['POV-3']];persistent.toModel_5_09 = [[],[],[]];setPageComplete(0)">Reset</button>
+
+<execute-when condition="true"
+  action="setDefaultPersistentVal('fromModel_5_09', 
+                      [['POV-1'], ['POV-2'], ['POV-3']])"></execute-when>
+
+<execute-when condition="true"
+  action="setDefaultPersistentVal('toModel_5_09', [[],[],[]])"></execute-when>
+
+<execute-when condition="(persistent.toModel_5_09[0].length+persistent.toModel_5_09[1].length+persistent.toModel_5_09[2].length)==3"
+  action="setPageComplete()"></execute-when>
+
+<execute-when condition="true"
+  action="setPageModel('text', [
+              'You have an opportunity to strengthen our community – and we need your support to make it happen.',
+              'Your legacy will directly link you to success of this campaign.',
+              'Giving time is just as important as money.'])">
+</execute-when>
+
+<div class="page-5_06" ng-controller="DragDropController">
+
+<div class="drag-msg fadein fadeout" ng-show="globals.showCorrectResponse">
+  Exactly! You nailed it.
+</div>
+
+<div class="drag-msg fadein fadeout" ng-show="globals.showIncorrectResponse">
+  Nah, there is a better POV for these listeners. Can you find it?
+</div>
+
+  <div class="container">
+    <div class="row instructions">
+      <h2>
+        Drag the best Point of View to the appropriate listener<br>
+      </h2>
+    </div>
+
+    <!--  bubbles to drag from -->
+    <div class="row row-drag-from">
+      <div class="col-xs-4"
+        ng-repeat="droppable in persistent.fromModel_5_09"
+        ng-model="persistent.fromModel_5_09[$index]"
+        jqyoui-droppable="{multiple: true, stack: true, onOver:'onOver', onOut:'onOut'}"
+        data-jqyoui-options="{revert: 'invalid'}" data-drop="true"
+        class="p-5_06-dotted-rectangle-blue draggable-holder draggable-holder{{$index}}">
+
+        <div class="correct-{{$index+1}}"
+          ng-show="droppable.length == 0"></div>
+
+        <div ng-repeat='draggable in droppable'
+          id="{{'POV' + ($parent.$index+1)}}"
+          jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
+          data-jqyoui-options="{revert:revertCard, revertDuration:500}"
+          data-drag="true" class="{{draggable}}"
+          ng-model="persistent.fromModel_5_09[$parent.$index]">
+          <b>Point of View {{$parent.$index+1}}:</b>&nbsp;{{pageModel.text[$parent.$index]}}
+        </div>
+      </div>
+    </div>
+
+    <!--  Amit -->
+    <div class="row" style="left: 300px; position: relative;margin-bottom:35px;margin-top:10px;margin-left:100px">
+      <div class="head-you"></div>
+
+      <div style="display: inline-block;margin-left:10px">
+        <p>
+          <b>Speaker: You</b>
+        </p>
+        <p style="width:440px;margin-top:4px">Topic: Your favorite non-profit</p>        
+        <p style="width:440px;margin-top:4px">Goal: Getting people involved</p>
+        
+      </div>
+    </div>
+    
+    <img src="app/images/Interactive graphics/5_6/you-text+arrow.svg"
+      style="position:absolute; width: 90px; top: 235px; left: 300px;">
+
+    <!--  destination -->
+    <div class="row row-drag-to">
+      <div class="col-xs-4"
+        ng-repeat="droppable in persistent.toModel_5_09"
+        ng-model="persistent.toModel_5_09[$index]"
+        jqyoui-droppable='{"correctAnswer":"{{["POV1","POV2","POV3"][$index]}}", "stack": "true", "onOver":"onOver", "onOut":"onOut"}'
+        data-jqyoui-options="{revert: 'invalid'}" data-drop="true">
+        <div class="dotted-rectangle" ng-show="droppable.length == 0"></div>
+        <div ng-repeat='draggable in droppable'
+          data-jqyoui-options="{revert:revertCard, revertDuration:500}"
+          data-drag="true" class="blue-fill"
+          ng-style="{left:(($index * 8) + 'px'), top:(($index * 8) + 'px')}"
+          ng-model="persistent.fromModel_5_09[$parent.$index]">
+          <b>Point of View {{[1,2,3][$parent.$index]}}:</b>
+          {{pageModel.text[[0,1,2][$parent.$index]]}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-drag-to row-bottom-label">
+      <div class="col-xs-4">
+        <div class="head-finance"></div>
+        <div class="head-description">
+          <p>
+            <b>Listeners: Community Leaders<br>
+            </b>
+          </p>
+          <p>Well-intentioned, Busy, Often-approached</p>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="head-field"></div>
+        <div class="head-description">
+          <p>
+            <b>Listeners: Potential donor</b>
+          </p>
+          <p>Profile:  Fickle, Rich, Vain</p>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="head-direct-reports"></div>
+        <div class="head-description">
+          <p>
+            <b>Listeners: Volunteers</b>
+          </p>
+          <p>Committed, Diverse, People Pleasing</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<nextbutton></nextbutton>

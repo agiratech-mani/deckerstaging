@@ -1,0 +1,17 @@
+<h4>
+Elements can go to a specified page by calling "go('<i>PAGENAME</i>')", where <i>PAGENAME</i> is a part of the
+named page. Be sure to wrap <i>PAGENAME</i> in single quotes.</h4>
+
+<show-source>
+
+<input class="submit" type="submit" value="Next Page" data-ng-click="next()">
+<input class="submit" type="submit" value="Go to First Page" data-ng-click="go('dev1_nextpage')">
+
+
+<aside id="annotation">
+  <section>data-ng-click="go('dev1_nextpage')"</section>
+  <details>Go to a named page. Don't forget the single quotes!
+  </details>
+</aside>
+
+</show-source>

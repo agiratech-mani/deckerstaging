@@ -1,0 +1,124 @@
+<show-source>
+<aside id="annotation">
+  <section>animation-fill-mode: forwards</section>
+  <details>This means that the style applied by the animation should still be applied after the animation is
+    done.
+  </details>
+
+  <section>opacity: 0</section>
+  <details>Initially hidden
+  </details>
+</aside>
+
+<style>
+.test-div {
+  border: black 2px; solid;
+  margin: 8px;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  background: red;
+  text-align: center;
+  padding-top: 30px;
+  display: inline-block;
+  animation-fill-mode: forwards;
+}
+
+.delayed-expand {
+  animation-name: expand;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+.delayed-show {
+  float: right;
+  opacity: 0;
+  animation-name: show;
+  animation-duration: .5s;
+  animation-delay: 4s;
+}
+
+@
+keyframes expand {from { transform:scale(1);
+  
+}
+
+to {
+  transform: scale(2);
+}
+
+}
+@
+keyframes show {from { opacity:0;
+  
+}
+
+to {
+  opacity: 1;
+}
+}
+</style>
+
+<div class="test-div delayed-expand">Expand after 2s</div>
+
+<div class="test-div delayed-show">Show after 4s</div>
+
+<!--
+  <style>
+    .test-div {
+      border: black 2px;
+      solid;
+      margin: 8px;
+      width: 200px;
+      height: 100px;
+      overflow: hidden;
+      background: red;
+      text-align: center;
+      padding-top: 30px;
+      display: inline-block;
+      animation-fill-mode: forwards;
+    }
+    
+    .delayed-expand {
+      animation-name: expand;
+      animation-duration: 4s;
+      animation-delay: 2s;
+    }
+    
+    .delayed-show {
+      float: right;
+      opacity: 0;
+      animation-name: show;
+      animation-duration: .5s;
+      animation-delay: 4s;
+    }
+    
+    @keyframes expand {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(2);
+      }
+    }
+    
+    @keyframes show {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <div class="test-div delayed-expand">
+    Slide after 2s
+  </div>
+
+  <div class="test-div delayed-show">
+    Show after 4s
+  </div>
+--> </show-source>
+
+<input class="submit" type="submit" value="Next Page" data-ng-click="next()">

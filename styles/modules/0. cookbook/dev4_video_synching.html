@@ -1,0 +1,42 @@
+<style>
+.red {
+  color: red;
+}
+</style>
+
+<show-source>
+
+<div class="row">
+  <div class="col-sm-4">
+    <decker-video playerId="exampleVideo" src="videos/Decker Roughs/MODULE 1 ROUGH.mp4"></decker-video>
+  </div>
+  <div class="col-sm-8">
+    <p ng-class="{ 'red' : (videos.exampleVideo.pos >= 5) }">Add 'red' class after 5 seconds</p>
+    <p ng-show="videos.exampleVideo.pos >= 10">Show after 10 seconds</p>
+    <p ng-show="videos.exampleVideo.pos >= 15">Show after 15 seconds</p>
+  </div>
+</div>
+
+<!--
+  <div class="row">
+    <div class="col-sm-4">
+      <decker-video playerId="exampleVideo" src="videos/Decker Roughs/MODULE 1 ROUGH.mp4"></decker-video>
+    </div>
+    <div class="col-sm-8">
+      <p ng-class="{ 'red' : (videos.exampleVideo.pos >= 5) }">Add 'red' class after 5 seconds</p>
+      <p ng-show="videos.exampleVideo.pos >= 10">Show after 10 seconds</p>
+      <p ng-show="videos.exampleVideo.pos >= 15">Show after 15 seconds</p>
+    </div>
+  </div>
+  -->
+
+
+<aside id="annotation">
+  <section>ng-class="{ 'red' : (videos.exampleVideo.pos >= 5) }"</section>
+  <details>Add the class 'red' to this element when the video exampleVideo is more than five seconds
+  </details>
+</aside>
+
+</show-source>
+
+<input class="submit" type="submit" value="Next Page" data-ng-click="next()">

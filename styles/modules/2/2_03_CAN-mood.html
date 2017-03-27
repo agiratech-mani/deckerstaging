@@ -1,0 +1,38 @@
+<execute-when condition="true" action="setDefaultPersistentVal('moodModel', 3.5)"></execute-when>
+
+
+<div class="mood-slider-page ">
+<div class="instructions">
+  <h2>
+  How did you feel during a recent communication experience? (Conference call, meeting, etc.?)
+  </h2>
+  <h3 ng-show="! globals.showingSaveMsg">
+  Move the orange slider to choose your answer and click Next.
+  </h3>
+</div>
+
+<div class="moods-slider fadeout" ng-show="! globals.showingSaveMsg">
+  <div class="full-width">
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/1mood-painful.svg"></div>
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/2mood-ugh.svg"></div>
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/3mood-bored.svg"></div>
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/4mood-multitasking.svg"></div>
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/5mood-hungry.svg"></div>
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/6mood-neutral.svg"></div>
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/7mood-engaged.svg"></div>
+    <div class="eighth-width"><img src="app/modules/2/2_3-assets/8mood-firedup.svg"></div>
+  </div>
+
+  <div class="full_width fadeout" ng-show="! globals.showingSaveMsg">    
+    <hslider value="persistent.moodModel" min="0" max="7" onchange="setPageComplete()"></hslider>
+  </div>
+  
+  <div class="full-width fadeout" ng-show="! globals.showingSaveMsg">
+    <div class="eighth-width sm-label xtra-padding" ng-repeat="mood in globals.text.moods">{{mood.label}}</div>
+  </div>
+</div>
+
+
+
+<nextbutton></nextbutton>
+</div>

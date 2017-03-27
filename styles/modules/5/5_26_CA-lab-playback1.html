@@ -1,0 +1,40 @@
+<execute-when condition="videos.playback_5_22.pos >= ((videos.playback_5_22.duration) - 2)" action="setPageComplete()"></execute-when>
+
+<style>
+  .instructions-col {
+    padding-right: 60px;
+    font-size: 24px!important;
+  }
+</style>
+<div class="container">
+
+  <br>
+  <br>
+  
+  <div class="row lg-instruction-text center" ng-if="globals.persistent.peripheral == 'C'">
+    Watch your first message
+  </div>
+  
+  <div class="row lg-instruction-text center" ng-if="globals.persistent.peripheral == 'A'">
+    Listen to your first message
+  </div>
+  
+  <br>
+  <br>
+  <div class="row playback-column-fullwidth">
+    <div class="col-xs-4 playback-column">
+      <decker-video class="playback-user-vid" autoplay="false" video="getLastRecording('page5_03')"
+        id="playback_5_22"
+        aspectratio="auto"></decker-video>
+    </div>
+    <div class="col-xs-6 xs-instruction-text instructions-col pitch-column-fullwidth">
+      <ul class="widowText">
+        <li>This was your message before you learned about the Cornerstones</li>
+        <li>Is your message focused?</li>
+        <li>What do you notice?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nextbutton></nextbutton>

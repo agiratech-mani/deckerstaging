@@ -1,0 +1,38 @@
+<execute-when condition="videos.playback_4_11.pos >= ((videos.playback_4_11.duration)-2)" action="setPageComplete()"></execute-when>
+
+<style>
+  .instructions-col {
+    padding-right: 60px;
+    padding-top:80px;
+    font-size: 24px!important;
+  }
+  .playback4_12_page .playback-controls-only {
+    width: 360px!important;
+  }
+</style>
+
+<div class="container playback4_12_page">
+  <br>
+  <br>
+  <div class="row lg-instruction-text center">Click play to hear your voice</div>
+  
+  <br>
+  <br>
+  <div class="row playback-column-fullwidth">
+    
+    <div class="col-xs-4 playback-column">
+      <decker-video class="playback-user-vid" autoplay="false" video="getLastRecording('page4_11')"
+        id="playback_4_11"
+        aspectratio="auto"></decker-video>
+    </div>
+    
+    
+    <div class="col-xs-6 xs-instruction-text instructions-col pitch-column-fullwidth">
+    <ul>
+      <li class="notePadText">Yep, that's really how you sound.</li>
+      <li class="notePadText">Close your eyes and just listen (we know it's awkward, just try it).</li>
+    </ul>
+  </div>
+</div>
+
+<nextbutton></nextbutton>

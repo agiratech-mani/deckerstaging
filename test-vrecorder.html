@@ -1,0 +1,53 @@
+<!doctype html><html ng-app="deckerApp"><head><meta charset="utf-8"><title>deckerApp</title><meta name="description" content=""><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="app/components/video-js-5.11.0/video-js.css"><link rel="stylesheet" href="app/css/fonts.css"><link rel="stylesheet" href="app/css/animate.css"><link rel="stylesheet" href="app/css/directives.css"></head><body><script src="../bower_components/angular/angular.js"></script><script src="../bower_components/jquery/dist/jquery.min.js"></script><script src="../bower_components/angular-route/angular-route.min.js"></script><script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script><script src="app/scripts/libs/prefixfree.min.js"></script><script src="app/scripts/libs/prefixfree.dynamic-dom.min.js"></script><script src="app/scripts/libs/swfobject/swfobject.js"></script><script>
+    angular.module('deckerApp', ['ui.router']);
+</script><script src="app/scripts/services/globals.js"></script><script src="app/scripts/directives/vrecorder.js"></script><script>
+    
+    angular.module('deckerApp').run(function(globals) {
+      globals.persistent = {
+        vrecorders: {}
+      }
+      globals.session = {
+        showFlashSetup: true
+      }
+    });
+    
+    
+  </script><timer name="testingSetup" time="5"></timer><execute-when condition="globals.persistent.vrecorders.setupRecorder.cameraAccess && ! timers.testingSetup && ! session.showFlashSetup" action="next()"></execute-when><style>
+.setup-instructions {
+  position: absolute;
+  top: 160px;
+  width: 22%;
+  left: 38%;
+  text-align: center;
+}
+
+.setup-page3-yes .arrow-pointer {
+transform: scale(.04) rotate(-30deg);
+    position: absolute;
+    left: 108px;
+    top: 185px;
+}
+
+.setup-page3-yes .sm-instruction-text {
+  margin-bottom: 15px!important;
+  font-size: 20px!important;
+}
+  
+ 	.lab-recorder-parent {
+		position: absolute;
+		background-color: white;
+		right: 0px;
+		bottom: 0px;
+		width: 166px;
+		height: 126px;
+		z-index: 1000;
+	}	
+	.lab-recorder {
+		position: absolute;
+		left: 3px;
+		top: 3px;
+		width: 160px;
+		height: 120px;
+	}	
+    
+</style><div class="setup-instructions"><div class="sm-instruction-text">Step 1: Click the “Allow” radio button</div><div class="sm-instruction-text">Step 2: Click the “Remember” checkbox</div><p class="text-red-marker sm-text" style="margin-left:-10px;margin-right:-10px">Complete steps<br>1 and 2 by clicking<br>directly into this<br>window (no need<br>to exit the course)</p></div><div class="lab-recorder"><vrecorder class="setup-vrecorder" id="setupRecorder" max-recording-time="0" controls="1" style="position:absolute;right:20px;visibility:visible"></vrecorder></div><div style="position: absolute; left: 10px; bottom: 10px; color:#eeeeee"><p ng-show="microphoneInput">Detected microphone</p><p ng-show="cameraAccess">Detected webcam</p></div><p class="sm-instruction-text" style="position:absolute;bottom:20px;text-align:center; width:100%"><i>Note: Be sure to allow browser permissions on any pop ups.</i></p><div id="flashRecorderParent"></div></body></html>

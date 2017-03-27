@@ -1,0 +1,39 @@
+<!-- for alpha -->
+<execute-when condition="(persistent.decker_grid[2][0].text && persistent.decker_grid[17][0].text)" action="setPageComplete()"></execute-when>
+<execute-when condition="true" action="setPersistentVals({csEnableListeners:false, csEnablePOV:false, csEnableActions:true, csEnableBenefits:false})"></execute-when> 
+
+<execute-when condition="true"
+  action="persistent.decker_grid[16] = [{text:persistent.decker_grid[1][0].text}]"></execute-when>
+
+<div class="page-cornerstone">
+
+  <div class="cornerstones-action"></div>
+
+  <div class="lg-instruction-text">
+    <div class="number3"></div>
+  	What are the Action Steps?
+  </div>
+
+  <div class="label-cornerstone-title">
+	Click the blue <span class="text-plus">+</span> to add your action steps 
+  </div>
+     
+   <div class="tips-text" style="left: 550px; top: 130px; width: 400px">
+    <ul>
+      <li style="margin-bottom:12px">
+        General Action Steps invite your listeners to explore your message further. They can start with words like Consider, Imagine, Understand or Review.
+      </li>
+      
+      <li>
+        Specific Action Steps are timed, physical, and measurable. They include a date or deadline to hold your listeners accountable.
+      </li>
+    </ul>
+  </div>
+
+  <ng-include src="'app/partials/cornerstones.html'"></ng-include>
+  
+</div>           
+
+<nextbutton></nextbutton>
+
+

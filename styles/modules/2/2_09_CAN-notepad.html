@@ -1,0 +1,36 @@
+<execute-on-change
+  condition="globals.session.percentageTotal"
+  action="setPageComplete(globals.session.percentageTotal == 100)"></execute-on-change>
+
+<div class="integrated-notepad" ng-controller="PercentageController">
+
+  <div class="entry">
+    <div class="header">Where do you spend your time preparing?</div>
+
+    <div class="prompt">
+      <input auto-focus type="number" name="input" ng-model="persistent.percent2_9_3" required>
+      % Verbal
+    </div>
+
+    <div class="prompt">
+      <input type="number" name="input" ng-model="persistent.percent2_9_2" required>
+      % Vocal
+    </div>
+
+    <div class="prompt">
+      <input type="number" name="input" ng-model="persistent.percent2_9_1" required>
+      % Visual
+    </div>
+    
+    <p ng-class="{ 'lg-instruction-text': globals.canNextPage, 'lg-error-text': !globals.canNextPage }">
+      Total:&nbsp;&nbsp;&nbsp;{{globals.session.percentageTotal}}%
+    </p>
+  </div>
+
+  <div class="instructions fadein fadeout nudge-text"
+  ng-show="globals.session.percentageTotal != 100">
+  Please enter percentages that add up to 100%.
+  </div>
+</div>
+
+<nextbutton save-message="true" save-message-title="Got it."></nextbutton>

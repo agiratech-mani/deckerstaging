@@ -1,0 +1,75 @@
+<div class="faq-page" ng-controller="FaqController">
+
+  <a href="" class="back-link" ng-click="onBack()">&lt;
+    Back</a>
+
+  <div class="fadeout fadein faq-main-top" ng-show="globals.selectedSection == -1">
+    <div class="faq-header-top">
+      <img src="app/images/FAQs/faq_header_character.svg">
+      <div class="lg-instruction-text">
+        Frequently Asked Questions
+      </div>
+    </div>
+
+    <div class="faq-buttons container">
+      <div class="row">
+        <img src="app/images/FAQs/button_course-curriculum.svg" ng-click="openSection(0)">
+        <img src="app/images/FAQs/button_work-station.svg" ng-click="openSection(1)">
+        <img src="app/images/FAQs/button_unlocking-modules.svg" ng-click="openSection(2)">
+      </div>
+  
+      <div class="row">
+        <img src="app/images/FAQs/button_webcam-setup.svg" ng-click="openSection(3)">
+        <img src="app/images/FAQs/button_recording-issues.svg" ng-click="openSection(4)">
+        <img src="app/images/FAQs/button_contact.svg" ng-click="openSection(5)">
+      </div>    
+    </div>
+  </div>
+
+  <div class="fadeout fadein faq-sections" ng-show="globals.selectedSection != -1">
+    <div class="faq-header-top">
+      <img src="app/images/FAQs/faq_header_character.svg">
+      <div class="lg-instruction-text">
+        {{sections[globals.selectedSection].title}}
+      </div>
+    </div>
+
+    <div class="row faq-sections-content">
+      <div class="col-xs-3 nav-links">
+        <a href="" ng-click="openSection(0)" class="section-link" ng-class="{'section-link-selected':(globals.selectedSection == 0)}">
+          <img src="app/images/FAQs/icon_curriculum.svg">
+          {{sections[0].title}}
+        </a>
+        <a href="" ng-click="openSection(1)" class="section-link" ng-class="{'section-link-selected':(globals.selectedSection == 1)}">
+          <img src="app/images/FAQs/icon_workstation.png" class="workstationicon">
+          {{sections[1].title}}
+          <!--  ???
+           -->
+          </a>
+        <a href="" ng-click="openSection(2)" class="section-link" ng-class="{'section-link-selected':(globals.selectedSection == 2)}">
+          <img src="app/images/FAQs/icon_unlock.svg">
+          {{sections[2].title}}
+          </a>
+        <a href="" ng-click="openSection(3)" class="section-link" ng-class="{'section-link-selected':(globals.selectedSection == 3)}">
+          <img src="app/images/FAQs/icon_camera.svg">
+          {{sections[3].title}}
+          </a>
+        <a href="" ng-click="openSection(4)" class="section-link" ng-class="{'section-link-selected':(globals.selectedSection == 4)}">
+          <img src="app/images/FAQs/icon_microphone.svg">
+          {{sections[4].title}}
+          </a>
+        <a href="" ng-click="openSection(5)" class="section-link" ng-class="{'section-link-selected':(globals.selectedSection == 5)}">
+          <img src="app/images/FAQs/icon_contact.svg">
+          {{sections[5].title}}
+          </a>
+      </div>
+    
+      <div class="col-xs-9 content-holder">
+        <div ng-repeat="qa in sections[globals.selectedSection].qa" class="faq-content-div">
+          <a href="" class="faq-content-title" ng-click="collapseSection($index)" >{{qa.question}}</a>
+          <p class="faq-content-content" compile="qa.answer" collapse="qa.collapsed"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

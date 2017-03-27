@@ -1,0 +1,152 @@
+<style>
+
+@keyframes fadeInDelay2sec {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+    -webkit-animation-delay: 2s!important;
+    animation-delay: 2s!important;
+}
+
+.fadeIn-delay2sec {
+    opacity: 0;
+    animation: fadeInDelay2sec 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+.fadeIn-delay500ms {
+    opacity: 0;
+    animation: fadeInDelay2sec 1s;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+}
+
+.page-5-26-decker-grid .tutorial {
+  width: 480px;
+}
+</style>
+
+<!--  
+
+https://daybreaklearning.atlassian.net/browse/CTI-453
+
+Image 1: Show Cornerstone
+Text: You have already created your Cornerstones. They are the foundation of your message. 
+
+Image 2: Grid appears behind cornerstone
+Text:  Your Cornerstones will become the opening and the closing of your message on your Decker Grid&#8482;.
+
+Image 3: Cornerstone fades away and we now see just grid. Highlight the main body rows 
+Text: Next, you'll finish creating your Decker Grid by adding key points and sub points to your message.
+
+ -->
+
+<execute-when condition="true"
+              action="persistent.tutorial532Stage = (persistent.tutorial532Stage != 6?'1':'6')"></execute-when>
+
+<execute-on-change condition="persistent.tutorial532Stage"
+              action="setPageComplete(persistent.tutorial532Stage == 6)"></execute-on-change>
+
+<execute-when condition="true" action="persistent.showGridTab = true"></execute-when>
+
+<execute-when condition="true"
+  action="setPersistentVals({
+    csEnableListeners:false,
+    csEnablePOV:false,
+    csEnableActions:false,
+    csEnableBenefits:false,
+    neverDisableNotes: true})"></execute-when> 
+
+
+<!-- <execute-when
+  condition="timers.advanceGridIntro"
+              action="setPageModel('tutorial532Stage',1)"></execute-when> -->
+
+<execute-when
+  condition="timers.advanceGridIntro"
+              action="persistent.tutorial532Stage = (persistent.tutorial532Stage != 6?'1':'6')"></execute-when>
+
+<div g-show="persistent.tutorial532Stage >= 1">
+<div
+class="page-5-26-decker-grid page-cornerstone  page-cornerstone-animation"
+  ng-class="{
+  'animate-cornerstones-step1': (persistent.tutorial532Stage >= 1),
+  'animate-cornerstones-step2': (persistent.tutorial532Stage >= 2),
+  'animate-cornerstones-step3 page-girdcornerstone': (persistent.tutorial532Stage >= 5),
+  'page-girdcornerstone': (persistent.tutorial532Stage >= 6)
+  }"
+  >
+
+  <div class="tutorial fadeout" ng-show="persistent.tutorial532Stage == 1">
+    Here are the Cornerstones you just created. They are the foundation of your message.
+    <a href="" class="next-link"
+    ng-click="persistent.tutorial532Stage = 2">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial fadeIn-delay2sec" ng-show="persistent.tutorial532Stage == 2" ng-if="persistent.tutorial532Stage < 4">
+    You’ll see the full Grid in the background now.
+    <a href="" class="next-link"
+    ng-click="persistent.tutorial532Stage = 3">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial" ng-show="persistent.tutorial532Stage == 3">
+    Your Cornerstones will become the <br>opening and closing of your message on your Decker Grid&#8482;.
+    <a href="" class="next-link"
+    ng-click="persistent.tutorial532Stage = 4">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial" ng-show="persistent.tutorial532Stage == 4">
+    We’ll move them for you now.
+    <a href="" class="next-link"
+    ng-click="persistent.tutorial532Stage = 5">NEXT &gt;</a>
+  </div>
+
+   <div class="tutorial" ng-show="persistent.tutorial532Stage == 5">
+    Next up, let’s finish your message!
+    <a href="" class="next-link"
+    ng-click="persistent.tutorial532Stage = 6">NEXT &gt;</a>
+   </div>
+
+<!-- 
+<p style="position:absolute; left:0;top:0; width:100px;height:100px;background-color:white;z-index:10000">{{persistent.tutorial532Stage}}</p>
+ -->
+  <div class="grid" id="printable-grid-5-26">
+    <div ng-repeat="droppable in persistent.decker_grid"
+      ng-class="{'note-holder': true, 'enabled': false }" ng-if="$index < 20">
+
+    </div>
+  </div>
+
+  <!-- decorations -->
+  <div class="title">My Decker Grid&#8482;</div>
+  <div class="label-opening">
+    OPENING<span class="glyphicon glyphicon-play"></span>
+  </div>
+  <div class="label-main">
+    MAIN BODY<span class="glyphicon glyphicon-play"></span>
+  </div>
+  <div class="label-closing">
+    CLOSING<span class="glyphicon glyphicon-play"></span>
+  </div>
+
+  <div class="cornerstones-background"></div>
+
+  <ng-include src="'app/partials/cornerstones.html'"></ng-include>
+
+<!-- 
+  <div class="grid-instructions fadein fadeout" ng-show="persistent.tutorial532Stage == 1">
+    You have already created your Cornerstones. They are the foundation of your message.
+  </div>
+
+  <div class="grid-instructions fadein fadeout" ng-show="persistent.tutorial532Stage == 2">
+     Your Cornerstones will become the opening and the closing of your message on your Decker Grid&#8482;.
+  </div>
+
+  <div class="grid-instructions fadein fadeout" ng-show="persistent.tutorial532Stage == 3">
+    Next, you'll finish creating your Decker Grid by adding key points and sub points to your message.
+  </div>
+
+</div>
+ -->
+  <nextbutton></nextbutton>
+  </div>

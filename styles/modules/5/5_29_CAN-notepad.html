@@ -1,0 +1,22 @@
+<execute-when
+  condition="true"
+  action="setPageComplete()"></execute-when>
+
+<execute-on-change
+  condition="persistent.cornerstones5_24.length"
+  action="setPageComplete(persistent.cornerstones5_24.length > 0)"></execute-on-change>
+
+<div class="integrated-notepad">
+  <div class="entry">
+
+    <div class="header">What changed?<br>How did the Cornerstones make a difference?</div>
+
+    <textarea auto-focus maxlength="150" spellcheck="true" ng-model="persistent.cornerstones5_24" rows="4"></textarea>
+    <span class="filler_warning"
+        ng-show="persistent.cornerstones5_24.length > 144">
+        {{150 - persistent.cornerstones5_24.length}}
+        character{{persistent.cornerstones5_24.length > 148 ? '' : 's'}} left </span>
+  </div>
+</div>
+
+<nextbutton save-message="true"></nextbutton>

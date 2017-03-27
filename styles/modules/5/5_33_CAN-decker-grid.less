@@ -1,0 +1,370 @@
+.grid-tutorial-plus {
+	background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iSW50ZXJhY3RpdmVfZWxlbWVudHMiIGRhdGEtbmFtZT0iSW50ZXJhY3RpdmUgZWxlbWVudHMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDYwLjU1IDYwLjU1Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2E3YTdhNzt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPnBsdXMtZm9yLWdyaWQtaW5zdHJ1eF9kay1ncmF5PC90aXRsZT48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00MTk3LjY4LDg2ODUuNzRoLTE3LjUydi0xNy41MmE2LjM4LDYuMzgsMCwwLDAtMTIuNzYsMHYxNy41MmgtMTcuNTJhNi4zOCw2LjM4LDAsMSwwLDAsMTIuNzZoMTcuNTJWODcxNmE2LjM4LDYuMzgsMCwwLDAsMTIuNzYsMFY4Njk4LjVoMTcuNTJBNi4zOCw2LjM4LDAsMSwwLDQxOTcuNjgsODY4NS43NFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00MTQzLjUxIC04NjYxLjg1KSIvPjwvc3ZnPg==');
+	width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    top: 2px;
+}
+
+.grid-tutorial-plus-small {
+	.grid-tutorial-plus;
+	width: 13px;
+    height: 13px;
+    margin-left: 1px;
+    margin-right: 1px;
+    top: 1px;
+}
+
+.grid-note-container {
+	
+	.parking-lot {
+		.text-red-marker;
+	    text-align: center;
+	    font-size: 18px;
+	    margin: 10px;
+	}
+
+	.sharp-coming-title, .sharp-coming-subtitle { 
+		text-align: center;
+	    color: #999999;
+	    line-height: 24px;
+	    padding: 0;
+	    margin: 0;
+    }
+    
+    .sharp-coming-title {
+    	font-size:20px;
+	    padding-top: 30px;    
+    }
+    
+    .sharp-coming-subtitle {
+    	font-style: italic;
+    }
+	
+	.note {
+		display: inline-block;
+		position: absolute;
+		cursor: pointer;
+		width: 170px;
+		height: 112px;
+		background-image: url('images/Decker Grid/sticky_no-x.svg');
+		background-size: cover;
+		margin: 0px;
+		border-right: #cdcd89 1px solid;
+		border-bottom: #cdcd89 1px solid;
+		textarea::-webkit-input-placeholder {
+			text-align: center;
+			padding-top: 30px;
+		}
+
+		textarea:-moz-placeholder {
+			text-align: center;
+			padding-top: 30px;
+		}
+
+		textarea:-ms-input-placeholder {
+			text-align: center;
+			padding-top: 30px;
+		}
+
+		textarea {
+			background-color: transparent;
+			border: 0px transparent;
+			position: absolute;
+			left: 4px;
+			top: 10px;
+			width: 164px;
+			height: 100px;
+			resize: none;
+			-ms-overflow-style: hidden ! important;
+			overflow: hidden ! important;
+			color: black;
+			font-size: 16px;
+			line-height: 20px;
+		}
+
+		.close-note {
+			width: 8px;
+			height: 8px;
+			float: right;
+			margin-right: 2px;
+			margin-top: 1px;
+			background-image: url('images/Decker Grid/x-on-sticky.svg');
+			background-size: cover;
+		}
+	}
+
+	.label-opening , .label-main , .label-closing {
+		position: absolute;
+		transform: rotate(270deg);
+		transform-origin: 0 0;
+		height: 32px;
+		color: white;
+		left: 1px;
+		text-align: center;
+		padding-top: 8px;
+		font-size: 10px;
+		letter-spacing: 1.5px;
+		font-family: 'Lato';
+		.glyphicon {
+			transform: rotate(90deg);
+			opacity: .5;
+			margin-left: 6px;
+			top: 3px;
+		}
+	}
+
+	.label-opening {
+		background-color: @decker-blue;
+		width: 112px;
+		top: 114px;
+	}
+
+	.label-main {
+		background-color: @decker-gray;
+		top: 460px;
+		width: 344px;
+	}
+
+	.label-closing {
+		background-color: @decker-blue;
+		top: 574px;
+		width: 112px;
+	}
+
+	.title {
+		position: absolute;
+		color: @decker-blue;
+		font-size: 28px;
+		left: 750px;
+		top: 10px;
+	}
+
+	.grid {
+		position: absolute;
+		overflow: hidden;
+		left: 35px;
+		top: 0;
+		right: 20px;
+		bottom: 0;
+		.note-holder.enabled {
+			background-color: #d6e8f1 ! important;
+			color: #348cbb ! important;
+		}
+
+		.note-holder {
+			font-color: @decker-gray;
+			display: inline-block;
+			position: relative;
+			vertical-align: top;
+			width: 170px;
+			height: 112px;
+			margin-right: 5px;
+			margin-bottom: 3px;
+			background-color: #e6e6e6;
+			.click-to-add {
+				width: 100%;
+				height:100%;
+				padding-top:10px;
+				font-size: 16px;
+				text-align: center;
+			}
+
+			.giant-plus {
+				position: absolute;
+				left: 60px;
+				bottom:10px;
+				width: 48px;
+				height: 48px;
+				background-image: url('images/Decker Grid/plus-for-grid.svg');
+				background-size: cover;
+			}
+		}
+
+		.contents {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+		}
+
+		.bottom-marks {
+			display: none;
+			position: absolute;
+			width: 100%;
+			height: 15px;
+			border-radius: 2px;
+			bottom: 0;
+			border-left: 2px lightgray solid;
+			border-right: 2px lightgray solid;
+			border-bottom: 2px lightgray solid;
+		}
+
+		.label-empty , .label-full {
+			left: 2px;
+			position: absolute;
+			width: 100%;
+			font-size: 11px;
+		}
+
+		.label-empty {
+			bottom: 0;
+		}
+
+		.label-full {
+			bottom: -15px;
+			font-color: #777777;
+		}
+	}
+
+	.note-holder:nth-child(1) , .note-holder:nth-child(2) , .note-holder:nth-child(3) , .note-holder:nth-child(4) , .note-holder:nth-child(21) , .note-holder:nth-child(22) , .note-holder:nth-child(23) , .note-holder:nth-child(24) , .note-holder:nth-child(25) {
+		margin-top: 2px;
+	}
+
+	.note-holder:nth-child(1) , .note-holder:nth-child(20) {
+		color: @decker-blue ! important;
+	}
+
+	.note-holder:nth-child(4) , .note-holder:nth-child(8) , .note-holder:nth-child(12) , .note-holder:nth-child(16) {
+		margin-right: 200px;
+	}
+
+	.note-holder:nth-child(21) {
+		background-color: transparent ! important;
+	}
+
+	.note-holder:nth-child(21) {
+		position: absolute;
+		left: 750px;
+		top: 380px;
+	}
+
+	.note-holder:nth-child(22) {
+		position: absolute;
+		left: 900px;
+		top: 320px;
+	}
+}
+
+.page-5-26-decker-grid {
+	.grid-note-container;
+	overflow: hidden;
+	.hover {
+		-webkit-box-shadow: inset 0px 0px 20px 0px rgba(255, 220, 0, 1);
+		-moz-box-shadow: inset 0px 0px 20px 0px rgba(255, 220, 0, 1);
+		box-shadow: inset 0px 0px 20px 0px rgba(255, 220, 0, 1);
+	}
+
+	.autosaving {
+		position: absolute;
+		color: @decker-blue;
+		font-size: 16px;
+		opacity: .6;
+		left: 750px;
+		top: 50px;
+	}
+
+	.grid-instructions {
+	    position: absolute;
+		color: @decker-gray;
+	    font-size: 14px;
+	    left: 755px;
+	    top: 80px;
+	    width: 220px;
+	    height: 40px;
+	    
+	    a:hover, a:focus {
+	    	text-decoration:none;
+	    }
+	    ol {
+	    	padding-left: 10px;
+	    }
+	    
+	    .icon-grid {
+	    	float:left;
+	    	width: 20px;
+	    	height: 20px;
+			background-image: url('images/Decker Grid/icon_grid.svg');
+			background-size: cover;
+			margin-right: 6px;
+	    }
+	    
+	    a {
+	    	float:left;
+	    	margin-top: 3px;
+	    	margin-bottom: 3px;
+	    }
+	}
+
+	.brainstorming {
+		color: @decker-gray;
+		font-size: 20px;
+		position: absolute;
+		left: 750px;
+		bottom: 70px;
+		width: 300px;
+	}
+
+	.notepad {
+		display: none;
+		background-image: url(modules/5/5_26-assets/notepad.png);
+		background-size: cover;
+		position: absolute;
+		left: 691px;
+		top: 148px;
+		width: 150px;
+		height: 99px;
+		z-index: -1;
+	}
+
+	.arrow {
+		background-image: url(modules/5/5_26-assets/arrow.png);
+		background-size: cover;
+		position: absolute;
+		left: 840px;
+		top: 118px;
+		width: 60px;
+		height: 55px;
+		z-index: -1;
+	}
+
+	.note:hover {
+		background-color: #c3c383 ! important;
+	}
+}
+.workstation-grid
+{
+	.note {
+		width:250px;
+		textarea
+		{
+			width:245px;
+			top:18px;
+			height:92px;
+		}
+	}
+	.grid
+	{
+		.note-holder {
+			width:250px;
+		}
+	}
+	
+}
+.print-pdf-button {
+	background-color: #fc9531;
+	position: absolute;
+	right: 130px;
+	bottom: 20px;
+	width: 150px;
+	height: 42px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+    padding-top: 6px;
+    cursor: pointer;
+}
+

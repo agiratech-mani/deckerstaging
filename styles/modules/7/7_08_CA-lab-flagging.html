@@ -1,0 +1,72 @@
+<execute-when
+  condition="(((persistent.keeper7_8_1.length + persistent.keeper7_8_2.length + persistent.keeper7_8_3.length) > 0) && ((persistent.improvement7_8_1.length + persistent.improvement7_8_2.length + persistent.improvement7_8_3.length) > 0 ))"
+  
+  action="setPageComplete()"></execute-when>
+
+
+<div class="flagging-page page3x3">
+    
+  <div class="instructions" style="font-size: 34px">
+    What worked well? Not so well? Flag it, Note it. Learn from it.
+  </div>
+  
+  <div class="flag-log">
+      <div class="title-bar">
+        <div class="flag-icon"></div>
+        Flag Log
+      </div>
+      <div class="flag-contents">
+        <div class="flag-note" ng-repeat="flag in persistent.labFlagging | orderBy:'time'">
+          <div class="flag-time">{{(flag.time*1000) | date : 'm:ss'}}</div>
+          <div class="flag-text">{{flag.text}}</div>
+          <div class="delete-flag" ng-click="persistent.labFlagging.splice($index, 1)">            
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="sm-instruction-text">
+    Using your Flag Log as reference, enter three Keepers and three Opportunities for Improvements
+    in the spaces below.
+  </div>
+  
+  <div class="input-columns">
+    <div class="input-column keepers-col">
+      <div class="col-label">Keepers</div>
+        <div class="labeled-input">
+          <div class="number">1</div>
+          <textarea auto-focus maxlength="100" spellcheck="true" ng-model="persistent.keeper7_8_1"></textarea>
+        </div>
+        <div class="labeled-input">
+          <div class="number">2</div>
+          <textarea maxlength="100" spellcheck="true" ng-model="persistent.keeper7_8_2"></textarea>
+        </div>
+        <div class="labeled-input">
+          <div class="number">3</div>
+          <textarea maxlength="100" spellcheck="true" ng-model="persistent.keeper7_8_3"></textarea>
+        </div>
+    </div>
+    
+    <div class="input-column improvements-col">
+      <div class="col-label">Improvement</div>
+        <div class="labeled-input">
+          <div class="number">1</div>
+          <textarea maxlength="100" spellcheck="true" ng-model="persistent.improvement7_8_1"></textarea>
+        </div>
+        <div class="labeled-input">
+          <div class="number">2</div>
+          <textarea maxlength="100" spellcheck="true" ng-model="persistent.improvement7_8_2"></textarea>
+        </div>
+        <div class="labeled-input">
+          <div class="number">3</div>
+          <textarea maxlength="100" spellcheck="true" ng-model="persistent.improvement7_8_3"></textarea>
+        </div>
+    </div>
+</div>
+</div>
+
+<span class = "save-message sm-instruction-text nudge-text instructions widowText" 
+  ng-hide = "((( persistent.keeper7_8_1.length + persistent.keeper7_8_2.length + persistent.keeper7_8_3.length) > 0) && ((persistent.improvement7_8_1.length + persistent.improvement7_8_2.length + persistent.improvement7_8_3.length) > 0) > 0)">Write at least one keeper and one improvement
+</span>
+<nextbutton save-message="true" save-message-text="We've saved that in your Notepad."></nextbutton>

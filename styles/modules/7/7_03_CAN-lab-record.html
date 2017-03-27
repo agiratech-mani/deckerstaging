@@ -1,0 +1,42 @@
+<!--  when recording starts, reset the flags -->
+<execute-when condition="globals.startRecording"
+  action="persistent.labFlagging = []"></execute-when>
+
+<recordingpage
+  page-name="page7_03"
+  background-image="{{['app/images/audience/One-on-one-audience.jpg',
+      'app/images/audience/Conference call audience.jpg',
+      'app/images/audience/Large-audience.jpg'][persistent.audienceChoice]}}"
+  audience-video="{{['7_02-SINGLE-SHOT.mp4','7_02-CONFERENCE-ROOM.mp4', '7_3_C-lab-record.mp4'][persistent.audienceChoice]}}"
+  max-recording-time="300"
+  prompt-text="
+    <p>Topic: Your Final Message</p>    
+    <ul>    
+      <li>Pull out your Grid - it's time to present!</li>
+      <li>Stop recording when you've completed your message.</li>
+      <li>You'll have up to five minutes.</li>
+    </ul>
+    <p>Press the record button to begin.</p>"
+  prompt-text-n="
+    <p>Topic: Your Final Message</p>    
+    <ul>    
+      <li>Pull out your Grid - either print it or view it in your Work Station.</li>
+      <li>You'll have up to five minutes to deliver your message.</li>
+    </ul>
+    <p>Press Next to begin.</p>">
+</recordingpage>
+
+<button
+ng-if="false"
+  style="position: absolute;
+    right: 8px;
+    bottom: 150px;
+    width: 140px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    background-color: white;"
+    ng-show="! viewStates.isWorkspaceOpen"
+    ng-click="showWorkspaceGrid()">
+  <img src="app/images/Interactive graphics/go-to-grid.png"></img>
+</button>

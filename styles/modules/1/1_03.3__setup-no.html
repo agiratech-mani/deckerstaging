@@ -1,0 +1,66 @@
+<execute-when condition="globals.persistent.affadavit.length > 0" action="setPageComplete()"></execute-when>
+<execute-when condition="true"
+  action="globals.persistent.showAffadavitPopup = (globals.persistent.showAffadavitPopup >= 1?1:0)"></execute-when>
+<style>
+.setup-page-no3 textarea {
+  border: 0;
+  background-color: #f2f2f2;
+  display: inline-block;
+  margin-left: 25px;
+  width: 280px;
+  resize: none;
+  font-size: 20px;
+  height: 42px;
+  padding: 0;
+  text-align: center;
+  padding-top: 8px;
+  vertical-align: bottom;
+}
+
+.setup-page-no3 p {
+  line-height: 24px;
+  margin: 0;
+}
+
+.setup-page-no3 img {
+    position: absolute;
+    width: 200px;
+    left: 700px;
+    top: 140px;
+}
+</style>
+<div class="setup-page-no3" ng-controller="WebcamSetupController">
+
+  <div style="z-index:999; position:absolute; top:0; left:0;width:100%; height:100%;
+    background-color:rgba(255,255,255,.4)"
+    class="fadeout" ng-show="globals.persistent.showAffadavitPopup == 0"></div>
+
+  <div class="tutorial fadeout" ng-show="globals.persistent.showAffadavitPopup == 0">
+    No worries, the course still works great without a webcam and microphone. There’s just one final step to get you on your way. 
+    <a href="" class="next-link"
+    ng-click="globals.persistent.showAffadavitPopup = 1">NEXT &gt;</a>
+  </div>
+
+
+
+  <div style="position: absolute; width: 60%; top: 30px; left: 40px;">
+    <span class="lg-instruction-text">I won’t be recording myself
+      during this course. However I,</span>
+
+    <textarea ng-model="globals.persistent.affadavit" placeholder="[fill in your name here]"></textarea>
+
+    <span class="lg-instruction-text">, promise to practice
+      improving my communication skills even though I don’t have a
+      webcam.<br>
+      <p>&nbsp;</p> If I practice, everyone will notice. It's worth it!<br>
+      <p>&nbsp;</p> Signed,
+    </span><br>
+    <textarea ng-model="globals.persistent.affadavit" placeholder="[fill in your name here]"
+      style="margin-left: 0"></textarea>
+  </div>
+  <img src="app/images/Final art/interactive graphics/Webcam setup/affadavit.svg">
+</div>
+
+
+
+<nextbutton></nextbutton>

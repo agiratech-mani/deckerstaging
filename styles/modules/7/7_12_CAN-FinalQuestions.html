@@ -1,0 +1,116 @@
+<execute-when
+ condition="((persistent.work7_12_1?1:0)+
+ (persistent.work7_12_2?1:0)+
+ (persistent.work7_12_3?1:0)+
+ (persistent.work7_12_4?1:0)+
+ (persistent.work7_12_5?1:0)+
+ (persistent.work7_12_6?1:0)) >= 2" action="setPageComplete()"></execute-when>
+
+<style>
+.two-col-checkboxes {
+  position: relative;
+  top: 40px;
+  transition: all 0.2s ease;
+  left: 50px;
+  width: 924px;
+}
+
+.two-col-checkboxes .col-xs-6 {
+  padding-left: 20px;
+  padding-right: 40px;
+}
+
+.two-col-checkboxes .chkbox {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.two-col-checkboxes .chkbox span {
+  position: relative;
+  left: 20px;
+}
+
+.two-col-checkboxes .img-checkbox {
+  position: absolute !important;
+  left: 0px !important;
+  width: 34px;
+  height: 34px;
+  padding-right: 8px;
+  background-image: url(app/images/checkbox-false.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: -6px;
+}
+
+.two-col-checkboxes .checkbox-selected {
+  background-image: url(app/images/checkbox-true.svg) !important;
+}
+</style>
+
+
+<div class="instructions text-blue"
+  style="font-size: 34px; margin-top: 20px">
+  <img src="app/images/UI/SVGs/Continuous Improvement/icon_target.svg"
+    height="60px"><br> Keep Improving!<br> Commit to at
+  least <b>two</b> of these actions:
+</div>
+
+
+<div class="row two-col-checkboxes">
+  <div class="col-xs-6">
+
+    <div class="chkbox"
+      ng-click="persistent.work7_12_1 = !persistent.work7_12_1">
+      <span class="img-checkbox"
+        ng-class="{'checkbox-selected':(persistent.work7_12_1)}">
+      </span> <span> Try another video! Go back to the beginning of
+        Module 7 and practice before your next meeting. </span>
+    </div>
+
+    <div class="chkbox"
+      ng-click="persistent.work7_12_2 = !persistent.work7_12_2">
+      <span class="img-checkbox"
+        ng-class="{'checkbox-selected':(persistent.work7_12_2)}"">
+      </span> <span> Complete a Grid for your next conference call,
+        meeting or presentation. </span>
+    </div>
+
+    <div class="chkbox"
+      ng-click="persistent.work7_12_3 = !persistent.work7_12_3">
+      <span class="img-checkbox"
+        ng-class="{'checkbox-selected':(persistent.work7_12_3)}">
+      </span> <span> Raise your hand and volunteer for a speaking
+        opportunity: lead a meeting, introduce a speaker at a
+        professional organization, etc. </span>
+    </div>
+  </div>
+  <div class="col-xs-6">
+
+    <div class="chkbox"
+      ng-click="persistent.work7_12_4 = !persistent.work7_12_4">
+      <span class="img-checkbox"
+        ng-class="{'checkbox-selected':(persistent.work7_12_4)}">
+      </span> <span> Ask for 3x3 feedback from a colleague or boss. </span>
+    </div>
+
+    <div class="chkbox"
+      ng-click="persistent.work7_12_5 = !persistent.work7_12_5">
+      <span class="img-checkbox"
+        ng-class="{'checkbox-selected':(persistent.work7_12_5)}"">
+      </span> <span> Offer 3x3 feedback to a colleague or boss. </span>
+    </div>
+
+    <div class="chkbox"
+      ng-click="persistent.work7_12_6 = !persistent.work7_12_6">
+      <span class="img-checkbox"
+        ng-class="{'checkbox-selected':(persistent.work7_12_6)}">
+      </span> <span> Read <i>Communicate To Influence</i> — a
+        handy-dandy reference guide to reinforce what you learned here.
+      </span>
+    </div>
+  </div>
+</div>
+
+
+
+<nextbutton></nextbutton>

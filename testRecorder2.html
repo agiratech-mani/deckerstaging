@@ -1,0 +1,304 @@
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Record Video With HDFVR (4:3 640x480 setup)</title><link rel="stylesheet" type="text/css" href="app/components/hdfvr/VideoRecorder-demo-pages.css"><link rel="stylesheet" type="text/css" href="app/components/hdfvr/HDFVR-mobile.css"></head><body><script type="text/javascript" src="app/components/hdfvr/swfobject.js"></script><script type="text/javascript" src="app/components/hdfvr/js/jquery-1.10.2.min.js"></script><script type="text/javascript" src="app/components/hdfvr/js/jquery.form.min.js"></script><script type="text/javascript">
+	var flashvars = {
+		userId : "XXY",
+		qualityurl: "audio_video_quality_profiles/640x480x30x90.xml",
+		recorderId: "123",
+		sscode: "php",
+		lstext : "Loading...",
+		mrt:"120",
+		authenticity_token:""	
+	};
+	var params = {
+		quality : "high",
+		bgcolor : "#dfdfdf",
+		play : "true",
+		loop : "false",
+		allowscriptaccess: "sameDomain",
+		wmode:"transparent",
+        base : 'app/components/hdfvr',
+	};
+	var attributes = {
+		name : "VideoRecorder",
+		id :   "VideoRecorder",
+		align : "middle"
+	};
+	
+	var mobile = false;
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.indexOf("ipad") != -1 || ua.indexOf("iphone") != -1 || ua.indexOf("android") != -1 || ua.indexOf("ipod") != -1 || ua.indexOf("windows ce") != -1 || ua.indexOf("windows phone") != -1){
+		mobile = true;
+	}
+	
+	<!-- Detecting if Flash Player is of the PPAPI variety used by Chrome and Opera -->
+	function getFlashPlayerType(){
+	
+		var isPPAPI = false;
+		var type = 'application/x-shockwave-flash';
+		var mimeTypes = navigator.mimeTypes;
+
+		if (mimeTypes && mimeTypes[type] && mimeTypes[type].enabledPlugin  && (mimeTypes[type].enabledPlugin.filename.match(/pepflashplayer|Pepper/gi))){
+			isPPAPI = true;
+		}		
+		
+		return isPPAPI;	
+	}
+	
+	if(mobile == false){
+		/*
+		The "hdfvr-content" DIV contains the HTML5 mobile version. If we're on desktop we 
+		replace it with an OBJECT or MOVIE (with the id "VideoRecorder") containing the 
+		videorecorder.swf used to record from desktop devices.
+		*/
+		swfobject.embedSWF("app/components/hdfvr/VideoRecorder.swf", "hdfvr-content", "640", "510", "10.3.0", "", flashvars, params, attributes);
+	}
+	
+</script><script type="text/javascript">
+$(document).ready(function() { 
+	var options = {   
+			beforeSubmit:  beforeSubmit,  
+			success:       afterSuccess,  
+			uploadProgress: OnProgress, 
+			resetForm: true        
+		}; 
+		
+	$('#hdfvr-recording-form').submit(function() { 
+			$(this).ajaxSubmit(options);
+			return false; 
+	});
+
+	function beforeSubmit(){
+		console.log("beforeSubmit()");
+	   if (window.File && window.FileReader && window.FileList && window.Blob)
+		{
+			$('#output').css('color','#000');	
+			$("#output").html("");
+			if( !$('#hdfvr-file-input').val()) 
+			{
+				$("#output").html("Please select or record a video before uploading.");
+				return false
+			}
+		
+			$('#hdfvr-submit-btn').prop('value','Uploading...0%');
+
+			var ftype = $('#hdfvr-file-input')[0].files[0].type; 
+		
+			switch(ftype)
+			{
+				case 'video/mp4':
+				case 'video/quicktime':
+				case 'video/3gpp':
+				case 'video/3gpp2':
+					break;
+				default:
+					$("#output").html("<b>"+ftype+"</b> Unsupported file type!");
+					return false
+			}
+				
+			$('#submit-btn').hide(); 
+			$('#hdfvr-loading-img').show();
+			$("#output").html("");  
+		}
+		else
+		{
+			$("#output").html("Please upgrade your browser! Your current one lacks the features needed to record & submit videos.");
+			return false;
+		}
+	}
+
+
+	function OnProgress(event, position, total, percentComplete)
+	{
+		$('#hdfvr-submit-btn').prop('value','Uploading...'+percentComplete + '%');
+	}
+	
+	function afterSuccess(data)
+	{
+		$('#hdfvr-loading-img').hide(); 
+		//var res = data.split("#");
+		//var fileName = res[0];
+		var res = JSON.parse(data);
+		if (res.s==1){
+			$("#output").html("Done!");
+			$('#output').css('color','#090');	
+			$('#hdfvr-submit-btn').prop('value','2. Upload');
+			var fileName = res.f;
+			console.log("filename="+fileName);
+		}else if (res.s==0){
+				$("#output").html("Upload failed!");
+				$('#output').css('color','#f00');		
+		}
+	}
+}); 
+</script><script type="text/javascript">
+window.onbeforeunload = function(){
+	if (navigator.appName == 'Microsoft Internet Explorer'){
+			var swf = document.getElementById('VideoRecorder');
+			swf.disconnectAndRemove();
+		}
+}
+</script><div id="head"><div class="documentation_menu_demo"><span><a href="index.html" title="Record video at 320x240 (web 4:3) resolution">240p</a></span> <span class="selected_tab"><a href="VideoRecorder-sd-4by3.html" title="Record video at 640x480 (SD 4:3) resolution">480p</a></span> <span><a href="VideoRecorder-hd.html" title="Record video at 1280x720 (HD 16:9) resolution">720p (HD)</a></span> <span><a href="VideoRecorder-api.html" title="JS Control API Example">Control API</a></span></div><div class="clear"></div></div><div class="wrapper"><div id="hdfvr-content" style="width:400px;margin:auto;"><form action="uploadFromMobile.php" method="post" enctype="multipart/form-data" id="hdfvr-recording-form"><input name="FileInput" id="hdfvr-file-input" type="file" accept="video/*" capture="camcorder" value="Start Recording"> <input type="submit" id="hdfvr-submit-btn" value="2. Upload"></form><img src="loaderb16.gif" id="hdfvr-loading-img" alt="Uploading please wait..."><div id="output"></div></div></div><div class="help"><h3>Need help?</h3><div class="side_right_box"><p><strong>Documentation</strong></p><p>HDFVR's docs cover everything from design options to video quality and the JS API's.</p><p><a target="_blank" href="https://hdfvr.com/documentation" title="HDFVR Documentation">Documentation</a></p></div><div class="side_right_box"><p><strong>Dedicated tech support</strong></p><p>Customers with an active Support &amp; Updates plan can contact tech support through the client area.</p><p><a target="_blank" href="http://nusofthq.com/c" title="Login to your private client area">Enter client area</a></p></div><p><a title="Go to hdfvr.com" target="_blank" href="https://hdfvr.com?ref=demo"><img alt="HDFVR Logo" style="display:block;margin:auto;" src="logo_small.png"></a></p></div><script type="text/javascript">
+
+	if(mobile == false){
+		//If by the time this script executes (on desktop) the "hdfvr-content" DIV is still in the page it means Flash player is not installed so we replace it with a GET FLASH PLAYER message
+		document.getElementById('hdfvr-content').innerHTML = 'You do not have the proper Flash Player installed. Click below to download the newest version of Flash Player: <p><a href="http://www.adobe.com/go/getflashplayer"><img src="get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>';
+		
+		//since we're on desktop we also make the video quality menu visible (the video quality can not be controlled on mobile devices, it depends on the device itself)
+		document.getElementById("head").style.visibility = "visible";
+	}
+	
+</script><script>
+	
+	function userHasCamMic(cam_number,mic_number,recorderId){
+		//alert("userHasCamMic("+cam_number+","+mic_number+")");
+		//this function is called when HDFVR is initialized
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function btRecordPressed(recorderId){
+		//alert("btRecordPressed");
+		//this function is called whenever the Record button is pressed to start a recording
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function btStopRecordingPressed(recorderId){
+		//alert("btStopRecordingPressed");
+		//this function is called whenever a recording is stopped
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function btPlayPressed(recorderId){
+		//alert("btPlayPressed");
+		//this function is called whenever the Play button is pressed to start/resume playback
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function btPausePressed(recorderId){
+		//alert("btPausePressed");
+		//this function is called whenever the Pause button is pressed during playback
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function btPauseRecordingPressed(recorderId){
+		//console.log("btPauseRecordingPressed()" + recorderId );
+	}
+	
+	function btResumeRecordingPressed(recorderId){
+		//console.log("btResumeRecordingPressed()" + recorderId );
+	}
+	
+	function onUploadDone(streamName,streamDuration,userId,recorderId,audioCodec,videoCodec,fileType){
+		//alert("onUploadDone("+streamName+","+streamDuration+","+userId+")");
+		
+		//this function is called when the video/audio stream has been all sent to the video server and has been saved to the video server HHD, 
+		//on slow client->server connections, because the data can not reach the video server in real time, it is stored in the recorder's buffer until it is sent to the server, you can configure the buffer size in avc_settings.XXX
+		
+		//this function is called with 7 parameters: 
+		//streamName: a string representing the name of the stream recorded on the video server WITHOUT the filename extension (.flv , .f4v or .mp4)
+		//userId: the userId sent via flash vars or via the avc_settings.XXX file, the value in the avc_settings.XXX file takes precedence if its not empty
+		//duration of the recorded video/audio file in seconds but acccurate to the millisecond (like this: 4.322)
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+		//audioCodec: the audio codec used for the recording, Nelly Moser or Speex
+		//videoCodec: the video codec used for the recording, Sorenson or H.264
+		//fileType: the format in which the resulting recording will be saved in: FLV, F4V or MP4
+	}
+	
+	function onSaveOk(streamName,streamDuration,userId,cameraName,micName,recorderId,audioCodec,videoCodec,fileType){
+		//alert("onSaveOk("+streamName+","+streamDuration+","+userId+","+cameraName+","+micName+")");
+		
+		//the user pressed the [save] button inside the recorder and the save_video_to_db.XXX script returned save=ok
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+		//audioCodec: the audio codec used for the recording, Nelly Moser or Speex
+		//videoCodec: the video codec used for the recording, Sorenson or H.264
+		//fileType: the format in which the resulting recording will be saved in: FLV, F4V or MP4
+	}
+	
+	function onSaveFailed(streamName,streamDuration,userId,recorderId){
+		//alert("onSaveFailed("+streamName+","+streamDuration+","+userId+")");	
+		
+		//the user pressed the [save] button inside the recorder but the save_video_to_db.XXX script returned save=fail
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+
+    function onSaveJpgOk(streamName,userId,recorderId){
+		//alert("onSaveJpgOk("+streamName+","+userId+","+recorderId+")");
+		
+		//jpg_encoder_download.XXX is called when the user presses the [stop recording] button inside the video. When  jpg_encoder_download.XXX script returns save=ok this JS function is called.
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onSaveJpgFailed(streamName,userId,recorderId){
+		//alert("onSaveJpgFailed("+streamName+","+userId+","+recorderId+")");	
+		//jpg_encoder_download.XXX is called when the user presses the [stop recording] button inside the video. When  jpg_encoder_download.XXX script returns save=fail this JS function is called.
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onFlashReady(recorderId){
+		//alert("onFlashReady()");
+		//you can now communicate with HDFVR using the JS Control API
+		//Example : document.VideoRecorder.record(); will make a call to flash in order to start recording
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onPlaybackComplete(recorderId){
+		//alert("onPlaybackComplete()")
+		//this function is called when HDFVR plays back a recorded video and the playback completes
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onRecordingStarted(recorderId){
+		//alert("onRecordingStarted()")
+		//this function is called when HDFVR starts recording
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onCamAccess(allowed,recorderId){
+		//alert("onCamAccess("+allowed+")");
+		//the user clicked Allow or Deny in the Camera/Mic access dialog box in Flash Player
+		//when the user clicks Deny this function is called with allowed=false
+		//when the user clicks Allow this function is called with allowed=true
+		//you should wait for this function before allowing the user to cal the record() function on HDFVR
+		//this function can be called anytime during the life of the HDFVR instance as the user has permanent access to the Camera/Mic access dialog box in Flash Player
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+		if (allowed){
+			document.getElementById("recordbtn").disabled = false
+		}else{
+			document.getElementById("recordbtn").disabled = true
+		}
+	}
+	
+	function onFPSChange(recorderId, currentFPS){
+		//console.log("onFPSChange()" + recorderId + " " + currentFPS);
+		//this function is called by HDFVR every second
+		//currentFPS:the current frames-per-second that HDFVR reports (during recording, playback, uploading and saving) depending of the state of HDFVR.
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onConnectionClosed(recorderId){
+		//alert("onConnectionClosed()" + recorderId);
+		//this function is called by HDFVR when the connection to the media server has been lost
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onConnectionStatus(status, recorderId){
+		//alert("onConnectionStatus()" + recorderId);
+		//this function is called by HDFVR for every connection event.
+		//status: the actual connection status: (connected, rejected, invalid app, closed, failed)
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onMicActivityLevel(recorderId, currentActivityLevel){
+		//console.log("onMicActivityLevel()" + recorderId + " " + currentActivityLevel);
+		//this function is called by HDFVR every second
+		//currentActivityLevel:The amount of sound the microphone is detecting
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+	}
+	
+	function onFFMPEGConversionFinished(recorderId, status, streamName){
+		//console.log("onFFMPEGConversionFinished()" + recorderId + " " + status + " " + streamName);
+		//this function is called by HDFVR after the conversion with FFMPEG has finished server side
+		//recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+		//status: the status when the conversion is finished: success or fail
+		//streamName: the name of the stream for which the conversion finished
+	}
+	
+</script></body></html>

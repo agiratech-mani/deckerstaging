@@ -1,0 +1,47 @@
+<button style="position: absolute; right: 0; left: 0"
+  ng-if="false"
+  ng-click="persistent.choice5_8='';setPageComplete(0)">Reset</button>
+
+<execute-when condition="persistent.choice5_8" action="setPageComplete()"></execute-when>
+
+<div class="page-5_08">
+  <div class="container">
+    <div class="row instructions">
+      <h2>Does this Point of View work?</h2>
+    </div>
+    <div class="row pov-instruction-text">
+      <div class="col-xs-6">
+        <p><b>Listener:</b> Logistics Manager who ships out several hundred boxes each day, all around the world, responsible for on-time delivery of all products to the company’s customers.</p>
+        <p><b>Topic:</b> Our company’s services are superb.</p>
+        <p><b>Goal:</b> To convince potential customers to use her company.</p>
+      </div>
+      <div class="col-xs-6">
+        <div class="character-pov">
+        </div>
+        <div class="pov-text-blue">
+          Shipping Express, Inc. is the best service out there. Period.
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="row" ng-show="! persistent.choice5_8">
+      <multiplechoice
+          persistent-model="choice5_8"
+          options="['Yes', 'No']"></multiplechoice>
+    </div>
+    
+    <div class="row sm-instruction-text incorrect-answer widowText" ng-show="persistent.choice5_8 == 'Yes'">
+      <p style="font-size:150%">Not quite...<p>
+      <p><b>Why not?</b> A POV should never include your company<br>or organization name or the name of a product.</p>
+    </div>
+    
+    <div class="row sm-instruction-text correct-answer widowText" ng-show="persistent.choice5_8 == 'No'">
+      <p style="font-size:150%">Correct!<p>
+      <p><b>Why?</b> A POV should never include your company<br>or organization name or the name of a product.</p>
+    </div>
+    
+  </div>
+</div>
+
+<nextbutton></nextbutton>

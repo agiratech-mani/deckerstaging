@@ -1,0 +1,59 @@
+<button style="position: absolute; right: 0; left: 0"
+  ng-if="false"
+  ng-click="persistent.choice5_12='';setPageComplete(0)">Reset</button>
+
+<execute-when condition="persistent.choice5_12" action="setPageComplete()"></execute-when>
+
+<div class="page-5_08">
+  <div class="container">
+    <div class="row instructions">
+      <h2>Does this Point of View work?</h2>
+    </div>
+    <div class="row pov-instruction-text">
+      <div class="col-xs-6">
+        <p><b>Listener:</b> Logistics Manager who ships out several hundred boxes each day, all around the world, responsible for on-time delivery of all products to the company’s customers.</p>
+        <p><b>Topic:</b> Our company’s services are superb.</p>
+        <p><b>Goal:</b> To convince potential customers to use her company.</p>
+      </div>
+      <div class="col-xs-6">
+        <div class="character-pov">
+        </div>
+        <div class="pov-text-orange">
+          We have the fastest delivery network of the 5 major global shipping companies.
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="row" ng-show="! persistent.choice5_12">
+      <multiplechoice
+          persistent-model="choice5_12"
+          options="['Yes', 'No']"></multiplechoice>
+    </div>
+    
+    <div class="row sm-instruction-text incorrect-answer widowText" ng-show="persistent.choice5_12 == 'Yes'">
+      <p style="font-size:150%">Not quite...<p>
+      <p><b>Why not? </b>
+      A Point of View is not informational. Your goal is not<br>
+      merely to inform, but to cause a shift in thinking within your listeners<br>
+      from the beginning to the end. A POV is designed to persuade your<br>
+      listeners and move them to action. You should be able to state your<br>
+      POV as a phrase or sentence that encapsulates the change you<br>
+      want your audience to embrace, adopt and implement.</p>
+    </div>
+    
+    <div class="row sm-instruction-text correct-answer widowText" ng-show="persistent.choice5_12 == 'No'">
+      <p style="font-size:150%">Correct!<p>
+      <p><b>Why? </b>
+      A Point of View is not informational. Your goal is not<br>
+      merely to inform, but to cause a shift in thinking within your listeners<br>
+      from the beginning to the end. A POV is designed to persuade your<br>
+      listeners and move them to action. You should be able to state your<br>
+      POV as a phrase or sentence that encapsulates the change you<br>
+      want your audience to embrace, adopt and implement.</p>
+    </div>
+    
+  </div>
+</div>
+
+<nextbutton></nextbutton>

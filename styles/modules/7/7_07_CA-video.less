@@ -1,0 +1,170 @@
+.flagging-page {
+	.arrow-down-right {
+	    position: absolute;
+	    width: 53.81px;
+	    height: 24.4px;
+	    left: 10px;
+	    bottom: 115px;
+	    z-index: 2000;		
+	}
+
+	.arrow-down-left {
+	    position: absolute;
+	    width: 29.03px;
+	    height: 47.33px;
+	    left: 500px;
+	    bottom: 125px;
+	    z-index: 2000;
+	    transform: rotate(20deg);
+    }
+
+	.arrow-right {
+		position: absolute;
+		width: 53.81px;
+		height: 24.4px;
+		left: 520px;
+		top: 130px;
+		z-index: 2000;
+	}
+
+	.arrow-up {
+		position: absolute;
+		width: 24.4px;
+		height: 53.78px;
+		left: 130px;
+		bottom: 25px;
+		z-index: 2000;
+	}
+
+	.instructions {
+		.lg-instruction-text;
+		text-align: center;
+		width: 100%;
+		margin: 0;
+		padding-top: 30px;
+		padding-bottom: 10px;
+	}
+
+	.playback-flagging-vid {
+		.decker-skin;
+		background: #c7ecf9;
+		position: relative;
+		width: 447px;
+		height: 428px;
+		left: 0px;
+		.start-time {
+			display: none;
+		}
+
+		.jwplayer {
+			width: 447px ! important;
+			height: 335.25px ! important;
+			left: 0px;
+			top: 0px;
+		}
+
+		.video-play-button , .video-pause-button {
+			left: 8px ! important;
+			bottom: 12px ! important;
+			width: 40px ! important;
+			height: 40px ! important;
+		}
+	}
+
+	input {
+		position: absolute;
+	    bottom: 112px;
+	    left: 115px;
+	    width: 310px;
+    }
+
+	.post-button {
+		background-image: url('images/Interactive graphics/Lab Playback/post-button.svg');
+	    position: absolute;
+	    left: 428px;
+	    bottom: 113px;
+	    width: 60.53566354077844px;
+	    height: 25px;    
+	}
+
+	.post-button[disabled] {
+		pointer-events: none;
+		cursor: inherit;
+		background-image: url('images/Interactive graphics/Lab Playback/post-button_inactive.svg');
+	}
+
+	.post-button:hover {
+		background-image: url('images/Interactive graphics/Lab Playback/post-button_hover-depressed.svg');
+	}
+
+	.post-button:active {
+		background-image: url('images/Interactive graphics/Lab Playback/post-button.svg');
+	}
+
+	.flag-log {
+		.text-gray;
+		position: absolute;
+		width: 380px;
+		height: 380px;
+		border-radius: 16px;
+		background-color: #f2f2f2;
+		margin-left: 20px;
+		left: 560px;
+		top: 100px;
+		.delete-flag {
+			color: #C9C9C9;
+			float: right;
+			cursor: pointer;
+		}
+
+		.title-bar {
+			position: absolute;
+			background-color: #338bbb;
+			height: 36px;
+			color: white;
+			width: 100%;
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+			font-size: 18px;
+			padding-left: 60px;
+			padding-top: 6px;
+			.flag-icon {
+				background-image: url('images/Interactive graphics/Lab Playback/flag-log-header.svg');
+			    width: 40px;
+			    height: 36px;
+			    background-size: cover;
+			    top: 0px;
+			    position: absolute;
+			    left: 10px;
+			    background-position-x: -10px;
+			}
+			    
+		}
+
+		.flag-contents {
+			top: 38px;
+			height: 320px;
+			left: 10px;
+			width: 360px;
+			position: relative;
+			overflow: auto;
+			.flag-note {
+				border-bottom: 1px #C9C9C9 solid;
+				padding-top: 4px;
+				padding-bottom: 4px;
+				.flag-time {
+					display: inline-block;
+					width: 50px;
+				}
+
+				.flag-text {
+					display: inline-block;
+					width: 280px;
+				}
+
+				border-bottom: 1px #C9C9C9 solid;
+			}
+		}
+	}
+}
+

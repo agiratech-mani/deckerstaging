@@ -1,0 +1,68 @@
+<execute-when condition="true"
+              action="setDefaultPersistentVal('fromModel_4_29', 
+                      [['eye-communication'], ['pausing'], ['posture'], ['vocal variety'], ['gestures']])"></execute-when>
+
+<execute-when condition="true"
+              action="setDefaultPersistentVal('toModel_4_29', [[],[]])"></execute-when>
+
+<execute-when condition="(globals.persistent.toModel_4_29[0].length > 0 && globals.persistent.toModel_4_29[1].length > 0)"
+              action="setPageComplete()">
+              </execute-when>
+  
+<div class="page-4-29" ng-controller="DragDropController">
+  <div class="instructions">
+    <h2 class="widowText">
+      Don't try to work on everything all at once! 
+      Choose two Pivot Points, and drag them to the boxes on the right.
+    </h2>
+  </div>
+
+  <img class="character-pivot-points" src="app/modules/4/4_20-assets/character-pivot-points.svg">
+  
+  <div class="left-col">
+    <div ng-repeat="droppable in persistent.fromModel_4_29"
+         ng-model="persistent.fromModel_4_29[$index]"
+         jqyoui-droppable="{multiple: false, stack: true, onOver:'onOver', onOut:'onOut'}"
+         data-jqyoui-options="{revert: 'invalid'}" 
+         data-drop="true"          
+         class="p-4-20-dotted-rectangle-blue draggable-holder draggable-holder{{$index}}">
+      
+      <div ng-repeat='draggable in droppable'
+           jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
+           data-jqyoui-options="{revert:revertCard, revertDuration:500}" 
+           data-drag="true" 
+           class="p-4-20-draggable-rectangle {{'p-4-20-' + draggable}}"
+           ng-style="{left:(($index * 8) + 'px'), top:(($index * 8) + 'px')}"
+           ng-model="persistent.fromModel_4_29[$parent.$index]"
+           ></div>           
+    </div>
+</div>    
+
+  <div class="right-col">
+    <div class="sm-label center">My Pivot Points</div>
+    <div ng-repeat="droppable in persistent.toModel_4_29"
+         ng-model="persistent.toModel_4_29[$index]"
+         jqyoui-droppable="{multiple: false, onOver:'onOver', onOut:'onOut'}"
+         data-jqyoui-options="{revertDuration:500}"
+         data-drop="true" 
+         class="p-4-20-dotted-rectangle-blue draggable-holder">
+      
+      <div ng-repeat='draggable in droppable'
+           jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
+           data-jqyoui-options="{revert:revertCard, revertDuration:500}" 
+           data-drag="true" 
+           class="p-4-20-draggable-rectangle {{'p-4-20-' + draggable + '-fill'}}"
+           style="position:relative"
+           ng-model="persistent.toModel_4_29[$parent.$index]"
+           ></div>     
+    </div>
+
+  </div>
+</div>
+<!-- <div
+  class="next-button fadein fadeout"
+    ng-if="globals.persistent.peripheral == 'N'" ng-disabled="!(persistent.toModel_4_29[0].length > 0 && persistent.toModel_4_29[1].length > 0)" data-ng-click="next()">
+</div>
+
+<nextbutton ng-if="globals.persistent.peripheral != 'N'"></nextbutton> -->
+<nextbutton></nextbutton>

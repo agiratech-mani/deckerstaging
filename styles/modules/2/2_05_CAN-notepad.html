@@ -1,0 +1,41 @@
+<execute-on-change
+  condition="persistent.goal2_5_1.length + persistent.goal2_5_2.length + persistent.goal2_5_3.length"
+  action="setPageComplete((persistent.goal2_5_1.length + persistent.goal2_5_2.length + persistent.goal2_5_3.length) > 0)"></execute-on-change>
+
+<div class="integrated-notepad-horizontal multiple-choice-standard-pos">
+  <div class="entry">
+    <div class="header" stye="margin-left:95px">What are your goals for this program?</div>
+
+    <div class="prompt">Goal 1:</div>
+    <textarea auto-focus maxlength="100" spellcheck="true" ng-model="persistent.goal2_5_1" rows="2"></textarea>
+      <span class="goal1-length-warning"
+        ng-show="persistent.goal2_5_1.length > 94">
+        {{100 - persistent.goal2_5_1.length}}
+        character{{persistent.goal2_5_1.length > 98  ? '' : 's'}} left</span>
+    <br>
+
+    <div class="prompt">Goal 2:</div>
+    <textarea maxlength="100" spellcheck="true" ng-model="persistent.goal2_5_2" rows="2"></textarea>
+    <span class="goal2-length-warning"
+        ng-show="persistent.goal2_5_2.length > 94">
+        {{100 - persistent.goal2_5_2.length}}
+        character{{persistent.goal2_5_2.length > 98 ? '' : 's'}} left</span>
+    <br>
+
+    <div class="prompt">Goal 3:</div>
+    <textarea maxlength="100" spellcheck="true" ng-model="persistent.goal2_5_3" rows="2"></textarea>
+      <span class="goal3-length-warning"
+        ng-show="persistent.goal2_5_3.length > 94">{{100 - persistent.goal2_5_3.length}}
+        character{{persistent.goal2_5_3.length > 98 ? '' : 's'}} left</span>
+
+  </div>
+  
+
+</div>
+
+  <div class="nudge-text instructions-next fadein fadeout"
+    ng-show="! (persistent.goal2_5_1.length + persistent.goal2_5_2.length + persistent.goal2_5_3.length)">
+  Write at least one goal and click Next.
+  </div>
+
+<nextbutton save-message="true"></nextbutton>

@@ -1,0 +1,53 @@
+<!--  button style="position: absolute; right: 0; left: 0"
+  ng-click="persistent.SHARP = {S:0,H:0,A:0,R:0,P:0};setPageComplete(0)">Reset</button -->
+
+<execute-when condition="true"
+  action="setDefaultPersistentVal('SHARP',{S:0,H:0,A:0,R:0,P:0})"></execute-when>
+
+<execute-when condition="true"
+  action="setPageModel('playing',{S:0,H:0,A:0,R:0,P:0})"></execute-when>
+
+<execute-when
+  condition="(persistent.SHARP.S+persistent.SHARP.H+persistent.SHARP.A+persistent.SHARP.R+persistent.SHARP.P) ==5"
+  action="setPageComplete()"></execute-when>
+
+<div class="container page6_06">
+  <div class="row lg-instruction-text center">Click each letter in order to find out more!</div>
+
+  <div class="SHARP">
+    <div class="stories"
+      ng-class="{'no-opacity':(!persistent.SHARP.S)}"
+      ng-click="goToSharpclick('s')"
+    ></div>
+    <div class="humor"
+      ng-class="{'no-opacity':(!persistent.SHARP.H)}"
+      ng-click="persistent.SHARP.S && goToSharpclick('h')"
+    ></div>
+
+    <div class="analogies"
+      ng-class="{'no-opacity':(!persistent.SHARP.A)}"
+      ng-click="persistent.SHARP.H && goToSharpclick('a')"
+    ></div>
+    
+    <div class="reference-quotes"
+      ng-class="{'no-opacity':(!persistent.SHARP.R)}"
+      ng-click="persistent.SHARP.A && goToSharpclick('r')"
+    ></div>
+    
+    <div class="pictures-visuals"
+      ng-class="{'no-opacity':(!persistent.SHARP.P)}"
+      ng-click="persistent.SHARP.R && goToSharpclick('p')"
+    ></div>   
+  </div>
+
+<div style="position:absolute;left:0px;top:0px;width:100%;height:100%;background-color:rgba(255,255,255,.001)"
+  ng-show="showSharpClickShield"></div>
+
+   <div
+  class="next-button fadein fadeout"
+    ng-if="! persistent.SHARP.P" ng-disabled="! persistent.SHARP.P" data-ng-click="onClick()" ng-show="! showingSaveMsg">
+</div>
+   <nextbutton ng-if="persistent.SHARP.P"></nextbutton>
+ 
+</div>
+

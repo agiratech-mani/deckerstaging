@@ -1,0 +1,38 @@
+<execute-when condition="true" action="setPageComplete()"></execute-when>
+
+
+<div class="mood-slider-page">
+
+<div class="instructions">
+  <h2>
+  How did you feel during a recent communication experience? (Conference call, meeting, etc.?)
+  </h2>
+</div>
+
+  <div class="mood-recap">
+    <img src="app/modules/2/2_3-assets/1mood-painful.svg"
+      ng-if="persistent.moodModel == 0"> <img
+      src="app/modules/2/2_3-assets/2mood-ugh.svg"
+      ng-if="persistent.moodModel == 1"> <img
+      src="app/modules/2/2_3-assets/3mood-bored.svg"
+      ng-if="persistent.moodModel == 2"> <img
+      src="app/modules/2/2_3-assets/4mood-multitasking.svg"
+      ng-if="persistent.moodModel == 3"> <img
+      src="app/modules/2/2_3-assets/5mood-hungry.svg"
+      ng-if="persistent.moodModel == 4"> <img
+      src="app/modules/2/2_3-assets/6mood-neutral.svg"
+      ng-if="persistent.moodModel == 5"> <img
+      src="app/modules/2/2_3-assets/7mood-engaged.svg"
+      ng-if="persistent.moodModel == 6"> <img
+      src="app/modules/2/2_3-assets/8mood-firedup.svg"
+      ng-if="persistent.moodModel == 7">
+  </div>
+
+  <div class="mood-feedback" style="color:@decker-gray">
+    <h2>
+      <p ng-repeat="feedback in globals.text.moods[persistent.moodModel].feedback">{{feedback}}</p>
+    </h2>
+  </div>
+
+  <nextbutton></nextbutton>
+</div>

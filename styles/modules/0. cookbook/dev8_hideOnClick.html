@@ -1,0 +1,19 @@
+<show-source>
+
+<div ng-show="whateverState == 'A' || whateverState == undefined">
+  Only show if whateverState = 'A' or is undefined
+</div>
+
+<div ng-show="whateverState == 'B'">
+  Show when whateverState = 'B'
+</div>
+
+<br>
+<br>
+<p>Value of 'whateverState' is {{whateverState}}</p>
+
+
+<input class="submit" type="submit" value="Set state to A" data-ng-click="whateverState = 'A'">
+<input class="submit" type="submit" value="Set state to B" data-ng-click="whateverState = 'B'">
+
+</show-source>

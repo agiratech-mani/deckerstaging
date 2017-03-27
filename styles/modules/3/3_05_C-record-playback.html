@@ -1,0 +1,38 @@
+<execute-when condition="videos.playback_3_3.pos >= ((videos.playback_3_3.duration) - 2)" action="setPageComplete()"></execute-when>
+
+<style>
+  .instructions-col {
+    padding-right: 60px;
+    font-size: 24px!important;
+  }
+  
+  .left-col-inset {
+    margin-left: 30px;
+    margin-right: -30px;
+}
+</style>
+
+<div class="container">
+  <br>
+  <br>
+  <div class="row lg-instruction-text center">Click play, then focus on your eyes </div>
+  
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-xs-6 left-col-inset">
+      <decker-video
+        class="playback-user-vid-lg"
+        autoplay="false" video="getLastRecording('page3_3')"
+        id="playback_3_3"
+        aspectratio="auto"></decker-video>
+    </div>
+    <div class="col-xs-6 xs-instruction-text instructions-col">
+    <ul class="widowText">
+      <li>Consider how the experience changes as your eye communication changes speed.</li>
+      <li>We know it's tough to watch yourself on video. Try to have an out-of-body experience and view yourself as an audience member.</li>
+    </ul>
+  </div>
+</div>
+
+<nextbutton></nextbutton>

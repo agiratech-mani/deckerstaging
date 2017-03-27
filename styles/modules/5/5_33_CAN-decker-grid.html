@@ -1,0 +1,165 @@
+<execute-when condition="persistent.tutorialStage == -1" action="setPageComplete()"></execute-when>
+<execute-when condition="true" action="persistent.showGridTab = true"></execute-when>
+<execute-when condition="true"
+              action="persistent.tutorialStage = (persistent.tutorialStage != -1?'0':'-1')"></execute-when>
+
+<execute-when condition="true"
+  action="setDefaultPersistentVal('decker_grid', [
+                      [],[],[],[],
+                      [],[],[],[],
+                      [],[],[],[],
+                      [],[],[],[],
+                      [],[],[],[],
+                      
+                      [],[]
+                      
+                      ])"></execute-when>
+
+<!-- 
+<execute-when condition="persistent.decker_grid[20].length != 1"
+              action="persistent.decker_grid[20] = [{text:''}]"></execute-when>
+ -->
+<execute-when condition="true"
+  action="decker_grid_labels=[
+                'SHARP','POINT OF VIEW','GENERAL ACTION STEP', 'BENEFIT',
+                'Key Point 1','Subpoint 1','Subpoint 2', 'Subpoint 3',
+                'Key Point 2','Subpoint 1','Subpoint 2', 'Subpoint 3',
+                'Key Point 3','Subpoint 1','Subpoint 2', 'Subpoint 3',
+                'POINT OF VIEW','SPECIFIC ACTION STEP', 'BENEFIT', 'SHARP']"></execute-when>
+
+<div class="page-5-26-decker-grid" ng-controller="DragDropController">
+
+  <div class="tutorial" ng-show="persistent.tutorialStage == 0">
+    Add your Key Points and Subpoints by clicking on the white <span class="grid-tutorial-plus"></span> signs.
+    <a href="" class="next-link"
+    ng-click="persistent.tutorialStage = 1">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial" ng-show="persistent.tutorialStage == 1">
+    You can edit, move, add and delete all active sticky notes.
+    <a href="" class="next-link"
+    ng-click="persistent.tutorialStage = 2">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial" ng-show="persistent.tutorialStage == 2">
+    Drag stickies into the designated space if you need an idea parking lot.
+    <a href="" class="next-link"
+    ng-click="persistent.tutorialStage = -1">NEXT &gt;</a>
+  </div>
+
+  <div style="z-index:999; position:absolute; top:0; left:0;width:100%; height:100%;
+    background-color:rgba(255,255,255,.4)"
+    class="fadeout" ng-show="persistent.tutorialStage != -1"></div>
+
+  <!--   button class="print-icon" ng-click="viewStates.printGrid = true"></button -->
+
+  <div class="grid" id="printable-grid-5-26"">
+    <div ng-repeat="droppable in persistent.decker_grid"
+      title="{{($index == 0 || $index == 19) ? 'Hang tight! You\'ll be adding this section in the next module.' : ''}}"
+      ng-model="persistent.decker_grid[$index]"
+      jqyoui-droppable="{multiple: true, stack: true, onOver:'onOver', onOut:'onOut'}"
+      data-jqyoui-options="{revert: 'invalid'}"
+      data-drop="{{($index > 0 && $index < 19) || $index >= 20}}"
+      ng-if="$index < 21"
+      ng-class="{'note-holder': true, 'enabled': (($parent.$index > 0 && $parent.$index < 19) || $parent.$index >= 20) }">
+
+      <div class="contents">
+
+        <div ng-if="($parent.$index == 0 || $parent.$index == 19)">
+          <div class="sharp-coming-title">SHARP</div>
+          <div class="sharp-coming-subtitle">Coming in Module 6</div>
+        </div>
+        
+        <div
+          ng-if="($parent.$index > 0 && $parent.$index < 19) && !persistent.decker_grid[$parent.$index].length"
+          class="click-to-add"
+          ng-click="persistent.decker_grid[$parent.$index] = [{text:''}]">
+          Add your {{decker_grid_labels[$parent.$index]}}
+          <div class="giant-plus"></div>
+        </div>
+
+          <div ng-if="$parent.$index == 20">
+            <div class="parking-lot">
+            {{globals.text.parkingLot}}
+            </div>
+          </div>
+
+        <div ng-repeat='draggable in droppable'
+          jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
+          data-jqyoui-options="{revert:revertCard, revertDuration:500}"
+          data-drag="{{($parent.$index > 0 && $parent.$index < 19) || $parent.$index >= 20}}"
+          class="note"
+          ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
+          ng-model="persistent.decker_grid[$parent.$index]">
+          <div
+            class="close-note"
+            ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>
+          <textarea maxlength="80" spellcheck="true"
+            autofocus
+            maxlines="5"
+            ng-model="persistent.decker_grid[$parent.$index][$index].text"
+            ng-focus="persistent.decker_grid[$parent.$index][$index].focused = true"
+            ng-blur="persistent.decker_grid[$parent.$index][$index].focused = false"
+            placeholder="{{decker_grid_labels[$parent.$index]}}"
+            ng-trim="false"></textarea>
+            <span class="sticky-counter"
+              ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 74 && persistent.decker_grid[$parent.$index][$index].focused">
+          {{80 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{persistent.decker_grid[$parent.$index][$index].text.length > 78  ? '' : 's'}} remaining</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- decorations -->
+  <div class="title">My Decker Grid&#8482;</div>
+  <div class="autosaving" ng-show="saving">Autosaving</div>
+  <div class="label-opening">
+    OPENING<span class="glyphicon glyphicon-play"></span>
+  </div>
+  <div class="label-main">
+    MAIN BODY<span class="glyphicon glyphicon-play"></span>
+  </div>
+  <div class="label-closing">
+    CLOSING<span class="glyphicon glyphicon-play"></span>
+  </div>
+
+  <div class="grid-instructions widowText">
+    <b>How it works:</b>
+    <ol>
+      <li>Add your Key Points and Subpoints by clicking on the white <span class="grid-tutorial-plus-small"></span> signs.</li>
+      <li>You can edit, move, add and delete all active sticky notes.</li>
+      <li>Drag stickies into the designated space if you need an idea parking lot.</li>
+    </ol>
+    <!-- 
+    <i>Note that your POV, Action Steps and Benefits are still
+      editable.</i>
+       -->
+    <b>Check out these sample Grids:</b><br />
+
+    <p>
+        <a href="app/images/sample-pdfs/Compliance_Grid_M6.pdf" target="_blank" ng-click="downloadPDF($event)"><span
+          class="icon-grid"></span>Compliance Grid</a>
+      </p>
+      <p>
+        <a
+          href="app/images/sample-pdfs/Performance_Review_Grid_M6.pdf" target="_blank" ng-click="downloadPDF($event)"><span
+          class="icon-grid"></span>Performance Review Grid</a>
+      </p>
+      <p>
+        <a
+          href="app/images/sample-pdfs/Technology_Sales_Pitch_Grid_M6.pdf" target="_blank" ng-click="downloadPDF($event)"><span
+          class="icon-grid"></span>Technology Sales Pitch Grid</a>
+      </p>
+  </div>
+</div>
+
+<div class="print-pdf-button" ng-click="onPrintGrid()">
+  <span class="noselect">
+    Print/PDF
+    
+    <img src="app/images/Decker Grid/icon_print-white.svg" style="margin-left:8px;margin-top:-4px;width:20px;height:20px">
+  </span>
+</div>
+
+<nextbutton></nextbutton>

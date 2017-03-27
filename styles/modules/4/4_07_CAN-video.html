@@ -1,0 +1,35 @@
+<timer name="showVideo" time="1"></timer>
+
+<execute-when condition="true" action="globals.videos.vid4_10.pos = 0"></execute-when>
+
+<div class="page4_07">
+  <div>
+    <decker-video page="true" playerId="vid4_10" class="page-video"
+      src="{{(globals.persistent.peripheral == 'N') ? '4_7_N-video.mp4' : '4_7_CA-video.mp4'}}"
+      controls="false"> </decker-video>
+  </div>
+
+  <div
+    style="z-index: 1000; position: absolute; left: 0; width: 100%; top: 0; height: 100%; background-color: rgba(255, 255, 255, .01)"
+    ng-show="(globals.videos.vid4_10.pos >= 1) && (globals.videos.vid4_10.pos <= 10)">
+
+    <div class="talk-bubble-yellow">
+      <div class="bubble-text">{{persistent.filler4_3}}</div>
+    </div>
+
+    <div class="talk-bubble-red">
+      <div class="bubble-text">{{persistent.filler4_5}}</div>
+    </div>
+
+    <div class="talk-bubble-orange">
+      <div class="bubble-text">{{persistent.filler4_7}}</div>
+    </div>
+
+    <div class="talk-bubble-blue">
+      <div class="bubble-text">{{persistent.filler4_9}}</div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div style="z-index:10000">   ng-style="{'opacity': ((globals.videos.vid4_10.pos >= 1) && (globals.videos.vid4_10.pos <= 10) ? 1 : 0)}"> -->

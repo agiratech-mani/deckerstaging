@@ -1,0 +1,27 @@
+<execute-when condition="globals.persistent.qPerhipheral1.length > 0" action="setPageComplete()"></execute-when>
+
+<div class="setup-page1" ng-controller="WebcamSetupController">
+  <multiplechoice
+    instructions='"Does your computer have a webcam?"'
+    persistent-model="qPerhipheral1" options="['Yes', 'No', 'Not sure']"></multiplechoice>
+
+  <img class="find-camera"
+    src="app/images/Final art/interactive graphics/Webcam setup/find-camera.svg">
+
+  <!--  >div class="lg-instruction-text">Not sure?</div>
+  <div class="sm-instruction-text">If you’ve ever used video chat
+    like Skype on this computer, you probably do.</div -->
+    
+  <div class="xs-instruction-text">And don’t worry—your webcam is secure while using this course,
+  and your video recordings are private and available only to you.</div>
+  <img class="no-broadcasting"
+    src="app/images/Final art/interactive graphics/Webcam setup/no-broadcasting.svg">
+  </div>
+
+<nextbutton></nextbutton>
+
+<!-- 
+<nextbutton 
+  call-default="false"
+  action="$state.go((globals.persistent.qPerhipheral1 == 'Yes') ? '/1_1_03__setupYes2' : '/1_1_03__setupNo2');"></nextbutton>
+ -->

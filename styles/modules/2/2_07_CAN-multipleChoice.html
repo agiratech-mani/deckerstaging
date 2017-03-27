@@ -1,0 +1,18 @@
+<!-- page is complete when the user makes a selection -->
+<execute-when condition="persistent.weight_2_7" action="setPageComplete()"></execute-when>
+
+<timer name="showInstructions2_7" time="10"></timer>
+
+<multiplechoice
+  standard-pos="true"
+  instructions='"Which of these three things do you think carries the most weight?"'
+  persistent-model="weight_2_7"
+  options="['Verbal', 'Vocal', 'Visual']"></multiplechoice>
+
+<div class="instructions-next fadein fadeout nudge-text-help help-tip"
+  ng-show="timers.showInstructions2_7 && !persistent.weight_2_7">
+  Choose one and click Next
+</div>
+
+
+<nextbutton></nextbutton>

@@ -1,0 +1,15 @@
+<svg id="Interactive_elements" data-name="Interactive elements"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 378.26 333">
+    <defs>
+        <style>.cls-1,.cls-4,.cls-5,.cls-6,.cls-7,.cls-9{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#d5e8f2;}.cls-4,.cls-6{stroke:#bdbdbd;}.cls-4,.cls-5{stroke-width:0.65px;}.cls-5{stroke:#bdbcbc;}.cls-6{stroke-width:0.65px;}.cls-7,.cls-9{stroke:#a7a7a7;stroke-linecap:round;stroke-width:1.94px;}.cls-8{fill:#a7a7a7;}.cls-9{stroke-linejoin:round;}.cls-10{fill:#2e8bbd;}.cls-11,.cls-13{fill:#fff;}.cls-12{opacity:0.25;}.cls-13,.cls-14{fill-rule:evenodd;}.cls-14{fill:#f1f297;}.cls-15{fill:#adadad;}</style>
+        <clipPath id="clip-path" transform="translate(-3421.05 -8234.86)">
+            <rect class="cls-1" x="3413.89" y="8229.3" width="392.59" height="338.76"/>
+        </clipPath>
+    </defs>
+    <title>cornerstones-listeners</title>
+    <g class="cls-2">
+        <path class="cls-3" d="M3615.23,8238.81s-5.06-8.87-10.12,0L3422.39,8559s-5.41,8.87,5.48,8.87h364.57s10.55,0,5.49-8.87Z" transform="translate(-3421.05 -8234.86)"/>
+    </g>
+
+ </svg>

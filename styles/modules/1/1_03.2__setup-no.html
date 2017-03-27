@@ -1,0 +1,25 @@
+<execute-when condition="globals.persistent.qPerhipheral2.length > 0" action="setPageComplete()"></execute-when>
+
+<div class="setup-page-no2" ng-controller="WebcamSetupController">
+  <multiplechoice
+    instructions='"Got it. No webcam. Does your computer have a microphone?"'
+    persistent-model="qPerhipheral2" options="['Yes', 'No', 'Not sure']"></multiplechoice>
+
+<!-- 
+  <img class="find-camera"
+    src="app/images/Final art/interactive graphics/Webcam setup/find-camera.svg">
+ -->
+ 
+  <!-- >div class="lg-instruction-text">Not sure?</div>
+  <div class="sm-instruction-text" style="width:600px">
+  If you’ve ever made a call using your computer without a telephone, you probably do.</div 
+
+  <a class="link-mac" href="https://support.skype.com/en/faq/FA34595/solving-your-microphone-issues-mac?platform=mac">
+    Click here for help finding your mic on a mac</a>
+  <a class="link-pc" href="https://support.skype.com/en/faq/FA34595/solving-your-microphone-issues-mac?platform=mac">
+    Click here for help finding your mic on a PC</a>
+-->
+
+<nextbutton></nextbutton>
+
+

@@ -1,0 +1,42 @@
+<execute-when condition="true"
+              action="setDefaultPersistentVal('finalCourse',0)"></execute-when>
+<execute-when
+ condition="true" action="setPageComplete()"></execute-when>
+
+<div class="container page7-15">
+  <div class="row">
+    <div class="text-red-marker lg-text center full-width "><br>Until next time...</div>
+  </div>
+
+  <div class="button-container">
+    <div class="row">
+      <a href="https://www.amazon.com/Communicate-Influence-Inspire-Audience-Action/dp/0071839836" target="_blank">
+        <div class="button_book"></div>
+      </a>
+      <a href="https://decker.com/blog/" target="_blank">
+        <div class="button_blog"></div>
+      </a>
+      <a href="https://decker.com/wp-content/uploads/2015/08/The_Decker_Grid.pdf" target="_blank" ng-click="downloadPDF($event)">
+        <div class="button_grid"></div>
+      </a>
+    </div>
+    
+    <div class="row">
+      <a href="https://twitter.com/deckercomm" target="_blank">
+        <div class="button_twitter"></div>
+      </a>
+      <a href="https://decker.com/contact/" target="_blank">
+        <div class="button_question"></div>
+      </a>
+      <a href="https://www.linkedin.com/company/37380" target="_blank">
+        <div class="button_linkedin"></div>
+      </a>
+    </div>
+    <!-- <a
+      class="finish-course-button fadein fadeout" href="http://decker.litmos.com/account/Welcome" target="_blank" >
+    </a> -->
+    <div
+      class="finish-course-button fadein fadeout" ng-show="globals.persistent.finalCourse == 0" href="#" ng-click="clickFinishCourse()">
+    </div>
+  </div>
+</div>

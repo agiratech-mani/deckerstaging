@@ -1,0 +1,30 @@
+<!-- for alpha -->
+<execute-when condition="persistent.cornerstoneListener" action="setPageComplete()"></execute-when>
+<execute-when condition="true" action="setPersistentVals({csEnableListeners: true, csEnablePOV:false, csEnableActions:false, csEnableBenefits:false})"></execute-when> 
+
+<div class="page-cornerstone">
+
+  <div class="cornerstones-listeners"></div>
+
+  <div class="lg-instruction-text">
+    <div class="number1"></div>
+  	Describe Your Listeners
+  </div>
+
+  <div class="label-cornerstone-title">
+	Click the blue <span class="text-plus">+</span> and type your listener profile
+  </div>
+  
+   <div class="tips-text">
+    <p><b>Tips:</b></p>
+    <ul class="widowText">
+      <li>What are your listeners' needs, thoughts and attitudes?</li>
+      <li>How can you help them?</li>
+      <li>Pick three words that best describe your listeners.</li>
+    </ul>
+  </div>
+  
+  <ng-include src="'app/partials/cornerstones.html'"></ng-include>
+</div>           
+
+<nextbutton></nextbutton>

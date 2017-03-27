@@ -1,0 +1,138 @@
+<execute-when condition="true"
+              action="setDefaultPersistentVal('labFlagging',[])"></execute-when>
+
+<execute-when condition="true"
+              action="setPersistentVals({'flagText':'', 'tutorial706Stage':(globals.persistent.tutorial706Stage?globals.persistent.tutorial706Stage:0)})"></execute-when>
+
+<execute-when
+  condition="((persistent.labFlagging.length > 0) && (globals.persistent.tutorial706Stage == 4))"
+  action="setPageComplete()"></execute-when>
+
+<style>
+  .flagging-page-a .playback-flagging-vid {
+    height: 100px!important;
+    margin-top: 330px!important;
+  }
+</style>
+
+
+<div class="flagging-page" ng-class="{'flagging-page-a': (globals.persistent.peripheral == 'A')}">
+
+  <img
+    src="app/images/Interactive graphics/Lab Playback/red-arrow_down-right.svg"
+    class="arrow-down-right"
+   ng-show="globals.persistent.tutorial706Stage == 0"
+  ></img>
+
+  <img src="app/images/Interactive graphics/Lab Playback/red-arrow_down-left.svg"
+    class="arrow-down-left"
+   ng-show="globals.persistent.tutorial706Stage == 1"
+  ></img>
+  <img src="app/images/Interactive graphics/Lab Playback/red-arrow_right.svg"
+    class="arrow-right"
+   ng-show="globals.persistent.tutorial706Stage == 3"
+  ></img>
+  <img src="app/images/Interactive graphics/Lab Playback/red-arrow_up.svg"
+    class="arrow-up"
+   ng-show="globals.persistent.tutorial706Stage == 3"
+  ></img>
+
+
+
+  <div class="tutorial widowText" ng-show="globals.persistent.tutorial706Stage == 0">
+    <span ng-show="globals.persistent.peripheral == 'C'">
+      Next up, you’ll be playing your video back to flag moments where you see anything of note — be it a Keeper or Improvement. You’ll press Play to begin.
+    </span>
+    <span ng-show="globals.persistent.peripheral == 'A'">
+      Next up, you’ll be listening back to your recording to flag moments where you see anything of note — be it a Keeper or Improvement. You’ll press Play to begin.
+    </span>
+    <a href="" class="next-link"
+    ng-click="globals.persistent.tutorial706Stage = 1">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial" ng-show="globals.persistent.tutorial706Stage == 1">
+    <span ng-show="globals.persistent.peripheral == 'C'">
+      When you see anything you want to comment on, write your thoughts and click Post to keep playing.
+    </span>
+    <span ng-show="globals.persistent.peripheral == 'A'">
+      When you hear anything you want to comment on, click the pause button, write your thoughts and click Post to keep playing.
+    </span>
+    <a href="" class="next-link"
+    ng-click="globals.persistent.tutorial706Stage = 2">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial" ng-show="globals.persistent.tutorial706Stage == 2">
+    <span ng-show="globals.persistent.peripheral == 'C'">
+    Be on the lookout for feedback on the Behaviors of Trust and also listen for content like your SHARPs, POV, Action Steps and Benefits. 
+    </span>
+    <span ng-show="globals.persistent.peripheral == 'A'">
+    You can give feedback on the Behaviors of Trust that you hear, like volume, pitch and pace. Also listen for content like your SHARPs, POV, Action Steps and Benefits.
+    </span>
+    <a href="" class="next-link"
+    ng-click="globals.persistent.tutorial706Stage = 3">NEXT &gt;</a>
+  </div>
+
+  <div class="tutorial" ng-show="globals.persistent.tutorial706Stage == 3">
+    You’ll see your flags added to your Flag Log with timestamps as you go.<br>
+    <b>Ready? Let’s start flagging.</b>
+    <a href="" class="next-link"
+      ng-click="globals.persistent.tutorial706Stage = 4">NEXT &gt;</a>
+  </div>
+  
+  <div class="container" >
+
+ <!--  ng-class="{'disabled-full-opacity':(globals.persistent.tutorial706Stage == -1)}" -->
+    
+    <div class="instructions" style="font-size: 34px">
+      What worked well? Not so well? Flag it. Note it. Learn from it.
+    </div>
+    
+    <decker-video
+    style="left:30px; top: 10px"
+      class="playback-flagging-vid flag-css"
+      autoplay="false"
+      video="getLastRecording('page7_03')"
+      flags="persistent.labFlagging"
+      playerid="playback_7_05"
+      aspectratio="auto"></decker-video>
+    
+      <div class="flag-log">
+        <div class="title-bar">
+          <div class="flag-icon"></div>
+          Flag Log
+        </div>
+        <div class="flag-contents">
+          <div class="flag-note" ng-repeat="flag in persistent.labFlagging | orderBy:'time'">
+            <div class="flag-time">{{(flag.time*1000) | date : 'm:ss'}}</div>
+            <div class="flag-text">{{flag.text}}</div>
+            <div class="delete-flag" ng-click="persistent.labFlagging.splice($index, 1)">            
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  
+  <input ng-model="pageModel.flagText"
+    placeholder="Type your comments here..."
+    ng-change="pauseVideo('playback_7_05')"
+    ></input>
+  
+  <div class="post-button"
+    ng-disabled="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
+    ng-click="persistent.labFlagging.push(
+      {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
+      pageModel.flagText = '';
+      playVideo('playback_7_05');">
+  </div>
+
+
+  <div style="position:absolute;bottom:0" ng-if="false">
+  {{globals.videos.playback_7_05}}
+  {{persistent.labFlagging}}
+  </div>
+
+</div>
+
+<nextbutton></nextbutton>

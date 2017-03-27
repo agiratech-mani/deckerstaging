@@ -6,7 +6,7 @@ if(!empty($_POST['datauri'])){
     $path = pathinfo($reqfolder);
     $extension = $path['extension'];
     $filen =  $path['filename'];
-    $folder = $basefolder.$filen."_".strtotime((new DateTime())->format("Y-m-d h:i:s")).".".$extension;
+    $folder = $basefolder.$filen."_".(new DateTime())->format("Ymdhis").".".$extension;
     if(file_exists($folder))
     {
         unlink($folder);             

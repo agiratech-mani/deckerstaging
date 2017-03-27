@@ -2,10 +2,14 @@
 if(!empty($_POST['datauri'])){
     $basefolder = $_POST['basefolder'];
     $filename = $_POST['filename'];
-    $folder = $basefolder.$filename;
+    $reqfolder = $basefolder.$filename;
+    $path = pathinfo($reqfolder);
+    $extension = $path['extension'];
+    $filen =  $path['filename'];
+    $folder = $basefolder.$filen."_".strtotime((new DateTime())->format("Y-m-d h:i:s")).".".$extension;
     if(file_exists($folder))
     {
-        unlink($folder);     
+        unlink($folder);             
     }
     if(!is_dir($basefolder))
     {

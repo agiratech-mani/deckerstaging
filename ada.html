@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf8" />
+		<title>Demoing the Adapter JS</title>
+		<script src="//cdn.temasys.io/adapterjs/0.14.x/adapter.min.js" defer></script>
+		<script src="//cdn.temasys.io/adapterjs/0.14.x/adapter.screenshare.min.js" defer></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.addEventListener('load', function() {
+				AdapterJS.webRTCReady(function(isUsingPlugin) {
+				    console.log("The WebRTC API is ready.");
+				    console.log(MediaStreamTrack);
+				    //isUsingPlugin: true is the WebRTC plugin is being used, false otherwise
+				    //getUserMedia(constraints, successCb, failCb);
+				});
+			});
+		</script>
+	</body>
+</html>

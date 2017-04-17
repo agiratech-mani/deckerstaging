@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src='webaudiox.js'></script>
+</head>
+<body>
+    <script>
+        // create WebAudio API context
+        var context = new AudioContext()
+        console.log(context);
+        /*// Create lineOut
+        var lineOut = new WebAudiox.LineOut(context)
+
+        // load a sound and play it immediatly
+        WebAudiox.loadBuffer(context, 'sound.wav', function(buffer){
+            // init AudioBufferSourceNode
+            var source  = context.createBufferSource();
+            source.buffer   = buffer
+            source.connect(lineOut.destination)
+
+            // start the sound now
+            source.start(0);
+        });*/
+    </script>
+</body>
+</html>

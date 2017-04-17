@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+	try {
+	  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	  audio_context = new AudioContext();
+	  console.log("cool audio context established");
+
+	} catch (e) {
+	  alert('Web Audio API is not supported by this browser and/or its current config\n');
+	}
+</script>
+</body>
+</html>

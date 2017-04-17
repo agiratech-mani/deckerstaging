@@ -26,7 +26,12 @@
       }
       .draggable-holder1 {
         left: 234px;
-        top: 0px;
+        top: 1px;
+      }
+      _:-ms-lang(x), _:-webkit-full-screen, .draggable-holder1 {
+        left: 234px;
+        top: 1px !important;
+
       }
       .draggable-holder2 {
         left: 0px;
@@ -63,7 +68,16 @@
   .p-4-20-draggable-rectangle {
     position: absolute!important;
     width: 219px;
-    height: 74px;
+    height: 73px;
+    display: inline-block;
+  }
+
+  _:-ms-lang(x), _:-webkit-full-screen, .p-4-20-draggable-rectangle {
+    position: absolute!important;
+    left: -1px !important;
+    top: 0px !important;
+    width: 219px;
+    height: 70px;
     display: inline-block;
   }
   
@@ -81,6 +95,12 @@
     width:213px !important;
     height:73px !important;
     .p-4-20-rectangle;
+  }
+
+  _:-ms-lang(x), _:-webkit-full-screen, .p-4-20-dotted-rectangle-blue {
+    width:214px !important;
+    height:69px !important;
+    
   }
   
   .p-4-20-eye-communication {

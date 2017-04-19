@@ -1,0 +1,38 @@
+<!-- page is complete when the user makes a selection -->
+<execute-when condition="persistent.workon_4_10" action="setPageComplete()"></execute-when>
+
+<timer name="showInstructions4_10" time="10"></timer>
+
+
+<style>
+  .multiple-choice-tip {
+    left: 30%;
+    top: 50%;
+  }
+  .next-tip {
+    right: 30px;
+    bottom: 80px;
+  }
+  
+  .page4_10 .multiple-choice {
+    width: 90%;
+    top: 10%;
+  }
+</style>
+
+<div class="page4_10">
+<multiplechoice
+                instructions='"What do you think your voice sounds like?"'
+                persistent-model="workon_4_10"
+                options="['Too loud?', 'Too soft?','Plagued by upspeak?','Monotone','Honestly, I don’t know']"></multiplechoice>
+
+
+<div class="fadein fadeout help-tip multiple-choice-tip" ng-show="showInstructions4_10 && ! globals.canNextPage">
+  Choose one and click Next
+</div>
+
+<div class="fadein fadeout help-tip next-tip" ng-show="showInstructions4_10 && globals.canNextPage">
+  Click to submit your answer
+</div>
+<nextbutton></nextbutton>
+</div>

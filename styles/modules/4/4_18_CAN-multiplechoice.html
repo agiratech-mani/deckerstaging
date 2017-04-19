@@ -1,0 +1,31 @@
+<!-- page is complete when the user makes a selection -->
+<execute-when condition="persistent.workon_4_22" action="setPageComplete()"></execute-when>
+
+<timer name="showInstructions4_22" time="10"></timer>
+
+<multiplechoice
+  instructions='"What do you think you need to work on more &#151; pitch or volume?"'
+  standard-pos="true"
+  persistent-model="workon_4_22"
+  options="['Pitch', 'Volume']"></multiplechoice>
+
+<style>
+  .multiple-choice-tip {
+    left: 30%;
+    top: 50%;
+  }
+  .next-tip {
+    right: 30px;
+    bottom: 80px;
+  }
+</style>
+
+<div class="fadein fadeout nudge-text-help  help-tip next-tip" ng-show="timers.showInstructions4_22 && ! persistent.workon_4_22">
+  Choose one and click Next
+</div>
+
+<div class="fadein fadeout nudge-text-help help-tip next-tip" ng-show="timers.showInstructions4_22 && globals.canNextPage && persistent.workon_4_22"">
+  Click to submit your answer
+</div>
+
+<nextbutton save-message="1"></nextbutton>

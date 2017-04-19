@@ -43,7 +43,7 @@
   <br>
 
   <div class="row playback-column-fullwidth clsWaveGraphFullWidth">
-    <div class="clearfix" ng-if="detectedBrowser == 'ie'">
+    <div class="clearfix">
       <wavanalysisgraphie
         type="pitches"
         playerId="playback_4_17"
@@ -61,7 +61,7 @@
         ></wavanalysisgraphie>
     <br>        
     </div>
-    <div class="clearfix"  ng-if="detectedBrowser != 'ie'">
+    <!-- <div class="clearfix"  ng-if="detectedBrowser != 'ie'">
       <wavanalysisgraph
         type="pitches"
         playerId="playback_4_17"
@@ -78,7 +78,7 @@
         offset-x="session.debugPitchParams ? globals.persistent.offsetX : 5"
         ></wavanalysisgraph>
         <br>        
-    </div>
+    </div> -->
     <div class="clearfix">
       <div style="margin-left: 50px;width: 875px;text-align: right;">
         {{videos.playback_4_17.currenttime || '0:00'}} / {{ globals.videos.playback_4_17.duration || 0 | round}}

@@ -1,0 +1,45 @@
+<html>
+    <head>
+    	<script src='jwplayer/jwplayer.js' ></script><script>jwplayer.key='CdMY58Jz32Kn0Ni1dyNhGKWnBOowCDMM5M3TBQ==';</script>
+    </head>
+    <body>
+        <div id="player">Loading the player...</div>
+        <script>
+            // Setup the player
+            window.onload = function(){
+            		var playerInstance = jwplayer("player");
+		            	/*playerInstance.setup({
+						      'flashplayer': "jwplayer/jwplayer.flash.swf",
+						      'controlbar': "bottom",
+						      'dock':false,
+						      'provider': 'rtmp',
+		          		'file': 'rtmp://52.53.192.97:1935/vod/flv:videoStream_1492763503362_689.flv',
+						      'width': "500",
+						      'height': "500",
+						    });*/ 
+		            playerInstance.setup({
+						      'autostart': true,
+						      'file': "rtmp://52.53.192.97:1935/vod/flv:videoStream_1492767021672_448.flv",
+						      'flashplayer': "jwplayer/jwplayer.flash.swf",
+						      'height': "100%",
+						      'id': "jwplayer_4",
+						      'playlist.position': "bottom",
+						      'playlist.size': "150",
+						      'provider': "rtmp",
+						      'streamer': "rtmp://52.53.192.97:1935/vod",
+						      'width': "300",
+						      'height': "300",
+						      'wmode': "transparent"
+						    }); 
+
+		            	
+
+		            playerInstance.on('ready', function(event){
+									//sharingPlugin = jwplayer().getPlugin('sharing');
+									console.log("ready");
+									//playerInstance.play();
+								});
+						}
+        </script>
+    </body>
+</html>

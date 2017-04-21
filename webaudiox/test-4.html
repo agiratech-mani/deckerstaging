@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="//cdn.temasys.io/adapterjs/0.14.x/adapter.debug.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	try
+	{
+		console.log("MediaStreamTrack");
+		if(window.MediaStreamTrack === undefined)
+		{
+			console.log("MediaStreamTrack is undefined");
+		}
+		else
+		{
+			console.log(window.MediaStreamTrack);
+		}
+	}
+	catch(e)
+	{
+		console.log(e);
+	  alert('MediaStreamTrack Web Audio API');
+	}
+	try {
+		AdapterJS.webRTCReady(function(isUsingPlugin) {
+			console.log("webRTCReady");
+			console.log("isUsingPlugin",isUsingPlugin);
+		});
+	} catch (e) {
+		console.log(e);
+	  alert('Web Audio API is not supported by this browser and/or its current config\n');
+	}
+</script>
+</body>
+</html>

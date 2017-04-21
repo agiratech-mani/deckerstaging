@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="//cdn.temasys.io/adapterjs/0.14.x/adapter.debug.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	try {
+		AdapterJS.webRTCReady(function(isUsingPlugin) {
+			console.log("webRTCReady");
+			console.log("AudioContext:",AudioContext);
+		  console.log("webkitAudioContext",webkitAudioContext);
+		  console.log("mozAudioContext",mozAudioContext);
+		  console.log("oAudioContext",oAudioContext);
+		  console.log("msAudioContext",msAudioContext);
+		});
+	} catch (e) {
+		console.log(e);
+	  alert('Web Audio API is not supported by this browser and/or its current config\n');
+	}
+</script>
+</body>
+</html>

@@ -6,9 +6,9 @@
     padding-top:80px;
     font-size: 24px!important;
   }
- /* .playback4_12_page .playback-controls-only {
+  .playback4_12_page .playback-controls-only {
     width: 360px!important;
-  }*/
+  }
 </style>
 
 <div class="container playback4_12_page">
@@ -19,8 +19,9 @@
   <br>
   <br>
   <div class="row playback-column-fullwidth">
+    
     <div class="col-xs-4 playback-column">
-      <decker-video ng-class="(globals.persistent.peripheral == 'A'?'playback-controls-only playback-user-vid':'playback-user-vid')" autoplay="false" video="getLastRecording('page4_11')"
+      <decker-video class="playback-user-vid" autoplay="false" video="getLastRecording('page4_11')"
         id="playback_4_11"
         aspectratio="auto"></decker-video>
     </div>

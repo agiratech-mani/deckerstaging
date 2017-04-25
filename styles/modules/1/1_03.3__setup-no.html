@@ -1,4 +1,4 @@
-<execute-when condition="globals.persistent.affadavit.length > 0" action="setPageComplete()"></execute-when>
+<execute-on-change condition="globals.persistent.affadavit.length > 0" action="setPageComplete()"></execute-on-change>
 <execute-when condition="true"
   action="globals.persistent.showAffadavitPopup = (globals.persistent.showAffadavitPopup >= 1?1:0)"></execute-when>
 <style>

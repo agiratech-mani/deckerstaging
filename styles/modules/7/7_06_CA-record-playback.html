@@ -120,20 +120,13 @@
     ></input>
   
   <div class="post-button"
-    ng-hide="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
+    ng-disabled="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
     ng-click="persistent.labFlagging.push(
       {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
       pageModel.flagText = '';
       playVideo('playback_7_05');">
   </div>
-  <div class="post-button"
-    disabled="disabled"
-    ng-show="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
-    ng-click="persistent.labFlagging.push(
-      {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
-      pageModel.flagText = '';
-      playVideo('playback_7_05');">
-  </div>
+
 
   <div style="position:absolute;bottom:0" ng-if="false">
   {{globals.videos.playback_7_05}}

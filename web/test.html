@@ -12,13 +12,15 @@
 			//var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
 			//console.log("xmlDoc",xmlDoc);
 
-			/*var oSdpLocal, oSdpRemote;
+			var oSdpLocal, oSdpRemote;
 			var oPeerConnection;
 
 			// this is not part of the standard but is required WebRtc4all_Init();
 
 			// creates the peerconnection 
 			oPeerConnection = new w4aPeerConnection("STUN stun.l.google.com:19302", function(o_candidate, b_moreToFollow) {
+				console.log("o_candidate",o_candidate);
+				console.log("b_moreToFollow",b_moreToFollow);
 			    if (o_candidate) {
 			        oSdpLocal.addCandidate(o_candidate);
 			    }
@@ -30,7 +32,7 @@
 			});
 
 			// creates SDP offer, starts ICE and wait until ICE gathering finish (see above) 
-			oSdpLocal = oPeerConnection.createOffer({
+			/*oSdpLocal = oPeerConnection.createOffer({
 			    has_audio: true,
 			    has_video: true
 			});

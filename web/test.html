@@ -6,7 +6,9 @@
 		function func()
 		{
 			console.log("window.MediaStreamTrack",navigator);
-			console.log("window",window);
+			console.log("window",window.MediaList);
+			var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+			console.log("xmlDoc",xmlDoc);
 		}
 	</script>
 </head>

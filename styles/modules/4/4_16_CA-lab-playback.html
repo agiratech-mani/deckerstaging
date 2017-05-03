@@ -1,11 +1,10 @@
-<execute-when condition="videos.playback_4_20.pos >= ((videos.playback_4_20.duration | number:0) - 1)" action="setPageComplete()"></execute-when>
+<execute-when condition="videos.playback_4_20.pos > 0" action="setPageComplete()"></execute-when>
 
 <style>
   .instructions-col {
     padding-right: 60px;
     font-size: 24px!important;
   }
-  
 </style>
 <div class="container">
   <br>
@@ -14,9 +13,16 @@
   
   <br>
 
-  <div class="row playback-column-fullwidth clsWaveGraphFullWidth">
-   <div class="clearfix">
-    <wavanalysisgraph
+  <div class="row">
+    <div class="col-xs-4 playback-column">
+      <decker-video class="playback-user-vid" autoplay="false" video="getLastRecording('page4_11')"
+        id="playback_4_20"
+        aspectratio="auto"></decker-video>
+    </div>
+
+    <div class="col-xs-7 xs-instruction-text instructions-col">
+
+      <wavanalysisgraph
         type="amplitudes"
         playerId="playback_4_20"
         data="getLastRecording('page4_11')"
@@ -25,29 +31,12 @@
         pos="globals.videos.playback_4_20.pos"
         yaxis="Volume"
         alpha=".25"></wavanalysisgraph>
-    </div>
-    <div class="clearfix">
-    <div class="col-xs-1 playback-column">
-
-      <!-- <div ng-class="{'video-playback-pausebtn': !globals.wavePlaying, 'video-playback-btn': globals.wavePlaying}" ng-click="playWaveSurfer()">
-      </div> -->
-      
-        <decker-video class="playback-user-vid playback-user-vid-vol" autoplay="false" video="getLastRecording('page4_11')"
-        id="playback_4_20"
-        aspectratio="auto"></decker-video>
-     
-
-    </div>
-
-    <div class="col-xs-7 xs-instruction-text instructions-col pitch-column-fullwidth">
-
     
       <p>Play back your recording.<p> 
   
       <p>Look at the graph to see how your volume changes &#151; or doesn't.</p>
       
       <p>Does your voice show highs and lows?</p>
-    </div>
     </div>
   </div>
 </div>

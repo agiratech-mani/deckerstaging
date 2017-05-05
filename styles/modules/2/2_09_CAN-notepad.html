@@ -8,17 +8,20 @@
     <div class="header">Where do you spend your time preparing?</div>
 
     <div class="prompt">
-      <input auto-focus type="number" name="input" ng-model="persistent.percent2_9_3" required>
+      <!-- <input auto-focus type="number" name="input" ng-model="persistent.percent2_9_3" required> -->
+      <input type="text"  name="percent2_9_3" ng-model="persistent.percent2_9_3" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
       % Verbal
     </div>
 
     <div class="prompt">
-      <input type="number" name="input" ng-model="persistent.percent2_9_2" required>
+      <!-- <input type="number" name="percent2_9_2" ng-model="persistent.percent2_9_2" required> -->
+      <input type="text"  name="input" ng-model="persistent.percent2_9_2" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
       % Vocal
     </div>
 
     <div class="prompt">
-      <input type="number" name="input" ng-model="persistent.percent2_9_1" required>
+      <!-- <input type="number" name="input" ng-model="persistent.percent2_9_1" required> -->
+      <input type="text"  name="percent2_9_1" ng-model="persistent.percent2_9_1" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
       % Visual
     </div>
     

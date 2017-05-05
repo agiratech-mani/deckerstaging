@@ -22,32 +22,27 @@
       }
       .draggable-holder0 {
         left: -1px;
-        top: 1px;
+        top: 0px;
       }
       .draggable-holder1 {
         left: 234px;
-        top: 1px;
-      }
-      _:-ms-lang(x), _:-webkit-full-screen, .draggable-holder1 {
-        left: 234px;
-        top: 1px !important;
-
+        top: 0px;
       }
       .draggable-holder2 {
         left: 0px;
         top: 93px;
       }
       .draggable-holder3 {
-        left: 233px;
-        top: 92px;
+        left: 234px;
+        top: 93px;
       }
       .draggable-holder4 {
-        left: 233px;
-        top: 185px;
+        left: 234px;
+        top: 186px;
       }
       /*.draggable-holder5 {
-        left: 233px;
-        top: 185px;
+        left: 234px;
+        top: 186px;
       }*/
     }
     .right-col {
@@ -60,25 +55,14 @@
   
   // sadly, these can't be subclasses, since the draggables are removed from the parent when they are animated into position
   .p-4-20-rectangle {
-    width: 220px;
-    height: 73px;
+    width: 217px;
+    height: 70px;
     display: inline-block;
   }
   
   .p-4-20-draggable-rectangle {
     position: absolute!important;
-    width: 219px;
-    height: 73px;
-    display: inline-block;
-  }
-
-  _:-ms-lang(x), _:-webkit-full-screen, .p-4-20-draggable-rectangle {
-    position: absolute!important;
-    left: -1px !important;
-    top: 0px !important;
-    width: 219px;
-    height: 70px;
-    display: inline-block;
+    .p-4-20-rectangle;
   }
   
   .p-4-20-dotted-rectangle-gray {
@@ -91,17 +75,10 @@
   .p-4-20-dotted-rectangle-blue {
     position: relative;
     background-image: url(modules/4/4_20-assets/dotted-rectangle-blue.svg);
-    margin: 14px;
+    margin: 13px;
     width:213px !important;
     height:73px !important;
     .p-4-20-rectangle;
-  }
-
-  _:-ms-lang(x), _:-webkit-full-screen, .p-4-20-dotted-rectangle-blue {
-    margin: 13px !important;
-    width:214px !important;
-    height:69px !important;
-    
   }
   
   .p-4-20-eye-communication {

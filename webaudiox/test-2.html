@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="howler.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	try {
+
+	  //window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.oAudioContext || window.msAudioContext;
+	  console.log("AudioContext:",window.AudioContext);
+	  console.log("webkitAudioContext",window.webkitAudioContext);
+	  console.log("mozAudioContext",window.mozAudioContext);
+	  console.log("oAudioContext",window.oAudioContext);
+	  console.log("msAudioContext",window.msAudioContext);
+	  /*window.AudioContext = window.AudioContext ? new window.AudioContext() :
+	              	 window.webkitAudioContext ? new window.webkitAudioContext() :
+	                 window.mozAudioContext ? new window.mozAudioContext() :
+	                 window.oAudioContext ? new window.oAudioContext() :
+	                 window.msAudioContext ? new window.msAudioContext() :
+	                 undefined;*/
+	  //audio_context = new AudioContext();
+	  console.log("cool audio context established");
+	} catch (e) {
+		console.log(e);
+	  alert('Web Audio API is not supported by this browser and/or its current config\n');
+	}
+</script>
+</body>
+</html>

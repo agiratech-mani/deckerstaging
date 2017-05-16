@@ -1,0 +1,21 @@
+<execute-when
+  condition="persistent.notepad3_05A1.length && persistent.notepad3_05A2.length"
+  action="setPageComplete()"></execute-when>
+
+<execute-when
+  condition="persistent.notepad3_05A.length < 2"
+  action="setPageComplete(0)"></execute-when>
+
+<div class="integrated-notepad integrated-notepad-higher">
+  <div class="entry">
+    <div class="header">How did it feel to dart your eyes quickly?</div>
+    <textarea auto-focus maxlength="100" spellcheck="true" ng-model="persistent.notepad3_05A1" rows="2"></textarea>
+  </div>
+  
+  <div class="entry">
+    <div class="header">Did it feel more like eye communication when you had to look for 5 full seconds? Describe in a few words.</div>
+    <textarea maxlength="100" spellcheck="true" ng-model="persistent.notepad3_05A2" rows="2"></textarea>
+  </div>
+</div>
+
+<nextbutton save-message="true"></nextbutton>

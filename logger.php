@@ -10,14 +10,14 @@
 	$session_id = '';
 	$created = date('Y-m-d H:i:s');
 	
-	$servername = "localhost";
-	$username = "decker_deckerc";
-	$password = "wu7fZzhyGKCZ"; //Your User Password
-	$dbname = "decker_dcommweb"; //Your Database Name
 	// $servername = "localhost";
-	// $username = "root";
-	// $password = "root"; //Your User Password
-	// $dbname = "deckercomm"; //Your Database Name
+	// $username = "decker_deckerc";
+	// $password = "wu7fZzhyGKCZ"; //Your User Password
+	// $dbname = "decker_dcommweb"; //Your Database Name
+	$servername = "localhost";
+	$username = "root";
+	$password = "root"; //Your User Password
+	$dbname = "deckercomm"; //Your Database Name
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);

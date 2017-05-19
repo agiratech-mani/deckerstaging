@@ -9,11 +9,11 @@
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$session_id = '';
 	$created = date('Y-m-d H:i:s');
-	
+
 	$servername = "localhost";
-	$username = "decker_deckerc";
-	$password = "wu7fZzhyGKCZ"; //Your User Password
-	$dbname = "decker_dcommweb"; //Your Database Name
+	$username = "root";
+	$password = "root"; //Your User Password
+	$dbname = "deckercomm"; //Your Database Name
 
 
 	// Create connection

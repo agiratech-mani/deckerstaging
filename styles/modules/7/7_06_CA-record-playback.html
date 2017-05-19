@@ -129,7 +129,6 @@
     ng-change="pauseVideo('playback_7_05')"
     ></input>
   
-<<<<<<< HEAD
   <div class="post-button (globals.persistent.peripheral == 'A'?flagging-controls-only:'')"
     ng-hide="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
     ng-click="persistent.labFlagging.push(
@@ -140,27 +139,11 @@
   <div class="post-button (globals.persistent.peripheral == 'A'?flagging-controls-only:'')"
     disabled="disabled"
     ng-show="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
-||||||| merged common ancestors
-  <div class="post-button"
-    ng-hide="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
     ng-click="persistent.labFlagging.push(
       {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
       pageModel.flagText = '';
       playVideo('playback_7_05');">
   </div>
-  <div class="post-button"
-    disabled="disabled"
-    ng-show="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
-=======
-  <div class="post-button"
-    ng-disabled="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
->>>>>>> 0ad73b1af1c191d1bc1d03a6fd621c66721f7699
-    ng-click="persistent.labFlagging.push(
-      {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
-      pageModel.flagText = '';
-      playVideo('playback_7_05');">
-  </div>
-
 
   <div style="position:absolute;bottom:0" ng-if="false">
   {{globals.videos.playback_7_05}}

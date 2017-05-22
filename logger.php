@@ -14,7 +14,7 @@
 		$data = $request->data;
 		$place = $request->place;
 
-		$log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.date("F j, Y, H:i:s").PHP_EOL.
+		$log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.date("F j, Y, g:i a").PHP_EOL.
 	        "URL: ".$url.PHP_EOL.
 	        "PLACE: ".$place.PHP_EOL.
 	        "UserAgent: ".$userAgent.PHP_EOL.

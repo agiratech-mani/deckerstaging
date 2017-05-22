@@ -1,20 +1,18 @@
 <?php
-
-try
+	try
 	{
-	$postdata = file_get_contents("php://input");
-  	$request = json_decode($postdata);
-	$url = $request->url;
-	//$browser = ucwords($request->browser);
-	 $userAgent = $request->userAgent;
+		$postdata = file_get_contents("php://input");
+	  $request = json_decode($postdata);
+	  $url = $request->url;
+	  //$browser = ucwords($request->browser);
+	  $userAgent = $request->userAgent;
 		$obj = get_browser($request->userAgent, true);
-	$os = $obj['platform'].' '.$obj['platform_bits'].' bit';
+		$os = $obj['platform'].' '.$obj['platform_bits'].' bit';
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$session_id = '';
 		$created = date('Y-m-d H:i:s');
 		$data = $request->data;
 		$place = $request->place;
- 
 
 		$log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.date("F j, Y, g:i a").PHP_EOL.
 	        "URL: ".$url.PHP_EOL.
@@ -29,7 +27,6 @@ try
 	  	mkdir("./logs",'0755');
 		}*/
 		file_put_contents('./logs/log_'.date("j_n_Y").'.txt', $log, FILE_APPEND);
- 
 
 		
 		// $servername = "localhost";
@@ -57,10 +54,10 @@ try
 		// } else {
 		//     echo "Error: " . $sql . "<br>" . $conn->error;
 		// }
- 
+
 		// $conn->close();
 	}
 	catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 	}
- ?>
+?>

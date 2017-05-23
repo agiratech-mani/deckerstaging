@@ -98,7 +98,7 @@
     
     <decker-video
       style="left:30px; top: 10px"
-      class="playback-flagging-vid (globals.persistent.peripheral == 'A'?playback-controls-only:'') flag-css"
+      class="playback-flagging-vid {{globals.persistent.peripheral == 'A'?'playback-controls-only':''}} flag-css"
       autoplay="false"
       video="getLastRecording('page7_03')"
       flags="persistent.labFlagging"
@@ -124,19 +124,19 @@
 
   
   <input ng-model="pageModel.flagText"
-    class="(globals.persistent.peripheral == 'A'?flagging-controls-only:'')" 
+    class="{{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}" 
     placeholder="Type your comments here..."
     ng-change="pauseVideo('playback_7_05')"
     ></input>
   
-  <div class="post-button (globals.persistent.peripheral == 'A'?flagging-controls-only:'')"
+  <div class="post-button {{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}"
     ng-hide="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
     ng-click="persistent.labFlagging.push(
       {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
       pageModel.flagText = '';
       playVideo('playback_7_05');">
   </div>
-  <div class="post-button (globals.persistent.peripheral == 'A'?flagging-controls-only:'')"
+  <div class="post-button {{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}"
     disabled="disabled"
     ng-show="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
     ng-click="persistent.labFlagging.push(

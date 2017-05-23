@@ -14,14 +14,15 @@
 <div class="container playback4_12_page">
   <br>
   <br>
-  <div class="row lg-instruction-text center">Click play to hear your voice</div>
+  <div class="row lg-instruction-text center">Click play to hear your voice {{globals.persistent.peripheral}} {{globals.persistent.peripheral == 'A'?'playback-controls-only':'playback-user-vid-lg'}}</div>
   
   <br>
   <br>
   <div class="row playback-column-fullwidth">
     
     <div class="col-xs-4 playback-column">
-      <decker-video class="(globals.persistent.peripheral == 'A'?playback-controls-only:playback-user-vid)" autoplay="false" video="getLastRecording('page4_11')"
+      <decker-video class="{{globals.persistent.peripheral == 'A'?'playback-controls-only':'playback-user-vid-lg'}}"
+        autoplay="false" video="getLastRecording('page4_11')"
         id="playback_4_11"
         aspectratio="auto"></decker-video>
     </div>

@@ -88,7 +88,7 @@
       <div class="playback-column" style="width:70px;float:left;" >
           <!-- <div ng-class="{'video-playback-btn': !globals.wavePlaying, 'video-playback-pausebtn': globals.wavePlaying}" ng-click="playWaveSurfer()">
           </div> -->
-            <decker-video class="(globals.persistent.peripheral == 'A'?playback-controls-only:playback-user-vid) playback-user-vid-vol" autoplay="false" video="getLastRecording('page4_11')"
+            <decker-video class="{{globals.persistent.peripheral == 'A'?playback-controls-only:playback-user-vid}} playback-user-vid-vol" autoplay="false" video="getLastRecording('page4_11')"
             id="playback_4_17"
             aspectratio="auto"></decker-video>
         </div>

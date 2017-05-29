@@ -44,7 +44,7 @@
 
   <div class="row playback-column-fullwidth clsWaveGraphFullWidth">
     <div class="clearfix">
-      <wavanalysisgraphie ng-if="detectedBrowser == 'ie'"
+      <wavanalysisgraphie ng-if="detectedBrowser == 'ie' || detectedBrowser == 'safari'"
         type="pitches"
         playerId="playback_4_24"
         vrecorderId="page4_24"
@@ -57,7 +57,7 @@
         <br>        
     </div>
     <div class="clearfix">
-      <wavanalysisgraph ng-if="detectedBrowser != 'ie'"
+      <wavanalysisgraph ng-if="detectedBrowser != 'ie' && detectedBrowser != 'safari'"
         type="pitches"
         playerId="playback_4_24"
         vrecorderId="page4_24"

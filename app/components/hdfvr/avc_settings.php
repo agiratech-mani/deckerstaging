@@ -255,7 +255,7 @@ $config["showTimer"] = "false";
  values: "false" to hide it "true" to show it
  default: "true"
 */
-$config["showSoundBar"] = "showSoundBar";
+$config["showSoundBar"] = "false";
 
 /*
  flipImageHorizontally: String

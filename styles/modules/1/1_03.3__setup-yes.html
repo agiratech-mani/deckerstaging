@@ -1,7 +1,9 @@
 <timer name="testingSetup" time="5"></timer>
+
 <execute-when
   condition="true"
   action="setPageComplete(0)"></execute-when>
+  
 <execute-on-change
   condition="(microphoneInput || cameraAccess)"
   action="setPageComplete(((microphoneInput || cameraAccess)?1:0))"></execute-on-change>
@@ -35,23 +37,53 @@
 </style>
 
 <div class="setup-page3-yes" ng-controller="WebcamSetupController">
-  <execute-when
-    condition="(globals.persistent.vrecorders.setupRecorder.cameraAccess || microphoneInput) && ! timers.testingSetup"
-    action="advanceAfterSetupDetected()"></execute-when>
 
-  <execute-when
-    condition="(!(globals.persistent.vrecorders.setupRecorder.cameraAccess || microphoneInput)) && timers.testingSetup"
-    action="advanceAfterSetupNotDetected()"></execute-when>
+<execute-when
+  condition="(globals.persistent.vrecorders.setupRecorder.cameraAccess || microphoneInput) && ! timers.testingSetup && ! session.showFlashSetup"
+  action="advanceAfterSetupDetected()"></execute-when>
 
   <div class="instructions">
-    <h2>Please stand by...</h2>
+    <h2 ng-show="session.showFlashSetup">
+      Make the screen on the right<br>match the
+      image on the left.
+    </h2>
+    <h2 ng-show="! session.showFlashSetup">Please stand by...</h2>
+
   </div>
-  <div class="instructions instructions-text">  
+  <div ng-show="! session.showFlashSetup" class="instructions instructions-text">  
     <h3>
       We are detecting your device please hold on. If you see any pop-ups along the way, click "Allow".
     </h3>
   </div> 
+
+  <div ng-show="session.showFlashSetup" class="setup-instructions">
+    <div class="sm-instruction-text">Step 1: Click the “Allow” radio button</div>
+    <div class="sm-instruction-text">Step 2: Click the “Remember” checkbox</div>
+    <div class="sm-instruction-text">Step 3: Click “Next”</div>
+    
+    <p class="text-red-marker sm-text">
+    Complete steps<br>
+    1 and 2 by clicking<br>
+    directly into this<br>
+    window</p>
+  </div>
+  
+    <img class="arrow-pointer"
+      ng-show="session.showFlashSetup"
+      src="app/images/Final art/interactive graphics/Webcam setup/point-to-Flash-popup.svg">
+  
   <vrecorder class="setup-vrecorder lab-recorder" id="setupRecorder"
-    max-recording-time="0" controls="1" show-recoreder="0"
-    style="position:absolute;right:20px;z-index: 0"></vrecorder>
-</div>
+    max-recording-time="0" controls="1"
+    style="position:absolute;right:20px"></vrecorder>
+
+  <div style="position: absolute; left: 10px; bottom: 10px; color:#eeeeee">
+    <p ng-show="microphoneInput">Detected microphone</p>
+    <p ng-show="cameraAccess">Detected webcam</p>
+  </div>
+
+<!--  >p class="sm-instruction-text" style="position:absolute;bottom:20px;text-align:center; width:100%">
+  <i>Note: Be sure to allow browser permissions on any pop ups.</i>
+</p-->
+
+  <nextbutton></nextbutton>
+  </div>

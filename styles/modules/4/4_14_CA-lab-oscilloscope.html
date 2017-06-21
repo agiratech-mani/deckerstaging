@@ -43,25 +43,7 @@
   <br>
 
   <div class="row playback-column-fullwidth clsWaveGraphFullWidth">
-    <div class="clearfix"  ng-if="detectedBrowser == 'ie' || detectedBrowser == 'safari'">
-      <wavanalysisgraphie
-        type="pitches"
-        playerId="playback_4_17"
-        vrecorderId="page4_11"
-        data="getLastRecording('page4_11')"
-        min="40"
-        max="350"
-        pos="globals.videos.playback_4_17.pos"
-        yaxis="Pitch Level"
-        max-change="session.debugPitchParams ? globals.persistent.maxChange : 3"
-        max-pitch="session.debugPitchParams ? globals.persistent.maxPitch : 900"
-        min-confidence="session.debugPitchParams ? globals.persistent.minConfidence : .5"
-        min-amplitude="session.debugPitchParams ? globals.persistent.minAmplitude : 0.1"
-        offset-x="session.debugPitchParams ? globals.persistent.offsetX : 5"
-        ></wavanalysisgraphie>
-    <br>        
-    </div>
-    <div class="clearfix"  ng-if="detectedBrowser != 'ie' && detectedBrowser != 'safari'">
+    <div class="clearfix">
       <wavanalysisgraph
         type="pitches"
         playerId="playback_4_17"
@@ -88,7 +70,7 @@
       <div class="playback-column" style="width:70px;float:left;" >
           <!-- <div ng-class="{'video-playback-btn': !globals.wavePlaying, 'video-playback-pausebtn': globals.wavePlaying}" ng-click="playWaveSurfer()">
           </div> -->
-            <decker-video class="{{globals.persistent.peripheral == 'A'?playback-controls-only:playback-user-vid}} playback-user-vid-vol" autoplay="false" video="getLastRecording('page4_11')"
+            <decker-video class="playback-user-vid playback-user-vid-vol" autoplay="false" video="getLastRecording('page4_11')"
             id="playback_4_17"
             aspectratio="auto"></decker-video>
         </div>

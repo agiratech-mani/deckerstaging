@@ -5,7 +5,7 @@
               action="setPersistentVals({'flagText':'', 'tutorial706Stage':(globals.persistent.tutorial706Stage?globals.persistent.tutorial706Stage:0)})"></execute-when>
 
 <execute-when
-  condition="((persistent.labFlagging.length > 0) && (globals.persistent.tutorial706Stage == 4) && videos.playback_7_05.pos >= ((videos.playback_7_05.duration) - 2))"
+  condition="((persistent.labFlagging.length > 0) && (globals.persistent.tutorial706Stage == 4))"
   action="setPageComplete()"></execute-when>
 
 <style>
@@ -13,19 +13,10 @@
     height: 100px!important;
     margin-top: 330px!important;
   }
-  /*.playback-controls-only.playback-flagging-vid
-  {
-    height: 100px!important;
-    margin-top: 30px!important;
-    .jwplayer
-    {
-      height: 100px!important;
-    }
-  }*/
 </style>
 
 
-<div class="flagging-page " ng-class="{'flagging-page-a': (globals.persistent.peripheral == 'A')}">
+<div class="flagging-page" ng-class="{'flagging-page-a': (globals.persistent.peripheral == 'A')}">
 
   <img
     src="app/images/Interactive graphics/Lab Playback/red-arrow_down-right.svg"
@@ -97,8 +88,8 @@
     </div>
     
     <decker-video
-      style="left:30px; top: 10px"
-      class="playback-flagging-vid {{globals.persistent.peripheral == 'A'?'playback-controls-only':''}} flag-css"
+    style="left:30px; top: 10px"
+      class="playback-flagging-vid flag-css"
       autoplay="false"
       video="getLastRecording('page7_03')"
       flags="persistent.labFlagging"
@@ -124,26 +115,18 @@
 
   
   <input ng-model="pageModel.flagText"
-    class="{{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}" 
     placeholder="Type your comments here..."
     ng-change="pauseVideo('playback_7_05')"
     ></input>
   
-  <div class="post-button {{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}"
-    ng-hide="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
+  <div class="post-button"
+    ng-disabled="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
     ng-click="persistent.labFlagging.push(
       {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
       pageModel.flagText = '';
       playVideo('playback_7_05');">
   </div>
-  <div class="post-button {{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}"
-    disabled="disabled"
-    ng-show="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
-    ng-click="persistent.labFlagging.push(
-      {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});
-      pageModel.flagText = '';
-      playVideo('playback_7_05');">
-  </div>
+
 
   <div style="position:absolute;bottom:0" ng-if="false">
   {{globals.videos.playback_7_05}}

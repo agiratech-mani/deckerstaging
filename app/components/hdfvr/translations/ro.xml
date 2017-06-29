@@ -73,7 +73,7 @@
 <source>Aplicația 'hdfvr' nu a fost găsită pe media server</source>
 </trans-unit>
 <trans-unit id="022" resname="IDS_TXT_CCLOSED">
-<source>Conexiunea cu media server-ul a căzut</source>
+<source>Conexiunea la Internet a căzut</source>
 </trans-unit>
 <trans-unit id="023" resname="IDS_TXT_CUNKNOWN">
 <source>Conexiune eșuată</source>
@@ -183,10 +183,7 @@
 <source>Se salvează...</source>
 </trans-unit>
 <trans-unit id="056" resname="IDS_RECORD_CONTINUE">
-<source>Continuă</source>
-</trans-unit>
-<trans-unit id="057" resname="IDS_OFFLINE">
-<source>Înregistrarea video este in mentenanță. Încearcă din nou în câteva minute.</source>
+<source>Continua</source>
 </trans-unit>
 </body>
 </file>

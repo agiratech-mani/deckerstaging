@@ -13,11 +13,11 @@
     </div>
     <p style="font-size:32px">How do you feel about your progress meeting these goals?</p>
     <textarea auto-focus maxlength="100" spellcheck="true" ng-model="persistent.goal7_10" rows="3"></textarea>
-    <span class="progress-warning"
+  </div>
+  <span class="progress-warning"
         ng-show="persistent.goal7_10.length > 94">
         {{100 - persistent.goal7_10.length}}
         character{{persistent.goal7_10.length > 98 ? '' : 's'}} left </span>
-  </div>
   </div>
 </div>
 

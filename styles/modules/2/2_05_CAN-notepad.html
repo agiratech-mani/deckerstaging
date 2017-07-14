@@ -7,7 +7,7 @@
     <div class="header" stye="margin-left:95px">What are your goals for this program?</div>
     <div class="clearfix" style="margin-bottom:20px">
       <div class="prompt" style="float:left;top: 0;margin-right:4px;">Goal 1:</div>
-      <textarea auto-focus maxlength="100" spellcheck="true" ng-model="persistent.goal2_5_1" rows="2" style="float:left;top: 0;"></textarea>
+      <textarea auto-focus maxlength="100" ng-trim="false" spellcheck="true" ng-model="persistent.goal2_5_1" rows="2" style="float:left;top: 0;"></textarea>
         <span class="goal1-length-warning"
           ng-show="persistent.goal2_5_1.length > 94">
           {{100 - persistent.goal2_5_1.length}}
@@ -15,7 +15,7 @@
     </div>
     <div class="clearfix" style="margin-bottom:20px">
     <div class="prompt" style="float:left;top: 0;">Goal 2:</div>
-    <textarea maxlength="100" spellcheck="true" ng-model="persistent.goal2_5_2" rows="2" style="float:left;top: 0;"></textarea>
+    <textarea maxlength="100" ng-trim="false" spellcheck="true" ng-model="persistent.goal2_5_2" rows="2" style="float:left;top: 0;"></textarea>
     <span class="goal2-length-warning"
         ng-show="persistent.goal2_5_2.length > 94">
         {{100 - persistent.goal2_5_2.length}}
@@ -23,7 +23,7 @@
     </div>
     <div class="clearfix" style="margin-bottom:20px">
     <div class="prompt" style="float:left;top: 0;">Goal 3:</div>
-    <textarea maxlength="100" spellcheck="true" ng-model="persistent.goal2_5_3" rows="2" style="float:left;top: 0;"></textarea>
+    <textarea maxlength="100" ng-trim="false" spellcheck="true" ng-model="persistent.goal2_5_3" rows="2" style="float:left;top: 0;"></textarea>
       <span class="goal3-length-warning"
         ng-show="persistent.goal2_5_3.length > 94">{{100 - persistent.goal2_5_3.length}}
         character{{persistent.goal2_5_3.length > 98 ? '' : 's'}} left</span>

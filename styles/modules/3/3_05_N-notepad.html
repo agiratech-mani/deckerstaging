@@ -9,7 +9,7 @@
 <div class="integrated-notepad integrated-notepad-higher">
   <div class="entry">
     <div class="header">How did it feel to dart your eyes quickly?</div>
-    <textarea auto-focus maxlength="100" spellcheck="true" ng-model="persistent.notepad3_05A1" rows="2"></textarea>
+    <textarea auto-focus maxlength="100" ng-trim="false" spellcheck="true" ng-model="persistent.notepad3_05A1" rows="2"></textarea>
     <span class="N-warning_msg1"
         ng-show="persistent.notepad3_05A1.length > 94">
         {{100 - persistent.notepad3_05A1.length}}
@@ -18,7 +18,7 @@
   
   <div class="entry">
     <div class="header">Did it feel more like eye communication when you had to look for 5 full seconds? Describe in a few words.</div>
-    <textarea maxlength="100" spellcheck="true" ng-model="persistent.notepad3_05A2" rows="2"></textarea>
+    <textarea maxlength="100" ng-trim="false" spellcheck="true" ng-model="persistent.notepad3_05A2" rows="2"></textarea>
     <span class="N-warning_msg2"
         ng-show="persistent.notepad3_05A2.length > 94">
         {{100 - persistent.notepad3_05A2.length}}

@@ -17,7 +17,8 @@
       </div>
       <div class="flag-contents">
         <div class="flag-note" ng-repeat="flag in persistent.labFlagging | orderBy:'time'">
-          <div class="flag-time">{{(flag.time*1000) | date : 'm:ss'}}</div>
+          <!-- <div class="flag-time">{{(flag.time*1000) | date : 'm:ss'}}</div> -->
+           <div class="flag-time">{{flag.time | totimecode}}</div> 
           <div class="flag-text">{{flag.text}}</div>
           <div class="delete-flag" ng-click="persistent.labFlagging.splice($index, 1)">            
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

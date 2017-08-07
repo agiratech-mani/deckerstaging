@@ -48,6 +48,7 @@ Text: Next, you'll finish creating your Decker Grid by adding key points and sub
               action="setPageComplete(persistent.tutorial532Stage == 6)"></execute-on-change>
 
 <execute-when condition="true" action="persistent.showGridTab = true"></execute-when>
+<execute-when condition="persistent.tutorial532Stage == 6" action="persistent.cornerstone532finished = true"></execute-when>
 
 <execute-when condition="true"
   action="setPersistentVals({

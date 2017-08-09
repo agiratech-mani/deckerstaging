@@ -67,19 +67,19 @@ Text: Next, you'll finish creating your Decker Grid by adding key points and sub
   condition="timers.advanceGridIntro"
               action="persistent.tutorial532Stage = (persistent.tutorial532Stage != 6?'1':'6')"></execute-when>
 
+<timer name="animateClasswithtime" time="1"></timer>
 <div g-show="persistent.tutorial532Stage >= 1">
 <div
 class="page-5-26-decker-grid page-cornerstone  page-cornerstone-animation"
   ng-class="{
   'animate-cornerstones-step1': (persistent.tutorial532Stage >= 1),
   'animate-cornerstones-step2': (persistent.tutorial532Stage >= 2),
-  'animate-cornerstones-step3 page-girdcornerstone': (persistent.tutorial532Stage >= 5),
-  'page-girdcornerstone': (persistent.tutorial532Stage >= 6)
+  'animate-cornerstones-step3 page-girdcornerstone': (persistent.tutorial532Stage >= 5 && timers.animateClasswithtime),
+  'page-girdcornerstone': (persistent.tutorial532Stage >= 6 && timers.animateClasswithtime),
   }"
   >
-
   <div class="tutorial fadeout" ng-show="persistent.tutorial532Stage == 1">
-    Here are the Cornerstones you just created. They are the foundation of your message.
+     Here are the Cornerstones you just created. They are the foundation of your message.
     <a href="" class="next-link"
     ng-click="persistent.tutorial532Stage = 2">NEXT &gt;</a>
   </div>

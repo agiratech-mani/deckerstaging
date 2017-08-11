@@ -11,19 +11,19 @@
     <img
       src="app/images/audience/One-on-one-audience.jpg"
       ng-class="{'active':(persistent.audienceChoice == 0)}"
-      ng-click="persistent.audienceChoice = 0"
+      ng-click="changeAudienceChoice(0,'page7_03')"
     ></img>
     
     <img
       src="app/images/audience/Conference call audience.jpg"
       ng-class="{'active':(persistent.audienceChoice == 1)}"
-      ng-click="persistent.audienceChoice = 1"
+      ng-click="changeAudienceChoice(1,'page7_03')"
     ></img>
     
     <img
       src="app/images/audience/Large-audience.jpg"
       ng-class="{'active':(persistent.audienceChoice == 2)}"
-      ng-click="persistent.audienceChoice = 2"
+      ng-click="changeAudienceChoice(2,'page7_03')"
     ></img>
   </div>
 

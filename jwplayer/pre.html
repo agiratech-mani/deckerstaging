@@ -19,7 +19,6 @@
 	<div id='mediaplayer'></div> 
 	 <script type="text/javascript">
        	var params = {
-          flashplayer: './jwplayer.flash.swf',
           id: 'mediaplayer',
           width: '500px',
           height: '500px',
@@ -30,6 +29,11 @@
           autostart:true,
           mute: true,
           bufferlength:100,
+          primary:"html5",
+          modes: [
+            { type: "html5" },
+            { type: "flash", src: "./jwplayer.flash.swf" }
+          ]
         };
 
 

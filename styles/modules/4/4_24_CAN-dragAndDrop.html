@@ -20,7 +20,7 @@
   <img class="character-pivot-points" src="app/modules/4/4_20-assets/character-pivot-points.svg">
   
   <div class="left-col">
-    <div ng-repeat="droppable in persistent.fromModel_4_29"
+    <div ng-repeat="droppable in persistent.fromModel_4_29 track by $index"
          ng-model="persistent.fromModel_4_29[$index]"
          jqyoui-droppable="{multiple: false, stack: true, onOver:'onOver', onOut:'onOut'}"
          data-jqyoui-options="{revert: 'invalid'}" 
@@ -40,7 +40,7 @@
 
   <div class="right-col">
     <div class="sm-label center">My Pivot Points</div>
-    <div ng-repeat="droppable in persistent.toModel_4_29"
+    <div ng-repeat="droppable in persistent.toModel_4_29 track by $index"
          ng-model="persistent.toModel_4_29[$index]"
          jqyoui-droppable="{multiple: false, onOver:'onOver', onOut:'onOut'}"
          data-jqyoui-options="{revertDuration:500}"

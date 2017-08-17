@@ -30,6 +30,7 @@
           mute: true,
           bufferlength:100,
           primary:"html5",
+          duration:10,
           modes: [
             { type: "html5" },
             { type: "flash", src: "./jwplayer.flash.swf" }
@@ -40,6 +41,28 @@
 
      	jq = jwplayer("mediaplayer");
      	jq.setup(params);
+
+      jq.onTime(function (status) {
+        //console.log("onTime",this);
+        dur = this.getDuration();
+        pos = this.getPosition();
+        console.log("duration",dur,pos );
+        if(dur <= (pos+0.5))
+        { 
+          this.pause();
+        }
+        //this.play();
+        //this.pause();
+      }).onBeforeComplete(function (status) {
+        console.log("onBeforeComplete",this);
+        this.play();
+        //this.pause();
+      }).onPlay(function (status) {
+        if(dur <= (pos+0.5))
+        { 
+          this.seek();
+        }
+      });   
      </script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <span class="filler_warning4_03"
         ng-show="persistent.filler4_3.length > 94">
         {{100 - persistent.filler4_3.length}}
-        character{{persistent.filler4_3.length > 98 ? '' : 's'}} left </span>
+        character{{persistent.filler4_3.length > 98 ? persistent.filler4_3.length == 100 ? 's' : '' : 's'}} left </span>
   </div>
   
   <div class="nudge-text instructions fadein fadeout" ng-show="! persistent.filler4_3">

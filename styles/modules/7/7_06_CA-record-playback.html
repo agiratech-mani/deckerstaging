@@ -95,16 +95,24 @@
     <div class="instructions" style="font-size: 34px">
       What worked well? Not so well? Flag it. Note it. Learn from it.
     </div>
-    
-    <decker-video
-      style="left:30px; top: 10px"
-      class="playback-flagging-vid {{globals.persistent.peripheral == 'A'?'playback-controls-only':''}} flag-css"
-      autoplay="false"
-      video="getLastRecording('page7_03')"
-      flags="persistent.labFlagging"
-      playerid="playback_7_05"
-      aspectratio="auto"></decker-video>
-    
+    <div style="
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 999;
+    " ng-show="globals.persistent.tutorial706Stage <= 3"></div>
+    <div style="
+      z-index: 998;
+    " >
+      <decker-video
+        style="left:30px; top: 10px"
+        class="playback-flagging-vid {{globals.persistent.peripheral == 'A'?'playback-controls-only':''}} flag-css"
+        autoplay="false"
+        video="getLastRecording('page7_03')"
+        flags="persistent.labFlagging"
+        playerid="playback_7_05"
+        aspectratio="auto"></decker-video>
+    </div>
       <div class="flag-log flag-log-width-increase">
         <div class="title-bar">
           <div class="flag-icon"></div>
@@ -127,9 +135,10 @@
     class="{{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}" 
     placeholder="Type your comments here..."
     ng-change="pauseVideo('playback_7_05')"
+    input-enter
     ></input>
   
-  <div class="post-button {{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}"
+  <div class="post-button post-button-clk {{globals.persistent.peripheral == 'A'?'flagging-controls-only':''}}"
     ng-hide="globals.videos.playback_7_05.playing || ! pageModel.flagText.length"
     ng-click="persistent.labFlagging.push(
       {time:globals.videos.playback_7_05.pos, text:pageModel.flagText});

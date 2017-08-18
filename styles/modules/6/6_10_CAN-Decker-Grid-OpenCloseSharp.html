@@ -31,7 +31,7 @@
   <!--   button class="print-icon" ng-click="viewStates.printGrid = true"></button -->
 
   <div class="grid" id="printable-grid-5-26">
-    <div ng-repeat="droppable in persistent.decker_grid"
+    <div ng-repeat="droppable in persistent.decker_grid track by $index"
       ng-model="persistent.decker_grid[$index]"
       jqyoui-droppable="{multiple: true, stack: true, onOver:'onOver', onOut:'onOut', onDrop:'onDrop'}"
       data-jqyoui-options="{revert: 'invalid'}"

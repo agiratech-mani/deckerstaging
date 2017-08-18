@@ -16,7 +16,7 @@
     <span class="progress-warning"
         ng-show="persistent.goal7_10.length > 94">
         {{100 - persistent.goal7_10.length}}
-        character{{persistent.goal7_10.length > 98 ? '' : 's'}} left </span>
+        character{{persistent.goal7_10.length > 98 ? persistent.goal7_10.length == 100 ? 's' : '' : 's'}} left </span>
   </div>
   </div>
 </div>

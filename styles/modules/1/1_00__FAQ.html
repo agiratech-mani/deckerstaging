@@ -64,10 +64,12 @@
           </a>
       </div>
     
-      <div class="col-xs-9 content-holder">
-        <div ng-repeat="qa in sections[globals.selectedSection].qa" class="faq-content-div">
-          <a href="" class="faq-content-title" ng-click="collapseSection($index)" >{{qa.question}}</a>
-          <p class="faq-content-content" compile="qa.answer" collapse="qa.collapsed"></p>
+      <div class="col-xs-9 content-holder content-holder-scroll">
+        <div style="position: relative;" class="">
+          <div ng-repeat="qa in sections[globals.selectedSection].qa" class="faq-content-div">
+            <a href="" class="faq-content-title" id="{{ 'scroll-' + $index }}" ng-click="collapseSection($index)" >{{qa.question}}</a>
+            <p class="faq-content-content" compile="qa.answer" collapse="qa.collapsed"></p>
+          </div>
         </div>
       </div>
     </div>

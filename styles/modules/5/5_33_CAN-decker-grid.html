@@ -94,7 +94,7 @@
           <div
             class="close-note"
             ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>
-          <textarea maxlength="80" spellcheck="true"
+          <textarea maxlength="100" spellcheck="true"
             autofocus
             maxlines="5"
             ng-model="persistent.decker_grid[$parent.$index][$index].text"
@@ -103,8 +103,8 @@
             placeholder="{{decker_grid_labels[$parent.$index]}}"
             ng-trim="false"></textarea>
             <span class="sticky-counter"
-              ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 74 && persistent.decker_grid[$parent.$index][$index].focused">
-          {{80 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{persistent.decker_grid[$parent.$index][$index].text.length > 78  ? '' : 's'}} remaining</span>
+              ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 94 && persistent.decker_grid[$parent.$index][$index].focused">
+          {{100 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{(persistent.decker_grid[$parent.$index][$index].text.length ==  99)  ? '' : 's'}} remaining</span>
         </div>
       </div>
 

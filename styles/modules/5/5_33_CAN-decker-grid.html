@@ -104,12 +104,12 @@
             ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 94 && persistent.decker_grid[$parent.$index][$index].focused">
         {{100 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{(persistent.decker_grid[$parent.$index][$index].text.length ==  99)  ? '' : 's'}} remaining</span>
       </div>
-          <div ng-if="$parent.$index == 20">
-            <div class="parking-lot">
-            {{globals.text.parkingLot}}
-            </div>
-          </div>
-
+      
+      <div ng-if="$parent.$index == 20">
+        <div class="parking-lot">
+        {{globals.text.parkingLot}}
+        </div>
+      </div>
 
       </div>
 

@@ -59,7 +59,7 @@
   <!--   button class="print-icon" ng-click="viewStates.printGrid = true"></button -->
 
   <div class="grid" id="printable-grid-5-26">
-    <div ng-repeat="droppable in persistent.decker_grid track by $index"
+    <div ng-repeat="droppable in persistent.decker_grid"
       title="{{($index == 0 || $index == 19) ? 'Hang tight! You\'ll be adding this section in the next module.' : ''}}"
       ng-model="persistent.decker_grid[$index]"
       jqyoui-droppable="{animate:false, multiple: true, stack: true, onOver:'onOver', onOut:'onOut'}"

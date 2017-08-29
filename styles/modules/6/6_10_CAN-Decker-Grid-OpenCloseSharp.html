@@ -1,171 +1,146 @@
 <execute-when condition="(persistent.decker_grid[0][0].text && persistent.decker_grid[19][0].text)" action="setPageComplete()"></execute-when>
-
 <execute-when condition="true"
-  action="setDefaultPersistentVal('decker_grid', [
-                      [],[],[],[],
-                      [],[],[],[],
-                      [],[],[],[],
-                      [],[],[],[],
-                      [],[],[],[],
-                      
-                      [],[]
-                      
-                      ])"></execute-when>
-
+   action="setDefaultPersistentVal('decker_grid', [
+   [],[],[],[],
+   [],[],[],[],
+   [],[],[],[],
+   [],[],[],[],
+   [],[],[],[],
+   [],[]
+   ])"></execute-when>
 <!-- <execute-when condition="persistent.decker_grid[0].length == 0"
-              action="persistent.decker_grid[0] = [{text:''}]"></execute-when>
-
-<execute-when condition="persistent.decker_grid[19].length == 0"
-              action="persistent.decker_grid[19] = [{text:''}]"></execute-when> -->
-
+   action="persistent.decker_grid[0] = [{text:''}]"></execute-when>
+   
+   <execute-when condition="persistent.decker_grid[19].length == 0"
+   action="persistent.decker_grid[19] = [{text:''}]"></execute-when> -->
 <execute-when condition="true"
-  action="decker_grid_labels=[
-                'opening SHARP','POINT OF VIEW','GENERAL ACTION STEP', 'BENEFIT',
-                'Key Point 1','Subpoint 1','Subpoint 2', 'Subpoint 3',
-                'Key Point 2','Subpoint 1','Subpoint 2', 'Subpoint 3',
-                'Key Point 3','Subpoint 1','Subpoint 2', 'Subpoint 3',
-                'POINT OF VIEW','SPECIFIC ACTION STEP', 'BENEFIT', 'closing SHARP']"></execute-when>
-
+   action="decker_grid_labels=[
+   'opening SHARP','POINT OF VIEW','GENERAL ACTION STEP', 'BENEFIT',
+   'Key Point 1','Subpoint 1','Subpoint 2', 'Subpoint 3',
+   'Key Point 2','Subpoint 1','Subpoint 2', 'Subpoint 3',
+   'Key Point 3','Subpoint 1','Subpoint 2', 'Subpoint 3',
+   'POINT OF VIEW','SPECIFIC ACTION STEP', 'BENEFIT', 'closing SHARP']"></execute-when>
 <div class="page-5-26-decker-grid firstlastchild" ng-controller="DragDropController">
-
-  <!--   button class="print-icon" ng-click="viewStates.printGrid = true"></button -->
-
-  <div class="grid" id="printable-grid-5-26">
-    <div ng-repeat="droppable in persistent.decker_grid track by $index"
-      ng-model="persistent.decker_grid[$index]"
-      jqyoui-droppable="{multiple: true, stack: true, onOver:'onOver', onOut:'onOut', onDrop:'onDrop'}"
-      data-jqyoui-options="{revert: 'invalid'}"
-      data-drop="{{$index <= 20}}"
-      ng-if="$index < 21"
-      ng-class="{'note-holder': true, 'enabled': ($parent.$index > 0 && $parent.$index < 19) || ($parent.$index == 20)}">
-
-      <div class="contents">
-
-       <!--  <div ng-if="($parent.$index == 0 || $parent.$index == 19)">
-          <div class="sharp-coming-title">SHARP</div>
-          <div class="sharp-coming-subtitle">Coming in Module 6</div>
-        </div> -->
-
-
-        
-        <div
-          ng-if="$parent.$index < 20 && !persistent.decker_grid[$parent.$index].length"
-          class="click-to-add"
-          ng-click="persistent.decker_grid[$parent.$index] = [{text:''}]">
-         <span class="nodeid{{$parent.$index}}"> Add your {{decker_grid_labels[$parent.$index]}} <span>
-          <div class="giant-plus"></div>
-        </div>
-
-        <div ng-if="$parent.$index == 20">
-            <div class="parking-lot">
+   <!--   button class="print-icon" ng-click="viewStates.printGrid = true"></button -->
+   <div class="grid" id="printable-grid-5-26">
+      <div ng-repeat="droppable in persistent.decker_grid"
+         ng-model="persistent.decker_grid[$index]"
+         jqyoui-droppable="{multiple: true, stack: true, onOver:'onOver', onOut:'onOut', onDrop:'onDrop'}"
+         data-jqyoui-options="{revert: 'invalid'}"
+         data-drop="{{$index <= 20}}"
+         ng-if="$index < 21"
+         ng-class="{'note-holder': true, 'enabled': ($parent.$index > 0 && $parent.$index < 19) || ($parent.$index == 20)}">
+         <div class="contents">
+            <!--  <div ng-if="($parent.$index == 0 || $parent.$index == 19)">
+               <div class="sharp-coming-title">SHARP</div>
+               <div class="sharp-coming-subtitle">Coming in Module 6</div>
+               </div> -->
+            <div
+               ng-if="$parent.$index < 20 && !persistent.decker_grid[$parent.$index].length"
+               class="click-to-add"
+               ng-click="persistent.decker_grid[$parent.$index] = [{text:''}]">
+               <span class="nodeid{{$parent.$index}}"> Add your {{decker_grid_labels[$parent.$index]}} <span>
+               <div class="giant-plus"></div>
+            </div>
+            <div ng-repeat='draggable in droppable'
+               jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
+               data-jqyoui-options="{revert:revertCard, revertDuration:500}"
+               data-drag="true"
+               class="note"
+               ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
+               ng-model="persistent.decker_grid[$parent.$index]">
+               <div
+                  class="close-note"
+                  ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>
+               <textarea maxlength="100" spellcheck="true"
+                  autofocus
+                  maxlines="5"
+                  ng-model="persistent.decker_grid[$parent.$index][$index].text"
+                  placeholder="{{decker_grid_labels[$parent.$index]}}" ng-focus="persistent.decker_grid[$parent.$index][$index].focused = true"
+                  ng-blur="persistent.decker_grid[$parent.$index][$index].focused = false"
+                  ng-trim="false"></textarea>
+               <span class="sticky-counter"
+                  ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 94 && persistent.decker_grid[$parent.$index][$index].focused">
+               {{100 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{persistent.decker_grid[$parent.$index][$index].text.length == 99 ? '' : 's'}} remaining</span>
+            </div>
+            <div ng-if="$parent.$index == 20">
+               <div class="parking-lot">
+                  {{globals.text.parkingLot}}
+               </div>
+            </div>
+         </div>
+         <!-- <div ng-if="$parent.$index == 20" class="parking-lot">
             {{globals.text.parkingLot}}
             </div>
-            </div>
-
-        <div ng-repeat='draggable in droppable'
-          jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
-          data-jqyoui-options="{revert:revertCard, revertDuration:500}"
-          data-drag="true"
-          class="note"
-          ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
-          ng-model="persistent.decker_grid[$parent.$index]">
-          <div
+            
+            <div ng-repeat='draggable in droppable'
+            jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
+            data-jqyoui-options="{revert:revertCard, revertDuration:500}"
+            data-drag="{{$parent.$index <= 20}}"
+            class="note"
+            ng-class="{'sharp-placeholder':($parent.$index == 0 || $parent.$index == 19)}"
+            ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
+            ng-model="persistent.decker_grid[$parent.$index]">
+            <div
             class="close-note"
             ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>
-          <textarea maxlength="80" spellcheck="true"
-            autofocus
-            maxlines="5"
-            ng-model="persistent.decker_grid[$parent.$index][$index].text"
-            placeholder="{{decker_grid_labels[$parent.$index]}}" ng-focus="persistent.decker_grid[$parent.$index][$index].focused = true"
-            ng-blur="persistent.decker_grid[$parent.$index][$index].focused = false"
-            ng-trim="false"></textarea>
-            <span class="sticky-counter"
-              ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 74 && persistent.decker_grid[$parent.$index][$index].focused">
-          {{80 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{persistent.decker_grid[$parent.$index][$index].text.length > 78  ? '' : 's'}} remaining</span>
-
-        </div>
-      </div>
-
-        <!-- <div ng-if="$parent.$index == 20" class="parking-lot">
-            {{globals.text.parkingLot}}
-            </div>
-
-        <div ng-repeat='draggable in droppable'
-          jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
-          data-jqyoui-options="{revert:revertCard, revertDuration:500}"
-          data-drag="{{$parent.$index <= 20}}"
-          class="note"
-          ng-class="{'sharp-placeholder':($parent.$index == 0 || $parent.$index == 19)}"
-          ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
-          ng-model="persistent.decker_grid[$parent.$index]">
-          <div
-            class="close-note"
-            ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>
-          <textarea ng-show="$parent.$index != 20"
+            <textarea ng-show="$parent.$index != 20"
             maxlines="5"
             spellcheck="true" ng-model="persistent.decker_grid[$parent.$index][$index].text" ></textarea>
             
-        </div>
+            </div>
+            </div>
+            -->
       </div>
-      -->
-
-    </div>
-  </div>
-
-  <!-- decorations -->
-  <div class="title">My Decker Grid&#8482;</div>
-  <div class="autosaving" ng-show="saving">Autosaving</div>
-  <div class="label-opening">
-    OPENING<span class="glyphicon glyphicon-play"></span>
-  </div>
-  <div class="label-main">
-    MAIN BODY<span class="glyphicon glyphicon-play"></span>
-  </div>
-  <div class="label-closing">
-    CLOSING<span class="glyphicon glyphicon-play"></span>
-  </div>
-
-  <div class="grid-instructions" style="top:70px">
-    <br> 
-    <p><b>How it works:</b></p>
-    <p>Add a SHARP at your opening, and at your closing.</p>
-    <br> 
-    <br> 
-    <br> 
-    <br> 
-    
-    <p style="margin-top:10px;margin-bottom:4px"><b>Check out these sample Grids:</b></p>
-    
-    <p>
-        <a href="app/images/sample-pdfs/Compliance_Grid_M6.pdf" ng-click="downloadPDF($event)" target="_blank"><span
-          class="icon-grid"></span>Compliance Grid</a>
+   </div>
+   <!-- decorations -->
+   <div class="title">My Decker Grid&#8482;</div>
+   <div class="autosaving" ng-show="saving">Autosaving</div>
+   <div class="label-opening">
+      OPENING<span class="glyphicon glyphicon-play"></span>
+   </div>
+   <div class="label-main">
+      MAIN BODY<span class="glyphicon glyphicon-play"></span>
+   </div>
+   <div class="label-closing">
+      CLOSING<span class="glyphicon glyphicon-play"></span>
+   </div>
+   <div class="grid-instructions" style="top:70px">
+      <br> 
+      <p><b>How it works:</b></p>
+      <p>Add a SHARP at your opening, and at your closing.</p>
+      <br> 
+      <br> 
+      <br> 
+      <br> 
+      <p style="margin-top:10px;margin-bottom:4px"><b>Check out these sample Grids:</b></p>
+      <p>
+         <a href="app/images/sample-pdfs/Compliance_Grid_M6.pdf" ng-click="downloadPDF($event)" target="_blank"><span
+            class="icon-grid"></span>Compliance Grid</a>
       </p>
       <p>
-        <a
-          href="app/images/sample-pdfs/Performance_Review_Grid_M6.pdf" ng-click="downloadPDF($event)" target="_blank"><span
-          class="icon-grid"></span>Performance Review Grid</a>
+         <a
+            href="app/images/sample-pdfs/Performance_Review_Grid_M6.pdf" ng-click="downloadPDF($event)" target="_blank"><span
+            class="icon-grid"></span>Performance Review Grid</a>
       </p>
       <p>
-        <a
-          href="app/images/sample-pdfs/Technology_Sales_Pitch_Grid_M6.pdf" ng-click="downloadPDF($event)" target="_blank"><span
-          class="icon-grid"></span>Technology Sales Pitch Grid</a>
+         <a
+            href="app/images/sample-pdfs/Technology_Sales_Pitch_Grid_M6.pdf" ng-click="downloadPDF($event)" target="_blank"><span
+            class="icon-grid"></span>Technology Sales Pitch Grid</a>
       </p>
-  </div>
+   </div>
 </div>
-
 <div class="print-pdf-button" ng-click="onPrintGrid()"> Print/PDF</div>
-
 <nextbutton></nextbutton>
 <style>
-.firstlastchild .note-holder:nth-child(1), .firstlastchild .note-holder:nth-child(20)
-{
-  background-color: #d6e8f1!important;
-  color: #c53a43!important;
-}
-.nodeid19
-{
-  width: 97% !important;
-  display: block;
-}
+   .firstlastchild .note-holder:nth-child(1), .firstlastchild .note-holder:nth-child(20)
+   {
+   background-color: #d6e8f1!important;
+   color: #c53a43!important;
+   }
+   .nodeid19
+   {
+   width: 97% !important;
+   display: block;
+   }
 </style>
-

@@ -110,7 +110,7 @@
         autoplay="false"
         video="getLastRecording('page7_03')"
         flags="persistent.labFlagging"
-        playerid="playback_7_05"
+        id="playback_7_05"
         aspectratio="auto"></decker-video>
     </div>
       <div class="flag-log flag-log-width-increase">
@@ -119,7 +119,7 @@
           Flag Log
         </div>
         <div class="flag-contents flag-log-width-contents">
-          <div class="flag-note" ng-repeat="flag in persistent.labFlagging | orderBy:'time'">
+          <div class="flag-note" ng-repeat="flag in persistent.labFlagging track by $index | orderBy:'time'">
             <div class="flag-time">{{flag.time | totimecode}}</div>
             <div class="flag-text">{{flag.text}}</div>
             <div class="delete-flag" ng-click="persistent.labFlagging.splice($index, 1)">            

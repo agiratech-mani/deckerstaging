@@ -1,3 +1,8 @@
+<style type="text/css">
+.page-5-26-decker-grid .tutorial {
+  width: 480px;
+}
+</style>
 <execute-when condition="persistent.tutorialStage == -1" action="setPageComplete()"></execute-when>
 <execute-when condition="true" action="persistent.showGridTab = true"></execute-when>
 <execute-when condition="true"
@@ -53,8 +58,8 @@
 
   <!--   button class="print-icon" ng-click="viewStates.printGrid = true"></button -->
 
-  <div class="grid" id="printable-grid-5-26"">
-    <div ng-repeat="droppable in persistent.decker_grid track by $index"
+  <div class="grid" id="printable-grid-5-26">
+    <div ng-repeat="droppable in persistent.decker_grid"
       title="{{($index == 0 || $index == 19) ? 'Hang tight! You\'ll be adding this section in the next module.' : ''}}"
       ng-model="persistent.decker_grid[$index]"
       jqyoui-droppable="{animate:false, multiple: true, stack: true, onOver:'onOver', onOut:'onOut'}"
@@ -77,35 +82,35 @@
           Add your {{decker_grid_labels[$parent.$index]}}
           <div class="giant-plus"></div>
         </div>
-
-          <div ng-if="$parent.$index == 20">
-            <div class="parking-lot">
-            {{globals.text.parkingLot}}
-            </div>
-          </div>
-
         <div ng-repeat='draggable in droppable'
-          jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop'}"
-          data-jqyoui-options="{revert:revertCard, revertDuration:500}"
-          data-drag="{{($parent.$index > 0 && $parent.$index < 19) || $parent.$index >= 20}}"
-          class="note"
-          ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
-          ng-model="persistent.decker_grid[$parent.$index]">
-          <div
-            class="close-note"
-            ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>
-          <textarea maxlength="80" spellcheck="true"
-            autofocus
-            maxlines="5"
-            ng-model="persistent.decker_grid[$parent.$index][$index].text"
-            ng-focus="persistent.decker_grid[$parent.$index][$index].focused = true"
-            ng-blur="persistent.decker_grid[$parent.$index][$index].focused = false"
-            placeholder="{{decker_grid_labels[$parent.$index]}}"
-            ng-trim="false"></textarea>
-            <span class="sticky-counter"
-              ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 74 && persistent.decker_grid[$parent.$index][$index].focused">
-          {{80 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{persistent.decker_grid[$parent.$index][$index].text.length > 78  ? '' : 's'}} remaining</span>
+        jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop',containment :'parent'}"
+        data-jqyoui-options="{revert:revertCard, revertDuration:500}"
+        data-drag="{{($parent.$index > 0 && $parent.$index < 19) || $parent.$index >= 20}}"
+        class="note"
+        ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
+        ng-model="persistent.decker_grid[$parent.$index]">
+        <div
+          class="close-note"
+          ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>
+        <textarea maxlength="100" spellcheck="true"
+          autofocus
+          maxlines="5"
+          ng-model="persistent.decker_grid[$parent.$index][$index].text"
+          ng-focus="persistent.decker_grid[$parent.$index][$index].focused = true"
+          ng-blur="persistent.decker_grid[$parent.$index][$index].focused = false"
+          placeholder="{{decker_grid_labels[$parent.$index]}}"
+          ng-trim="false"></textarea>
+          <span class="sticky-counter"
+            ng-show="persistent.decker_grid[$parent.$index][$index].text.length > 94 && persistent.decker_grid[$parent.$index][$index].focused">
+        {{100 - persistent.decker_grid[$parent.$index][$index].text.length}} character{{(persistent.decker_grid[$parent.$index][$index].text.length ==  99)  ? '' : 's'}} remaining</span>
+      </div>
+      
+      <div ng-if="$parent.$index == 20">
+        <div class="parking-lot">
+        {{globals.text.parkingLot}}
         </div>
+      </div>
+
       </div>
 
     </div>

@@ -64,7 +64,7 @@
       ng-model="persistent.decker_grid[$index]"
       jqyoui-droppable="{animate:false, multiple: true, stack: true, onOver:'onOver', onOut:'onOut'}"
       data-jqyoui-options="{revert: 'invalid'}"
-      data-drop="{{($index > 0 && $index < 19) || $index >= 20}}"
+      data-drop="{{(($index > 0 && $index < 19) || $index >= 20) && ($parent.$index !=1 && $parent.$index !=2 && $parent.$index !=3 && $parent.$index !=16 && $parent.$index !=17 && $parent.$index !=18 ) }}"
       ng-if="$index < 21"
       ng-class="{'note-holder': true, 'enabled': (($parent.$index > 0 && $parent.$index < 19) || $parent.$index >= 20) }">
 
@@ -85,10 +85,12 @@
         <div ng-repeat='draggable in droppable'
         jqyoui-draggable="{animate:false, index:{{$index}}, onStart: 'onStart', onStop: 'onStop', beforeDrop: 'onBeforeDrop',containment :'parent'}"
         data-jqyoui-options="{revert:revertCard, revertDuration:500}"
-        data-drag="{{($parent.$index > 0 && $parent.$index < 19) || $parent.$index >= 20}}"
+        data-drag="{{(($parent.$index > 0 && $parent.$index < 19) || $parent.$index >= 20) && ($parent.$index !=1 && $parent.$index !=2 && $parent.$index !=3 && $parent.$index !=16 && $parent.$index !=17 && $parent.$index !=18 ) }}"
         class="note"
         ng-style="{left:(($index * -2) + 'px'), top:(($index * -2) + 'px')}"
-        ng-model="persistent.decker_grid[$parent.$index]">
+        ng-model="persistent.decker_grid[$parent.$index]"
+        
+        >
         <div
           class="close-note"
           ng-click="persistent.decker_grid[$parent.$index].splice($index)"></div>

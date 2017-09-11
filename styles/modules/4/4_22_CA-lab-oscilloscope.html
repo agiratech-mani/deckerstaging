@@ -1,5 +1,7 @@
-<execute-when condition="(videos.playback_4_24.duration && videos.playback_4_24.pos >= ((videos.playback_4_24.duration | number:0) - 1))"
+<execute-when condition="(videos.playback_4_24.pos >= ((videos.playback_4_24.duration)*0.90))"
   action="setPageComplete()"></execute-when>
+
+  
   
 <execute-when condition="true"
   action="setPersistentVals({'maxChange':2, 'minConfidence':0,

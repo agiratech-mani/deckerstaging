@@ -1,5 +1,6 @@
-<execute-when condition="(videos.playback_5_22.pos >= ((videos.playback_5_22.duration)*0.90))"
-  action="setPageComplete()"></execute-when>
+<execute-when condition="((videos.playback_5_22.duration < 10 && (videos.playback_5_22.pos >= ((videos.playback_5_22.duration)*0.80))) || (videos.playback_5_22.duration > 10 && (videos.playback_5_22.pos >= ((videos.playback_5_22.duration)*0.90))))" action="setPageComplete()"></execute-when> 
+  
+  
 <style>
   .instructions-col {
     padding-right: 60px;

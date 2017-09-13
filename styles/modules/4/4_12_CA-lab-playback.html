@@ -1,4 +1,4 @@
-<execute-when condition="videos.playback_4_11.pos >= ((videos.playback_4_11.duration)-2)" action="setPageComplete()"></execute-when>
+<execute-when condition="((videos.playback_4_11.duration < 10 && (videos.playback_4_11.pos >= ((videos.playback_4_11.duration)*0.80))) || (videos.playback_4_11.duration > 10 && (videos.playback_4_11.pos >= ((videos.playback_4_11.duration)*0.90))))" action="setPageComplete()"></execute-when>
 
 <style>
   .instructions-col {

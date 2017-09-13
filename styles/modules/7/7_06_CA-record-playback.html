@@ -5,7 +5,7 @@
               action="setPersistentVals({'flagText':'', 'tutorial706Stage':(globals.persistent.tutorial706Stage?globals.persistent.tutorial706Stage:0)})"></execute-when>
 
 <execute-when
-  condition="((persistent.labFlagging.length > 0) && (globals.persistent.tutorial706Stage == 4) && videos.playback_7_05.pos >= ((videos.playback_7_05.duration) - 2))"
+  condition="((persistent.labFlagging.length > 0) && (globals.persistent.tutorial706Stage == 4) && ((videos.playback_7_05.duration < 10 && (videos.playback_7_05.pos >= ((videos.playback_7_05.duration)*0.80))) || (videos.playback_7_05.duration > 10 && (videos.playback_7_05.pos >= ((videos.playback_7_05.duration)*0.90)))))"
   action="setPageComplete()"></execute-when>
 
 <style>

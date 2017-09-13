@@ -1,5 +1,4 @@
-<execute-when condition="(videos.playback_4_24.duration && videos.playback_4_24.pos >= ((videos.playback_4_24.duration | number:0) - 1))"
-  action="setPageComplete()"></execute-when>
+<execute-when condition="((videos.playback_4_24.duration < 10 && (videos.playback_4_24.pos >= ((videos.playback_4_24.duration)*0.80))) || (videos.playback_4_24.duration > 10 && (videos.playback_4_24.pos >= ((videos.playback_4_24.duration)*0.90))))" action="setPageComplete()"></execute-when> 
   
 <execute-when condition="true"
   action="setPersistentVals({'maxChange':2, 'minConfidence':0,
@@ -71,7 +70,7 @@
     </div>
     <div class="clearfix">
       <div style="margin-left: 50px;width: 875px;text-align: right;">
-        {{videos.playback_4_24.pos || '0' | secondsToTime}} / {{ globals.videos.playback_4_24.duration || 0 | round}}
+        {{videos.playback_4_24.pos || '0' | secondsToTime}} / {{ globals.videos.playback_4_24.duration || 0 | secondsToTime}}
       </div>
     </div>
     <div class="clearfix">

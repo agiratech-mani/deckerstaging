@@ -6,7 +6,7 @@
  description: the RTMP connection string to the hdfvr application on your media server
  values: 'rtmp://localhost/hdfvr/_definst_', 'rtmp://myfmsserver.com/hdfvr/_definst_', etc...
 */
-$config['connectionstring']="rtmp://streaming.decker.com:80/hdfvr/_definst_";
+$config['connectionstring']="rtmp://52.53.167.157:1935/hdfvr/_definst_";
 
 /* 
  The recorderId query variable contains the value of the recorderId variable sent to videorecorder.swf via flash vars.

@@ -61,7 +61,7 @@
     <br>        
     </div>
     <div class="clearfix"  ng-if="detectedBrowser != 'ie' && detectedBrowser != 'safari'">
-     <!--  <wavanalysisgraph
+      <wavanalysisgraph
         type="pitches"
         playerId="playback_4_17"
         vrecorderId="page4_11"
@@ -75,23 +75,8 @@
         min-confidence="session.debugPitchParams ? globals.persistent.minConfidence : .5"
         min-amplitude="session.debugPitchParams ? globals.persistent.minAmplitude : 0.1"
         offset-x="session.debugPitchParams ? globals.persistent.offsetX : 5"
-        ></wavanalysisgraph> -->
-        <wavanalysisgraphie
-        type="pitches"
-        playerId="playback_4_17"
-        vrecorderId="page4_11"
-        data="getLastRecording('page4_11')"
-        min="40"
-        max="350"
-        pos="globals.videos.playback_4_17.pos"
-        yaxis="Pitch Level"
-        max-change="session.debugPitchParams ? globals.persistent.maxChange : 3"
-        max-pitch="session.debugPitchParams ? globals.persistent.maxPitch : 900"
-        min-confidence="session.debugPitchParams ? globals.persistent.minConfidence : .5"
-        min-amplitude="session.debugPitchParams ? globals.persistent.minAmplitude : 0.1"
-        offset-x="session.debugPitchParams ? globals.persistent.offsetX : 5"
-        ></wavanalysisgraphie>
-      <br>        
+        ></wavanalysisgraph>
+        <br>        
     </div>
     <div class="clearfix">
       <div style="margin-left: 50px;width: 875px;text-align: right;">
